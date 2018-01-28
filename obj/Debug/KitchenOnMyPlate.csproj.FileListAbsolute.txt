@@ -1,0 +1,5 @@
+D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\bin\KitchenOnMyPlate.dll
+D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\bin\KitchenOnMyPlate.pdb
+D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.dll
+D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.pdb
+D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.csprojResolveAssemblyReference.cache

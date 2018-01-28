@@ -1,0 +1,234 @@
+
+
+.header{
+	background:#333;
+	border-bottom: 1px solid #e6e7e7;
+	padding:5px 0;
+	height:41px;
+}
+.header_top{
+	float:right;
+}
+ul.header_box{
+	list-style:none;
+	padding:0;
+	float: left;
+	margin: 3px 20px 0 0px;
+}
+ul.header_box li{
+	display:inline-block;
+}
+ul.header_box li span{
+	color: #A8AAAD;
+	font-size: 0.85em;
+	font-weight: 600;
+}
+ul.header_box li.mobile_left{
+	/*border-right: 1px solid #E1E1E1;*/
+	padding-right: 15px;
+}
+i.message{
+	cursor:pointer;
+}
+i.mobile{
+	width: 20px;
+	height: 25px;
+	background: url(../images/img-sprite.png)no-repeat -5px -7px;
+	float:left;
+	margin-right:5px;
+    margin-top:-2px;
+}
+
+i.msg{
+	width: 25px;
+	height: 25px;
+	background: url(../images/img-sprite.png)no-repeat -31px -7px;
+	float: left;
+	margin: 0 5px 0 10px;
+	margin-top:-2px;
+}
+ul.facebook{
+	list-style:none;
+	padding:0;
+	float:left;
+}
+li.fb a span {
+	width: 30px;
+	height: 30px;
+	background: url(../images/img-sprite.png)no-repeat -59px -1px #1287BF;
+	float: left;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+}
+li.fb a span:hover {
+	opacity:0.8;
+}
+.header_bottom 
+{   
+	padding: 2em 0;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+}
+.logo,.komp{
+	float:left;
+	margin-left:15px;
+}
+.consul_btn1{
+	display:none;
+}
+.nav_icon{
+	display:none;
+}
+/* start h_menu */
+.subMenu{
+position:absolute;width:100%;height:auto; z-index:24; background:#fff; text-align:left; display:none; color: #727272 !important;	font-size: 0.80em;	
+
+}
+
+.subMenu a{color: #727272 !important;}
+.subMenu a:hover{color: #481B04 !important;}
+
+.MenuBoxTop
+{
+ border-radius: 4px 4px 0px 0px; 
+-moz-border-radius: 4px 4px 0px 0px; 
+-webkit-border-radius: 4px 4px 0px 0px; 
+box-shadow:2px 4px 12px #757380;}  
+
+.subMenu hr{ margin-top:5px; margin-bottom:5px; margin-left:12px; margin-right:12px;  }
+
+
+.menu	
+{
+    margin-left:0px;
+	margin-top: 24px;
+}
+.h_menu4{
+	float:left;	
+}
+.toggleMenu {
+    display:  none;
+    background:rgba(178, 178, 178, 0.22);
+    
+    padding :10px 15px;
+    width: 100%;
+    font-size:1.4em;color:#4B220C;    
+}
+.nav {
+    list-style: none;
+     *zoom: 1;
+}
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav li a 
+{
+    font-family:RobotoMedium;
+	display: block;	
+	padding:1px 0 0 11px;
+	color: #481B04;	
+	font-size: 0.89em;
+	font-weight:bold;	
+}
+
+.dividerMenu{	padding-left: 11px;}
+
+.nav li {
+    position: relative;
+}
+.nav li.active a {
+	color:#F37624;
+	background:#fff !important;
+}
+.nav > li {
+    float: left;
+}
+.nav > li > a.parent {
+   background: url(../images/elipse.png) no-repeat right top 15px;
+}
+
+
+
+
+.nav > li > a:hover
+{
+    background-color:#fff !important;	    
+}
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.nav > li.hover > ul {
+    left:0px;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+    -webkit-transition: background .2s linear;
+	-moz-transition: background .2s linear;
+	-ms-transition: background .2s linear;
+	-o-transition:  background .2s linear;
+	transition: background .2s linear;
+}
+.nav li li a {
+	font-size: 0.8725em;
+	padding: 10px;
+	display: block;
+	color:#fff;
+	background:rgba(73, 93, 137, 0.56);
+	position: relative;
+	z-index:9999;
+	border-top: 1px solid rgba(233, 233, 233, 0.09);
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.nav li li li a {
+    background:#249578;
+    z-index:200;
+    border-top: 1px solid #1d7a62;
+}
+.nav li li a:hover{
+	background:#FAA645;
+	color:#fff;
+	border-bottom:none;
+}
+.consul_btn{
+	float:left;
+}
+.consul_btn a{
+	background: #DE2B24;
+	text-decoration: none;
+	padding: 0.7em 1.5em;
+	display: inline-block;
+	color: #FFF;
+	font-size: 0.85em;
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.2em;
+	-o-border-radius: 0.2em;
+	line-height: 1.3em;
+	font-weight: bold;
+}
+.consul_btn a:hover{
+	background:#CD1A13;
+}

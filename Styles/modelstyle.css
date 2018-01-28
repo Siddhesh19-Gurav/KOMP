@@ -1,0 +1,81 @@
+
+
+
+
+
+/** modal window styles **/
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #fff;
+    opacity:0.49;
+    display: none;
+}
+
+
+#loginmodal 
+{  
+  width: 295px;
+  height: auto;  
+   background:#fff;
+   background-color:#fff !important;   
+   border-radius: 3px !imortant; 
+-moz-border-radius: 3px !imortant; 
+-webkit-border-radius: 3px !imortant;
+box-shadow:1px 1px 4px #757380;    
+}
+
+.manageOrder
+{  
+  width: 500px;
+  height: auto;  
+   background:#fff;
+   background-color:#fff !important;   
+   border-radius: 3px !imortant; 
+-moz-border-radius: 3px !imortant; 
+-webkit-border-radius: 3px !imortant;
+box-shadow:1px 1px 4px #757380;    
+}
+
+.well1{ padding:20px;}
+
+#loginmodal1
+{
+    background-image:url(images/lgnBG.png);width: 400px;	 height: 320px; 
+}
+
+
+.ActiveLoginField
+{
+    background-image:url(images/active.png);width: 221px;	 height: 33px;background-repeat:no-repeat;margin:10px; 
+}
+
+.LoginField
+{
+    background-image:url(images/Shape5copy_0.png);width: 221px;	 height: 33px; background-repeat:no-repeat; margin:10px;     
+}
+
+ .LoginBTN1 
+ {
+     height:auto; float:right; margin-top:8px;  margin-right:67px; background-color:#447ed0; width: 60px;height: 25px; cursor:pointer;color:White;
+     border-radius: 3px; 
+-moz-border-radius: 4px; 
+-webkit-border-radius: 3px; 
+ }
+     
+ 
+ .forgotPwd:hover {color:#4d6d9c;}
+ 
+ .LoginBTN1:hover
+{
+background-color:#4d6d9c; width: 60px;height: 25px; 
+ }
+
+
+
+
+

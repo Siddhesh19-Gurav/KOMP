@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Receipt</title>
+    </head>
+<body style="font-family:Verdana;font-size:12px;color:#575757"  >
+
+Invoice No. : <b>$MEMBERSHIPID$</b><br/><br/>
+Member Type: <b>$MEMBERTYPE$</b><br/><br/>
+Member Details: <b>$MEMBERNAME$</b><br/><br/>
+MemberShip Type:  <b>$MemberShipType$</b><br/><br/>
+Duration : <b>From Date: $FROMDATE$ TO Date: $TODATE$</b><br/><br/>
+
+<div style="width:800px;height:415px; border:1px solid #B1B6BA">
+<img alt="" src="http://$SITE$/Email/receiptHeader.jpg" /><br/>
+<table width="100%" >
+<tr style="height:50px;"><td><b>Customer Name:</td><td>$CUSTOMERNAME$</td></tr>
+<tr style="height:50px;" ><td><b>Address:</b></td><td>$ADDRESS$</td></tr>
+<tr style="height:50px;"><td><b>Amount:</b></td><td>$AMOUNT$</td></tr>
+<tr style="height:50px;"><td><b>Phone:</b></td><td>$PHONE$</td></tr>
+<tr style="height:60px;"><td></td><td></td></tr>
+<tr><td>$RECEIVEDBY$</td><td align="right" >$SITE$</td></tr>
+<tr><td>Received By:</td><td align="right">Authorised By:</td></tr>
+</table>
+
+</div>
+
+    <!--We wish you a bright future.<br/><br/>-->
+    <br/>
+Thanks & Regards,<br/>
+<img alt="" src="http://$SITE$/Email/Emailer/logo.png" 
+        style="" /><br />
+        <a href="$SITE$">$SITE$</a>
+        <br />
+        <p style="font-style:italic" > This is an auto generated email please do not reply.</p>
+</body>
+</html>

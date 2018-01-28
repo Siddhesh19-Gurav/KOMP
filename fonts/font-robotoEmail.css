@@ -1,0 +1,94 @@
+@font-face {
+	font-family: "Roboto";
+	font-style: NORMAL;
+	font-weight: 300;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Light'), url('http://kitchenonmyplate.com/fonts/Roboto-Light'), url("http://kitchenonmyplate.com/fonts/Roboto-Light.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 300;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Light Italic'), url('http://kitchenonmyplate.com/fonts/Roboto-LightItalic'), url("http://kitchenonmyplate.com/fonts/Roboto-LightItalic.ttf") format('truetype');
+}
+ 
+/* Normal */
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Regular'), url('http://kitchenonmyplate.com/fonts/Roboto-Regular'), url("http://kitchenonmyplate.com/fonts/Roboto-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 400;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Italic'), url('http://kitchenonmyplate.com/fonts/Roboto-Italic'), url("http://kitchenonmyplate.com/fonts/Roboto-Italic.ttf") format('truetype');
+}
+ 
+/* Bold */
+@font-face {
+	font-family: "RobotoBold";
+	font-style: normal;
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Bold'), url('http://kitchenonmyplate.com/fonts/Roboto-Bold'), url("http://kitchenonmyplate.com/fonts/Roboto-Bold.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto1";
+	font-style: italic;
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Bold Italic'), url('http://kitchenonmyplate.com/fonts/Roboto-BoldItalic'), url("http://kitchenonmyplate.com/fonts/Roboto-BoldItalic.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: NORMAL;
+	font-weight: 300;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Light'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-Light'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-Light.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 300;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Light Italic'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-LightItalic'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-LightItalic.ttf") format('truetype');
+}
+ 
+/* Normal */
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: normal;
+	font-weight: 400;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Regular'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-Regular'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 400;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Italic'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-Italic'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-Italic.ttf") format('truetype');
+}
+ 
+/* Bold */
+@font-face {
+	font-family: "RobotoCondensed";
+	font-style: normal;
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Bold'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-Bold'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-Bold.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Condensed Bold Italic'), url('http://kitchenonmyplate.com/fonts/RobotoCondensed-BoldItalic'), url("http://kitchenonmyplate.com/fonts/RobotoCondensed-BoldItalic.ttf") format('truetype');
+}
+
+
+@font-face {
+	font-family: "RobotoMedium";	
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Medium Bold'), url('http://kitchenonmyplate.com/fonts/Roboto-Medium'), url("http://kitchenonmyplate.com/fonts/Roboto-Medium.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: "RobotoBlack";	
+	font-weight: 700;
+	src: url('http://kitchenonmyplate.com/fonts/Roboto Black Bold'), url('http://kitchenonmyplate.com/fonts/Roboto-Black'), url("http://kitchenonmyplate.com/fonts/Roboto-Black.ttf") format('truetype');
+}

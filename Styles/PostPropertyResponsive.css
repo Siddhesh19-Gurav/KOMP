@@ -1,0 +1,75 @@
+﻿.PostPropMain{margin-left:25px; margin-top:20px; height: auto;   width:769px;}
+.LoginPLeft{width:530px;height:auto;float:left;}
+.LoginPMiddle{width:13px;height:auto;float:left;}
+.LoginPRigth{width:155px;height:auto;float:left;margin-left:14px;}
+        
+        @media screen and (max-width: 1300px) 
+{
+  
+}
+@media screen and (max-width: 1200px) 
+{
+
+}    
+@media screen and (max-width: 1024px) 
+{
+
+
+}
+
+@media screen and (max-width: 960px) 
+{
+}
+
+@media screen and (max-width: 800px) 
+{
+
+}
+
+@media screen and (max-width: 640px) 
+{
+
+}
+
+@media screen and (max-width: 480px)
+{    
+    .PostPropMain { width:96%; margin:0 auto;}
+ #advanceSupporBLine, #AdvanceSearchBox { display:none !important;}
+
+.BannerTitle,#divMain,#Banner1{ width:100% !important;}
+#divMain{ width:100% !important;}
+#Banner1,#div9,#div12{width:100% !important;margin-left:0px !important;}
+#divPropertyPic,.PostLeft{width:100% !important;float:none; clear:both; margin-left:0px !important;background-image:none !important;}
+.AdPanel,.RegisterControl label,#divProperty label{ display : none;}
+.PostPropMain .dropdown{width:100%;}
+.PostPropMain .dropdown select{width:96%;}
+.LoginPLeft{width:100%;float:none; clear:both; }
+.LoginPMiddle{width:100%;float:none; clear:both;}
+.LoginPRigth{width:100%;float:none;margin-left:0px;clear:both;}
+#ppDetailsForm{ width:100%; float:none; clear:both;}
+.PostPropMain div{ width:100% !important;}
+.findPropertyOuter{ margin-right:0px;}
+.txtboxBG input{ width:92% !important;}
+.loginBox{ margin-left:0px;}
+}    
+
+@media screen and (max-width: 360px)
+{    
+      /* .CoverAll{width:360px; padding-right: 0px;
+padding-left: 0px;}
+.centerContainer{width:345px !important;}
+
+#wrapper,.topHeader,.fotter,.mainLocationMenu{width:345px;}
+
+ .AdvanceSearch1{width:auto; letter-spacing:0.3px; margin-top:2px; font-size:0.8em !important;}
+.advanceText{width:38% !important;}
+.AdvanceSearch2 {width:98%;}
+.advanceDrop{width:120px;}
+.advanceDrop img{ width:120px; height:47px;}*/
+/*.ProjectInList{line-height:17px;cursor:pointer;  width:50%; margin:10px}
+.ProImgContainer{ overflow:hidden;margin-left:1px;width:100%; float:left}
+.VerticleProLine{ display:none}*/
+
+}   
+
+

@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="KitchenOnMyPlate.Masters.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    
+    <style>
+        
+        .proceed{float:left !important; font-size:17px !important; margin-left:0px !important;}
+        input[type="submit"], input[type="button"]{background:#4b220c !important;padding:0.7em 1em 0.7em 1em !important; margin-left:0px !important; font-size:1em !important;margin-left:0px !important;}
+        input[type="submit"]:hover, input[type="button"]:hover{background:#ed651e !important;}
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+     </asp:ContentPlaceHolder>
+    
+
+<title>kitchen on my plate</title>	
+<link type="text/css" href="../Styles/style.css" media="all" rel="stylesheet"/>
+<link type="text/css" href="../Styles/bootstrap.min.css" media="all" rel="stylesheet"/>
+<link type="text/css" href="../Styles/bootstrap-theme.min.css" media="all" rel="stylesheet"/>
+
+    <link href="~/fonts/font-roboto.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>    
+    <script src="../Scripts/jquery.leanModal.min.js" type="text/javascript"></script>
+    <link href="../Styles/modelstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/menu.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        input[type="button"]{ float:none; padding:0.3em 0.3em !important; font-size:0.95em; }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+
+        <!--container start here-->
+        <section id="container">
+        <div style="width:100%;height:auto;color:#fff;background-color:#4B220C;" >
+
+<div style="width:1003px;margin:0 auto;padding-bottom:10px"><span style="font-size:2em;font-family:'RobotoBlack';">Content Management System</span></div>
+
+</div>
+
+        	<div class="inner">
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+               </div>
+        </section>
+        <!--container start here-->
+
+    </div>
+    </form>
+</body>
+</html>
