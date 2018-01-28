@@ -171,6 +171,7 @@ width: 107px; margin:0 auto;height:22px; margin-top:4px;
          <span>We have 2 types of plans</span><br />
         <input type="radio" id="rd1" class="mealplan" planid="1" checked="checked" daysPlan="10" deliveryChrg="300" validaty="15" name="plan" /><label for="rd1"></label> <span style="margin-left:0px" >10 Days Meal Plan (to be consumed in 15 working days)</span> <br />
         <input type="radio" id="rd2" class="mealplan" planid="2" daysPlan="22" validaty="35" deliveryChrg="600" name="plan" /><label for="rd2"></label><span style="margin-left:6px">22 Days Meal Plan (to be consumed in 35 working days)</span><br />
+        <input type="radio" id="rd3" class="mealplan" planid="3" daysPlan="44" validaty="75" deliveryChrg="1200" name="plan" /><label for="rd3"></label><span style="margin-left:6px">44 Days Meal Plan (to be consumed in 75 working days)</span><br />
 
         <div style="width:90%; text-align:left;margin-left:0px; margin-top:10px; float:left; ">
         
@@ -647,7 +648,8 @@ ScrollPage();
         }
 
          
-            order.TotalPayment = SubTotal;
+            
+Payment = SubTotal;
       
        
         payment.Id = 0;

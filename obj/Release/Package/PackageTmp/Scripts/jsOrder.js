@@ -114,7 +114,7 @@ function GetSubProductDetails(subMenuComboId) {
     var subProduct = '';
     for (var k = 0; k < SubProducts.length; k++) {
         if (subMenuComboId == SubProducts[k].Id) {
-            var veg = SubProducts[k].Veg = "1" ? "(VEG)" : (SubProducts[k].Veg = "2" ? "(NON-VEG)" : "TAKE-IN-TURN");
+            var veg = SubProducts[k].Veg = "1" ? "(VEG)" : (SubProducts[k].Veg = "2" ? "(NON-VEG)" : "V-NV");
             subProduct = "<span class='price'>" + SubProducts[k].Header + "</span>" + "<span class='pricedt' >" + SubProducts[k].Detail + "</span>";
         }
     }
@@ -125,7 +125,7 @@ function GetSubProductName(subMenuComboId) {
     var subProduct = '';
     for (var k = 0; k < SubProducts.length; k++) {
         if (subMenuComboId == SubProducts[k].Id) {
-            //var veg = SubProducts[k].Veg = "1" ? "(VEG)" : (SubProducts[k].Veg = "2" ? "(NON-VEG)" : "TAKE-IN-TURN");
+            //var veg = SubProducts[k].Veg = "1" ? "(VEG)" : (SubProducts[k].Veg = "2" ? "(NON-VEG)" : "V-NV");
             return SubProducts[k].Header;
         }
     }
@@ -538,13 +538,25 @@ function disableSpecificDaysAndWeekends(date) {
                 onlchrg = onlchrg.toFixed(2);
             }
 
+            var GSTPercent = 5;
 
             //alert(onlchrg)
             $(".onChrges").html(onlchrg);
 
+            var gtotal = parseFloat(onlchrg) + parseFloat(SubItemTotals);
+            //$('.onlineCls').html('ONLINE PROCESSING CHARGE');        
 
+            var GstCharge = gtotal * (GSTPercent / 100);
 
-            $('#divFinal #spnOnlineGrandTotal').html(SubItemTotals + parseFloat($('.onChrges').html()));
+            gtotal = parseFloat(GstCharge) + parseFloat(gtotal);
+
+            if (gtotal.toFixed) {
+                gtotal = gtotal.toFixed(2);
+            }
+            
+            $('#spnGST').html("<i class='fa fa-inr'></i>" + GstCharge.toFixed(2));
+            //$("#Strong1").html('GST('+GSTPercent+'%)');
+            $('#divFinal #spnOnlineGrandTotal').html(gtotal);
             //Grand Total for final end
 
             //Delte set sub del end
@@ -640,7 +652,16 @@ function disableSpecificDaysAndWeekends(date) {
            amountFin = amountFin.toFixed(2);
        }
 
-       $("#spnOnlineGrandTotal").html("<i class='fa fa-inr'></i>" + amountFin);
+       var GstCharge = amountFin * (5 / 100);
+       var gtotal = parseFloat(GstCharge) + parseFloat(amountFin);
+
+       if (gtotal.toFixed) {
+           gtotal = gtotal.toFixed(2);
+       }
+
+
+
+       $("#spnOnlineGrandTotal").html("<i class='fa fa-inr'></i>" + gtotal);
 
        
 
@@ -692,20 +713,50 @@ function disableSpecificDaysAndWeekends(date) {
         {
 
             var grandtotal = 0;
+            var TotaldiscooutAmount = 0;
             for (var i = 0; i < orderList.orders.length; i++) 
-            {                
-                var amountFin = orderList.orders[i].payment.Amount;
-                if (amountFin.toFixed) {
-                    amountFin = amountFin.toFixed(2);
-                }
-                grandtotal = grandtotal + parseFloat(orderList.orders[i].payment.Amount) + parseFloat(orderList.orders[i].payment.DeliveryChrg);
+            {
+                $.ajax
+                  ({
+                      type: "POST",
+                      url: "KompServices.asmx/GetDiscount",
+                      contentType: "application/json; charset=utf-8",
+                      data: "{DaysCout:" + JSON.stringify(orderList.orders[i].OrderDetailList.length) + "}",
+                      dataType: "json",
+                      async:false,
+                      success: function (result) {                          
+                          var amountFin = orderList.orders[i].payment.Amount;
+                          var discooutAmount = parseFloat(amountFin) * parseFloat(result.d.Discount) / 100;
+                          if (amountFin.toFixed) {
+                              amountFin = amountFin.toFixed(2);
+                          }
+                          grandtotal = grandtotal + (parseFloat(orderList.orders[i].payment.Amount) - discooutAmount) + parseFloat(orderList.orders[i].payment.DeliveryChrg);
+                          TotaldiscooutAmount = TotaldiscooutAmount + discooutAmount;
+                      }
+                  });
             }
 
-            var onlchrg = parseFloat(4 * grandtotal / 100);
+            var onlchrgPer;
+            var GstChargePer;
+            $.ajax
+                  ({
+                      type: "POST",
+                      url: "KompServices.asmx/GetConfigValues",
+                      contentType: "application/json; charset=utf-8",
+                      data: "{}",
+                      dataType: "json",
+                      async:false,
+                      success: function (result) {
+                          onlchrgPer = result.d.TrnChrg;
+                          GstChargePer = result.d.Tax;
+                      }
+                  });
+
+            var onlchrg = parseFloat(onlchrgPer * grandtotal / 100);
             if (onlchrg.toFixed) {
                 onlchrg = onlchrg.toFixed(2);
             }
-
+                        
             $('#spnTrns').html("<i class='fa fa-inr'></i>"+onlchrg);
                         
 
@@ -729,14 +780,24 @@ function disableSpecificDaysAndWeekends(date) {
                 $('.onlineCls').html('ONLINE PROCESSING CHARGE');
             }
 
+            var GstCharge = gtotal * (GstChargePer / 100);
+            gtotal = parseFloat(GstCharge) + parseFloat(gtotal);
             
             if (gtotal.toFixed) {
                 gtotal = gtotal.toFixed(2);
             }
 
-
             
+            if (TotaldiscooutAmount == 0) {
+                $("#trdiscount").css("display", "none");
+                
+            }
+            else {
+                $("#trdiscount").removeAttr("style");
+                $("#spnDiscount").html("<i class='fa fa-inr'></i>" + TotaldiscooutAmount.toFixed(2));
+            }
             $('#divPaymentMethod').hide();
+            $('#spnGST').html("<i class='fa fa-inr'></i>" + GstCharge.toFixed(2));
             $('#spnOnlineGrandTotal').html("<i class='fa fa-inr'></i>"+gtotal);
             $('#divFinal').show();
             ScrollPage();

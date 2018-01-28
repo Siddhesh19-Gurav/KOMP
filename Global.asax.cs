@@ -14,7 +14,6 @@ namespace KitchenOnMyPlate
         protected void Application_Start(object sender, EventArgs e)
         {
             
-
             RegisterRoutes(RouteTable.Routes);
         }
 

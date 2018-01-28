@@ -1456,7 +1456,7 @@
     <None Include="index.php" />
     <Content Include="Masters\SiteMaster.Master" />
     <Content Include="Reports\SiteMaster.Master" />
-    <None Include="Properties\PublishProfiles\KOMPTOG.pubxml" />
+    <None Include="Properties\PublishProfiles\KOMP.pubxml" />
     <None Include="Scripts\dev\sweetalert.scss" />
     <None Include="Scripts\jsFancy\Thumbs.db" />
     <Content Include="Uploader.ashx" />

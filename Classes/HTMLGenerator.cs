@@ -26,8 +26,8 @@ namespace KitchenOnMyPlate.DataAccess
             var subProducts = DataAccess.DBAccess.GetSubProducts();
             var plans = DataAccess.DBAccess.GetMealPlans();
 
-            if (!CacheHelper.Get("Food" + showin + productId + Islunch, out HTMLTexts))
-            {
+            //if (!CacheHelper.Get("Food" + showin + productId + Islunch, out HTMLTexts))
+            //{
             if (showin != "C") //TIFFIN/DINNER
             {
                
@@ -62,7 +62,7 @@ namespace KitchenOnMyPlate.DataAccess
                             HTMLTexts = HTMLTexts + "<div style='clear:both;height:10px'></div>";
 
                         //V/N/TIT
-                            HTMLTexts = HTMLTexts + "<div  class='subVeg' cat='1' ><span>VEG MEAL</span><div class='DownCornerShap1'></div></div><div class='subVeg'  cat='0'><span>NON-VEG MEAL</span><div class='DownCornerShap2'></div></div><div class='subVeg' cat='3'><span>TAKE-IN-TURN</span><div class='DownCornerShap3'></div></div>";
+                            HTMLTexts = HTMLTexts + "<div  class='subVeg' cat='1' ><span>VEG MEAL</span><div class='DownCornerShap1'></div></div><div class='subVeg'  cat='0'><span>NON-VEG MEAL</span><div class='DownCornerShap2'></div></div><div class='subVeg' cat='3'><span>V-NV</span><div class='DownCornerShap3'></div></div>";
                         var subProducts1 = (from w in subProducts where w.MenuId == pro.Id select w).ToList();
                         int subProductcount = 0;
                         int Price = 0;
@@ -101,7 +101,7 @@ namespace KitchenOnMyPlate.DataAccess
                                 strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan'>" + pl.Name + "</span> "+BreakIfMoreThan2+
                                     "<div style='float:left;text-align:right' ><span class='" + VegCust + "' ><img src='images/" + rs + "'  alt='Rs' />" + price + "</span></div>" +
                                     //"<br/><span class='price'><img src='images/rs.png' />" + pl.DaysInPlan * subPro.Price + "</span><br/>"+
-                                    "<input class='btnRed service" + subPro.Id + pl.Id + "' type='button' onclick= SetSubPID('service" + subPro.Id +pl.Id+"','" + subPro.Id + "','" + pl.DaysInPlan + "','" + pl.ValidUpTo + "','" + pl.ValidUpTo + "','" + pl.DeliveryCharges + "'); value='+ ORDER NOW' /></div>";
+                                    "<input class='btnRed service" + subPro.Id + pl.Id + "' type='button' onclick= SetSubPID('service" + subPro.Id +pl.Id+"','" + subPro.Id + "','" + pl.DaysInPlan + "','" + pl.ValidUpTo + "','" + pl.ValidUpTo + "','" + pl.DeliveryCharges + "'); value='+ ORDER' /></div>";
                                 strPlans = plans.Count != plancount?  strPlans +"<div class='planDivider'></div>":strPlans;
                             }
                             string strVeg = subPro.Veg == 1 ? "Veg" : (subPro.Veg == 0)?"Non-Veg":"TNT";
@@ -115,7 +115,7 @@ namespace KitchenOnMyPlate.DataAccess
                                                       //  //"<div><img src='images/rs.png' /><span class='price' >" + subPro.Price + "</span></div>"+
                                                       //"</div>" +
                                                       "<div class='leftsubDetails'>" +
-                                                        "<div class='subProductHeader' >" + subPro.Header + "<span class='RSSmallMore' style='font-size:27px;color:#F16822; margin-left:15px'  ><i class='fa fa-inr'></i></span>" + Price + "</div>" +  smallLarge+
+                                                        "<div class='subProductHeader' >" + subPro.Header + "<span class='smalllarge' style='color:black'>"+ subPro.Calories + "</span><span class='RSSmallMore' style='font-size:27px;color:#F16822; margin-left:15px'  ><i class='fa fa-inr'></i></span>" + Price + "</div>" +  smallLarge+
                                                             "<div style='clear:both'></div>" +
                                                             "<div class='subProductDetails' >" + ((Islunch == "1") ? subPro.Detail : subPro.DetailDinner) + "</div>" +
                                                         "<div style='clear:both'></div>"+
@@ -197,7 +197,7 @@ namespace KitchenOnMyPlate.DataAccess
                         //HTMLTexts = HTMLTexts + "<div style='clear:both'></div>";
 
                         //V/N/TIT
-                        //HTMLTexts = HTMLTexts + "<div  class='subVeg' cat='1' ><span>VEG MEAL</span></div><div class='subVeg'  cat='0'><span>NON-VEG MEAL</span></div><div class='subVeg' cat='2'><span>TAKE-IN-TURN</span></div>";
+                        //HTMLTexts = HTMLTexts + "<div  class='subVeg' cat='1' ><span>VEG MEAL</span></div><div class='subVeg'  cat='0'><span>NON-VEG MEAL</span></div><div class='subVeg' cat='2'><span>V-NV</span></div>";
                         var subProducts1 = (from w in subProducts where w.MenuId == pro.Id && (w.NonCustomized == 1 || (w.NonCustomized != 1 && w.ShowDetails == 0))==false select w).ToList();
                         int subProductcount = 0;
                         string LastBorder = string.Empty;
@@ -269,8 +269,8 @@ namespace KitchenOnMyPlate.DataAccess
                 HTMLTexts = HTMLTexts + "<div class='leftsubDetails'>";
                 HTMLTexts = HTMLTexts + "<div style='clear:both'></div>";
                 HTMLTexts = HTMLTexts + "<div class='subProductDetails'>";
-                HTMLTexts = HTMLTexts + "<span style='font-size:13px;' >*Meal Prices are inclusive of all Taxes.  <br />";
-                HTMLTexts = HTMLTexts + "*Delivery Charges extra:  10 Days – Rs. 300  |  22 Days – Rs. 600";
+                HTMLTexts = HTMLTexts + "<span style='font-size:13px;' >*Meal Prices are exclusive of all Taxes.  <br />";
+                HTMLTexts = HTMLTexts + "**Delivery Charges : 5 Days – Rs. 200 | 10 Days – Rs. 300 | 22 Days – Rs. 660 |44 Days – Rs. 1320";
                 HTMLTexts = HTMLTexts + "</span>";
                 HTMLTexts = HTMLTexts + "</div>";
                 HTMLTexts = HTMLTexts + "</div>";
@@ -288,13 +288,13 @@ namespace KitchenOnMyPlate.DataAccess
 
                 HTMLTexts = HTMLLftPd + HTMLRghtPd + HTMLTexts;
            
-            }
+                //}
             }
 
-            if (HTMLTexts != null)
-            {
-                CacheHelper.Add(HTMLTexts, "Food" + showin + productId + Islunch, 2000);
-            }
+            //if (HTMLTexts != null)
+            //{
+            //    CacheHelper.Add(HTMLTexts, "Food" + showin + productId + Islunch, 2000);
+            //}
 
             
 

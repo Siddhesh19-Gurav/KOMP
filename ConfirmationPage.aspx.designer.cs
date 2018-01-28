@@ -211,6 +211,24 @@ namespace KitchenOnMyPlate {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFinal;
         
         /// <summary>
+        /// trdiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trdiscount;
+        
+        /// <summary>
+        /// spnDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnDiscount;
+        
+        /// <summary>
         /// spnSubTotal control.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,33 @@ namespace KitchenOnMyPlate {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnTrns;
+        
+        /// <summary>
+        /// tr1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr1;
+        
+        /// <summary>
+        /// Strong1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Strong1;
+        
+        /// <summary>
+        /// spnGST control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnGST;
         
         /// <summary>
         /// spnOnlineGrandTotal control.

@@ -154,8 +154,10 @@
 				</tbody>                
                 <tfoot> 
                 <%--<tr class="divRow"><td style="width:10%;"></td><td style="width:60%;" id="divPNAME"></td><td style="width:30%;"><span id='spCharge' class='price'></span></td></tr>--%>                                        
+                    <tr id="trdiscount"  class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>DISCOUNT(5%)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE <span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnShip' class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt onlineCls'>ONLINE PROCESSING CHARGE<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnTrns' class='priceTotal onChrges'></span></td></tr>
+                    <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span class='sppp' id="Strong1" runat="server">GST(5%)&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnGST' class='priceTotal onGST'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>TOTAL AMOUNT<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnOnlineGrandTotal' class='priceTotal GRTOTAL'></span></td></tr>
                 </tfoot>
                 </table>

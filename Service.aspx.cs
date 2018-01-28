@@ -200,8 +200,8 @@ namespace KitchenOnMyPlate
 "<div class='leftsubDetails'>"+
 "<div style='clear:both'></div>"+
 "<div class='subProductDetails'>"+
-"<span style='font-size:13px; ' >*Meal Prices are inclusive of all Taxes.  <br />"+
-"*Delivery Charges extra:  2 Days  – Rs. 75  |  10 Days – Rs. 300  |  22 Days – Rs. 600" +
+"<span style='font-size:13px; ' >*Meal Prices are exclusive of all Taxes.  <br />" +
+"*Delivery Charges : 5 Days – Rs. 200 | 10 Days – Rs. 300 | 22 Days – Rs. 660 | 44 Days – Rs. 1320" +
 "</span>"+
 "</div>"+
 "</div>"+

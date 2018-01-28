@@ -128,14 +128,28 @@ namespace KitchenOnMyPlate.Classes
                 indx++;
             }
 
-            Decimal TransactionCharge = (subTotal + deliveryChrg) * 4 / 100;
+            DBKOMPDataContext db = new DBKOMPDataContext();
+            var config = (from w in db.Configs select w).First();
+            decimal Caspikup = config.CashPickUp ?? 0;
+            decimal CaspikupPer = config.CashPickUpPercent ?? 0;
+            decimal GstPercent = config.Tax ?? 0;
+            decimal transactionCharge = config.TrnChrg ?? 0;
+
+            Decimal TransactionCharge = (subTotal + deliveryChrg) * transactionCharge / 100;
+
+
             Decimal gtotal =  (subTotal + deliveryChrg + TransactionCharge);
+
+            decimal GSTCharges = (gtotal) * GstPercent / 100;
+            decimal GrandTotal = GSTCharges + gtotal;
+
 
             strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>DELIVERY CHARGE &nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", deliveryChrg) + "</span></td></tr>";
             strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>ONLINE PROCESSING CHARGE &nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spnTrns' class='priceTotal onChrges'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", TransactionCharge) + "</span></td></tr>";
-            strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", gtotal) + "</span></td></tr>";
+            strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>GST("+ GSTCharges + "%)&nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spnTrns' class='priceTotal onChrges'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", GSTCharges) + "</span></td></tr>";
+            strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", GrandTotal) + "</span></td></tr>";
 
-            TotalDetails = orders.orders.Count + "^" + (subTotal + deliveryChrg + tranChrg).ToString();
+            TotalDetails = orders.orders.Count + "^" +GrandTotal.ToString() ;//(subTotal + deliveryChrg + tranChrg).ToString();
 
             return strOrders + "$" + TotalDetails;
         }
@@ -318,10 +332,12 @@ namespace KitchenOnMyPlate.Classes
                 decimal tranCharge = 0;
                 decimal tranChargeConfig = (from w in db.Configs select w).First().TrnChrg ?? 0;
 
+
+                
                 var config = (from w in db.Configs select w).First();
                 decimal Caspikup = config.CashPickUp ?? 0;
-                decimal CaspikupPer = config.CashPickUpPercent ?? 0; 
-
+                decimal CaspikupPer = config.CashPickUpPercent ?? 0;
+                decimal GstPercent = config.Tax ?? 0;
 
 
                 //////////////////REQUEST START
@@ -337,12 +353,13 @@ namespace KitchenOnMyPlate.Classes
                 //create a request id
                 db.Requests.InsertOnSubmit(objRequest);
                 db.SubmitChanges();
+
                 //////////////////REQUEST END
 
                 
                 TimeZoneInfo INDIAN_ZONE = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
                 DateTime indianTime =  TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
-
+                decimal TotalDiscount=0;
                 foreach (var order in orders.orders)
                 {
                     Caspikup = 0;// resetting 0 becuasue unable to divide charges in n order so making o, actial charges are in Request table
@@ -351,20 +368,31 @@ namespace KitchenOnMyPlate.Classes
                     order.Order.OrderDate = indianTime;// DateTime.Now;
                     order.Order.OrderStartDate = order.OrderDetailList[0].DeliverDate;
 
-                    tranCharge = ((order.payment.Amount + order.payment.DeliveryChrg) * tranChargeConfig / 100) ?? 0;
+                    var PlanDiscount = DBAccess.GetDiscount(Convert.ToInt32(order.OrderDetailList.Count()));
+
+
+                    var discount = order.payment.Amount * PlanDiscount.Discount / 100;
+                    TotalDiscount = TotalDiscount + discount ?? 0;
+
+                    tranCharge = (((order.payment.Amount- discount) + order.payment.DeliveryChrg) * tranChargeConfig / 100) ?? 0;
                     
 
-                    order.Order.TotalPayment = (method == "11" || method == "12" || method == "13")?0:(order.payment.Amount + tranCharge + order.payment.DeliveryChrg);
+
+
+                    order.Order.TotalPayment = (method == "11" || method == "12" || method == "13")?0:((order.payment.Amount - discount) + tranCharge + order.payment.DeliveryChrg);
 
                     if (method == "14")//Cas pikup
                     {
-                        order.Order.TotalPayment = (method == "11" || method == "12" || method == "13") ? 0 : (order.payment.Amount + Caspikup + order.payment.DeliveryChrg);
+                        order.Order.TotalPayment = (method == "11" || method == "12" || method == "13") ? 0 : ((order.payment.Amount - discount) + Caspikup + order.payment.DeliveryChrg);
                     }
 
-                    
+                    decimal GstCharges = ((order.Order.TotalPayment) * GstPercent / 100) ?? 0;
+
+                    order.Order.TotalPayment = order.Order.TotalPayment + GstCharges;                    
                     db.Orders.InsertOnSubmit(order.Order);
                     db.SubmitChanges();
 
+                    order.payment.GSTCharges = GstCharges;
                     
 
                     if (method == "14") //Cash pikup delivery
@@ -381,8 +409,9 @@ namespace KitchenOnMyPlate.Classes
                         order.payment.TrnChrg = tranCharge; //for online calculate trans charge
                     }
 
-
+                    order.payment.Amount = (order.payment.Amount - discount);
                     order.payment.OrderId = order.Order.Id;
+                    order.payment.Discount = discount;
                     db.Payments.InsertOnSubmit(order.payment);
 
                     foreach (var apt in order.OrderDetailList)

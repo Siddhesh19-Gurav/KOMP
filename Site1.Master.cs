@@ -32,15 +32,15 @@ namespace KitchenOnMyPlate
 
             //HttpContext.Current.Response.ClearHeaders();
             //("Location",
-            if (!Request.Url.ToString().ToLower().Contains("www") && !Request.Url.ToString().ToLower().Contains("localhost"))
-            {
-                HttpContext.Current.Response.Status = "301 Moved Permanently";
-                //HttpContext.Current.Response.AddHeader("Location","http://www." + ConfigurationManager.AppSettings["SiteName"].ToString());
-                HttpContext.Current.Response.AddHeader("Location",
-                    Request.Url.ToString().ToLower().Replace("http://" + ConfigurationManager.AppSettings["SiteName"].ToString(), "http://www." + ConfigurationManager.AppSettings["SiteName"].ToString()));
+            //if (!Request.Url.ToString().ToLower().Contains("www") && !Request.Url.ToString().ToLower().Contains("localhost"))
+            //{
+            //    HttpContext.Current.Response.Status = "301 Moved Permanently";
+            //    //HttpContext.Current.Response.AddHeader("Location","http://www." + ConfigurationManager.AppSettings["SiteName"].ToString());
+            //    HttpContext.Current.Response.AddHeader("Location",
+            //        Request.Url.ToString().ToLower().Replace("http://" + ConfigurationManager.AppSettings["SiteName"].ToString(), "http://www." + ConfigurationManager.AppSettings["SiteName"].ToString()));
 
-                Response.RedirectPermanent("http://www." + ConfigurationManager.AppSettings["SiteName"].ToString());
-            }
+            //    Response.RedirectPermanent("http://www." + ConfigurationManager.AppSettings["SiteName"].ToString());
+            //}
 
             if (!IsPostBack)
             {
@@ -55,10 +55,10 @@ namespace KitchenOnMyPlate
                     }
                 }
 
-                if (!HttpContext.Current.Request.Url.Host.ToUpper().Contains("WWW") && HttpContext.Current.Request.Url.Host.ToUpper() !="LOCALHOST" )
-                {
-                    Response.Redirect("http://www.kitchenonmyplate.com/");
-                }
+                //if (!HttpContext.Current.Request.Url.Host.ToUpper().Contains("WWW") && HttpContext.Current.Request.Url.Host.ToUpper() !="LOCALHOST" )
+                //{
+                //    Response.Redirect("http://www.kitchenonmyplate.com/");
+                //}
                 //Read the cookie from Request.
                 HttpCookie myCookie = HttpContext.Current.Request.Cookies["USERMART"];
                 if (myCookie != null)

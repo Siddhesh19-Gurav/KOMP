@@ -69,6 +69,9 @@
             else if ($('#chkCashPickUp').is(':checked')) {//Offline
                 method = "14";
             }
+            else if ($('#chkIMPS').is(':checked')) {//Offline
+                method = "15";
+            }
 
             
         }
@@ -117,7 +120,8 @@
         <input type="radio" id="rdPM1" name="grpPM" class="PAYMENTMTH" /><label for="rdPM1"></label> <span>Offline - &nbsp; 
         <%--<input id="chkCash" class="PAYMENTMTHOFF" type="checkbox" /><label class="smallForMobile" for="chkCash">Cash Deposit</label><span class='sppp' >&nbsp;&nbsp;&nbsp;</span>
         <input id="chkCheque" type="checkbox" class="PAYMENTMTHOFF" /><label class="smallForMobile" for="chkCheque">Cheque Deposit</label><span class='sppp'>&nbsp;&nbsp;&nbsp;</span> --%>
-        <input id="chkNeft" type="checkbox" class="PAYMENTMTHOFF" /><label class="smallForMobile" for="chkNeft">NEFT</label><span class='sppp' >&nbsp;&nbsp;&nbsp; </span> 
+        <input id="chkNeft" type="checkbox" class="PAYMENTMTHOFF" /><label class="smallForMobile" for="chkNeft">NEFT</label><span class='sppp' >&nbsp;&nbsp;&nbsp; </span>
+         <input id="chkIMPS" type="checkbox" class="PAYMENTMTHOFF" /><label class="smallForMobile" for="chkIMPS">IMPS</label><span class='sppp' >&nbsp;&nbsp;&nbsp; </span> 
         <input id="chkCashPickUp" type="checkbox" class="PAYMENTMTHOFF hide" /><label class="smallForMobile hide" for="chkCashPickUp">Cash Pick up</label></span> <br class='sppp' />
        
         <input type="radio" id="rdPM2" name="grpPM" class="PAYMENTMTH" /><label for="rdPM2"></label> <span>Online &nbsp;- </span><span class="smallForMobileNoBreak">Credit Card / Debit Card / Net Banking</span><br class='sppp' /><br class='sppp' />
@@ -154,8 +158,10 @@
 				</tbody>                
                 <tfoot> 
                 <%--<tr class="divRow"><td style="width:10%;"></td><td style="width:60%;" id="divPNAME"></td><td style="width:30%;"><span id='spCharge' class='price'></span></td></tr>--%>                                        
+                    <tr id="trdiscount"  class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>DISCOUNT(5%)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE <span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnShip' class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt onlineCls'>ONLINE PROCESSING CHARGE<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnTrns' class='priceTotal onChrges'></span></td></tr>
+                    <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span class='sppp' id="Strong1" runat="server">GST(5%)&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnGST' class='priceTotal onGST'></span></td></tr>
                     <tr class="divRow"><td colspan="4" style="width:70%;" align="right"><span class='priceTotaltxt'>TOTAL AMOUNT<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnOnlineGrandTotal' class='priceTotal GRTOTAL'></span></td></tr>
                 </tfoot>
                 </table>

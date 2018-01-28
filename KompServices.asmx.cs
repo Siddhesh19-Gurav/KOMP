@@ -27,7 +27,7 @@ namespace KitchenOnMyPlate
         SqlConnection con = null;
         SqlCommand cmd = null;
 
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
 
         [WebMethod()]
         public int CorporateMessage(string name, string mobile, string email, string message, string compName, string location, string noofpeople, string besttimetocall)
@@ -506,6 +506,27 @@ namespace KitchenOnMyPlate
         }
 
 
-        
+        [WebMethod()]
+        public Config GetConfigValues()
+        {
+            Config cf = new Config();
+            cf = DataAccess.DBAccess.GetConfig();
+
+            return cf;
+        }
+
+
+        [WebMethod()]
+        public Plan GetDiscount(int DaysCout)
+        {
+            Plan Discount = new Plan();
+            Discount = DataAccess.DBAccess.GetDiscount(DaysCout);
+
+            return Discount;
+        }
+
+
+
+
     }
 }

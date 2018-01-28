@@ -125,11 +125,11 @@
 <div  class='msg_head'><strong><div class="toggl pls" ></div>Can I Swap my Meals between Lunch and Dinner?</strong></div>
 <p class='msg_body'>Sorry, we don’t allow that for logistical reasons. </p><br>
 <div  class='msg_head'><strong><div class="toggl pls" ></div>Can I choose Vegetarian and Non-Vegetarian Meals at the same time during my Meal Plan period?</strong></div>
-<p class='msg_body'>Yes, you can by choosing from our “Take-in-Turn” option in Traditional Indian Plate & Customized Tiffin meal services.</p><br>
+<p class='msg_body'>Yes, you can by choosing from our “V-NV” option in Traditional Indian Plate & Customized Tiffin meal services.</p><br>
 <div  class='msg_head'><strong><div class="toggl pls" ></div>I eat only Vegetarian food and KOMP serves both Vegetarian and Non-Vegetarian. What measures do you take to ensure Vegetarian Meals have been prepared separately from Non-Vegetarian Meals?</strong></div>
 <p class='msg_body'>We understand your concern and keeping this in mind, we have kept two completely separate sections in our kitchen set-up for Vegetarian and Non- Vegetarian meals, including the utensils, saucepans, ladles, cutting boards, knives etc. </p><br>
 <div  class='msg_head'><strong><div class="toggl pls" ></div>Do I get to Customise my Dinner Meals as offered with your Lunch Service?</strong></div>
-<p class='msg_body'>Not at present. However, we have an option of “Take-in-Turn” available in our Dinner Service to alternate between our Traditional Indian Plate Veg and Non-Veg meals, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month.</p><br>
+<p class='msg_body'>Not at present. However, we have an option of “V-NV” available in our Dinner Service to alternate between our Traditional Indian Plate Veg and Non-Veg meals, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month.</p><br>
 <div  class='msg_head'><strong><div class="toggl pls" ></div>When does my Meal Plan start?</strong></div>
 <p class='msg_body'>KOMP to receive the payment for meal orders by12 pm at least a day before to your meal start date. The meal delivery for any payment received after 12 pm will start a day later. </p><br>
 <div  class='msg_head'><strong><div class="toggl pls" ></div>Can I pause (hold) my remaining Meals?</strong></div>

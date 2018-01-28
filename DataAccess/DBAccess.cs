@@ -15,8 +15,8 @@ namespace KitchenOnMyPlate.DataAccess
         public static List<Menu> GetProducts()
         {
             List<Menu> list;
-            if (!CacheHelper.Get("Menu", out list))
-            {
+            //if (!CacheHelper.Get("Menu", out list))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     list = new List<Menu>();
@@ -28,8 +28,8 @@ namespace KitchenOnMyPlate.DataAccess
                         list.Add(item);
                     }
 
-                    CacheHelper.Add(list, "Menu", 2000);
-                }
+                   // CacheHelper.Add(list, "Menu", 2000);
+              //  }
             }
 
             return list;
@@ -238,8 +238,8 @@ namespace KitchenOnMyPlate.DataAccess
         public static List<MenuItem> GetSubProducts()
         {
             List<MenuItem> list;
-            if (!CacheHelper.Get("SubMenues", out list))
-            {
+            //if (!CacheHelper.Get("SubMenues", out list))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     list = new List<MenuItem>();
@@ -251,8 +251,8 @@ namespace KitchenOnMyPlate.DataAccess
                         list.Add(item);
                     }
 
-                    CacheHelper.Add(list, "SubMenues", 2000);
-                }
+                   // CacheHelper.Add(list, "SubMenues", 2000);
+                //}
             }
 
             return list;
@@ -262,8 +262,8 @@ namespace KitchenOnMyPlate.DataAccess
         public static List<Plan> GetMealPlans()
         {
             List<Plan> list;
-            if (!CacheHelper.Get("Plan", out list))
-            {
+            //if (!CacheHelper.Get("Plan", out list))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     list = new List<Plan>();
@@ -275,8 +275,8 @@ namespace KitchenOnMyPlate.DataAccess
                         list.Add(item);
                     }
 
-                    CacheHelper.Add(list, "Plan", 2000);
-                }
+                    //CacheHelper.Add(list, "Plan", 2000);
+                //}
             }
 
             return list;
@@ -328,7 +328,7 @@ namespace KitchenOnMyPlate.DataAccess
 
                         requestSummary.Add(new RequestSummary { orderId = order.Id, productDetails = proDetails, orderedItems = list, deliveryCharges = payment.DeliveryChrg ?? 0, transCharges = payment.TrnChrg ?? 0, subTotal = payment.Amount??0, grandTotal = (payment.Amount + payment.DeliveryChrg ?? 0 + payment.TrnChrg ?? 0), nonCustomized = order.NonCustomized ?? 0, IsTiffin=order.IsLunch });
                     }
-
+                        
 
 
 
@@ -1221,6 +1221,25 @@ namespace KitchenOnMyPlate.DataAccess
             }
 
         }
+
+        public static Plan GetDiscount(int DaysPlan)
+        {
+            using (DBKOMPDataContext db = new DBKOMPDataContext())
+            {
+                return db.Plans.Where(m => m.DaysInPlan == DaysPlan).SingleOrDefault();
+            }
+
+        }
+
+        public static Payment GetPayment(int OrderId)
+        {
+            using (DBKOMPDataContext db = new DBKOMPDataContext())
+            {
+                return db.Payments.Where(m => m.OrderId == OrderId).SingleOrDefault();
+            }
+
+        }
+
 
     }
 }

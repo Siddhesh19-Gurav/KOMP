@@ -4,7 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    
+<style type="text/css">
+    .ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-4 {
+    width:115% !important;
+    }
+</style>       
      
     <asp:ContentPlaceHolder ID="head" runat="server">
     
@@ -126,7 +130,8 @@
 					<!-- put HTML-Content here / BEGIN -->
                     <div class="contact-form_grid" id="regDiv" style="width:86%;height:auto">
 
-    <center><h3 style="font-family:RobotoBold;font-size:22px;margin:0 auto;color:#492310;padding:25px;border-bottom:1px solid #eeeeee;" >Welcome to Kitchen On My Plate</h3></center>
+    <center><h3 style="font-family:RobotoBold;font-size:22px;margin:0 auto;color:#492310;p
+    ing:25px;border-bottom:1px solid #eeeeee;" >Welcome to Kitchen On My Plate</h3></center>
     
 
     <div style="float:left; text-align:left; width:48%;height:auto;padding:20px 20px 20px 0px;">
@@ -336,8 +341,8 @@
                                             </div>
                                      </div>
                             </li>
-                            <li class="dividerMenu hide">|</li>
-                        	<li class="scroll hide"  onmouseover="$('#dinDiv').show('', function(){$('.custD').addClass('MenuBoxTop');} );$('.custA').removeClass('MenuBoxTop');$('#custDiv').hide();" onmouseout="$('#dinDiv').hide();$('.custD').removeClass('MenuBoxTop');">
+                            <li class="dividerMenu">|</li>
+                        	<li class="scroll"  onmouseover="$('#dinDiv').show('', function(){$('.custD').addClass('MenuBoxTop');} );$('.custA').removeClass('MenuBoxTop');$('#custDiv').hide();" onmouseout="$('#dinDiv').hide();$('.custD').removeClass('MenuBoxTop');">
                             	<a href="javascript:void(0)" class="custD" >
                                    DINNER TIFFIN
                                 </a>
@@ -646,5 +651,7 @@
         
     </div>
     </form>
+
 </body>
+ 
 </html>

@@ -445,7 +445,9 @@
         }
         else {//Offline mode
 
-            return SetPayment();
+            $('#divPaymentMethod').hide();
+            $('#divFinal').show();
+            //return SetPayment();
         }
 
         $('#divPaymentMethod').hide();
@@ -689,8 +691,10 @@
 				    <tbody>		        
                     <%--<tr class="divRow"><td style="width:10%;"></td><td style="width:60%;" id="divPNAME"></td><td style="width:30%;"><span id='spCharge' class='price'></span></td></tr>--%>                                        
                     <asp:Literal ID="tbOrders" runat="server"></asp:Literal>
+                        <tr id="trdiscount" runat="server"  class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DISCOUNT(5%)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span class="RSBig"></span><span id='spnShip'  runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server"  ><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt' runat="server" id="spOT" >ONLINE PROCESSING CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span id='spnTrns' runat="server"  class='priceTotal'></span></td></tr>
+                    <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server" class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnGST' runat="server" class='priceTotal onGST'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" class='priceTotal' ><span id='spnOnlineGrandTotal' runat="server"></span></td></tr>
 				</tbody>                
                 

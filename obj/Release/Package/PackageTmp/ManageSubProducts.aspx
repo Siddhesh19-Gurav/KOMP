@@ -136,6 +136,10 @@
         </asp:DropDownList>
         <br />  <br />    
 
+    <div style='clear:both' ></div>
+    <div style="width:120px">Calories</div>
+    <asp:TextBox ID="txtcalories" runat="server" Width="200px"></asp:TextBox>  <br />  
+
           <div runat="server" id="divCuct" visible="false" style="width:420px">
     <div style="width:120px">Availability</div>    
     Mon <input type="checkbox" runat="server" id="chk1" clientidmode="Static" value="Monday"/> <label for="chk1" ></label>
@@ -155,7 +159,7 @@
     <br />    
 
     </div>    
-    <div style='clear:both' ></div>
+           <div style='clear:both' ></div>
 </div>
 
    

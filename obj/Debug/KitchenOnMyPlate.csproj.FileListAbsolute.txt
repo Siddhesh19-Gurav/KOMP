@@ -3,3 +3,9 @@ D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMy
 D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.dll
 D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.pdb
 D:\Mahesh\Work\AwareInfoSystem\Site Development for Clients\Sudhansu\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.csprojResolveAssemblyReference.cache
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\bin\KitchenOnMyPlate.dll.config
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\bin\KitchenOnMyPlate.dll
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\bin\KitchenOnMyPlate.pdb
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.dll
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.pdb
+C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Debug\KitchenOnMyPlate.csprojResolveAssemblyReference.cache

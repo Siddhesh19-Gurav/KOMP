@@ -378,7 +378,7 @@ input[type="radio"]:checked:before {
 .AboutImg1{float:left; border:1px solid #c8c6c6; padding:8px; margin:10px 20px 15px 0;}
 
 /*================================common class here=================================*/
-.inner{ margin:0 auto;  max-width:1003px}
+.inner{ margin:0 auto;  max-width:81%}
 .head-lft{ position:relative}
 .logo{ display:inline-block; margin-top:4px}
 .komp{ position:absolute; left:194px; top:0}

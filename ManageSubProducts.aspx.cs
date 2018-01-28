@@ -107,14 +107,14 @@ namespace KitchenOnMyPlate.Masters
                 //newObject.Date = DateTime.Now;
 
                 newObject.Picture = hdnImageNws.Value;
-                newObject.Price = Convert.ToInt32( txtNwsBy.Text);
+                newObject.Price = Convert.ToDecimal(txtNwsBy.Text);
                 newObject.PicDetails = txtPicDetails.InnerText;
                 //newObject.cul = cul;
 
                 newObject.MenuId = Convert.ToInt32(dropMainProducts.SelectedValue);
                 newObject.Veg =  Convert.ToInt32(drpVegNonVeg.SelectedValue);
                 newObject.NonCustomized =  Convert.ToInt32(drpCust.SelectedValue);
-
+                newObject.Calories = txtcalories.Text;
                 newObject.ShowDetails = chkShowCOP.Checked ? 1 : 0;
                 newObject.Varity = txtVarity.InnerText;  
                 
@@ -157,14 +157,15 @@ namespace KitchenOnMyPlate.Masters
                     {
                         newObject.AvailableDay = !string.IsNullOrEmpty(newObject.AvailableDay) ? newObject.AvailableDay + ",7" : "7";
                     }
-
-                    if (hdnID.Value != "" && hdnID.Value != "0")
-                    {
-                        newObject.Id = Convert.ToInt32(hdnID.Value);
-                    }
                 }
 
+
+                if (hdnID.Value != "" && hdnID.Value != "0")
+                {
+                    newObject.Id = Convert.ToInt32(hdnID.Value);
+                }
                 CMSActivieies.SaveNews(newObject);
+
                 CacheHelper.Clear("SubMenues");
                 BindGrid();
 
@@ -238,7 +239,7 @@ namespace KitchenOnMyPlate.Masters
 
             chkShowCOP.Checked = (dt.Rows[0]["ShowDetails"].ToString() == "1");
             txtVarity.InnerText = dt.Rows[0]["Varity"].ToString();
-
+            txtcalories.Text = dt.Rows[0]["Calories"].ToString();
             if (drpCust.SelectedValue == "0" || drpCust.SelectedValue == "2")
             {
                 divCuct.Visible = true;

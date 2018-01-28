@@ -88,6 +88,10 @@ border: 1px solid #B4B9C2;
 {
 width: 107px; margin:0 auto;height:22px; margin-top:4px;
 }
+
+ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-4 {
+    width:100% !important;
+}
   
   /* Login box start*/
   
@@ -133,18 +137,18 @@ width: 107px; margin:0 auto;height:22px; margin-top:4px;
                         </article>
                   <div class="col-ms-12">
                   
-                  <p class="FistArt" runat="server" id="lunch" visible="false" >Lunch is the most important meal of the day and people like to make elaborate plans and menu for this meal. But what do you do when you are too busy to even cook or cooking doesn’t interest you? Allow KOMP to take care of your lunch. You can just order online with a click of a mouse or call us up. Now with our easy subscription plans, affordable price, a varied daily menu and hygienic packaging options, you can either go for a set menu or virtually design your own meal at KOMP by opting for our customised tiffin service plans. 
-                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ TAKE-IN-TURN)</span> <br />
+                  <p class="FistArt" runat="server" id="lunch" visible="false" >Lunch is the most important meal of the day and people like to make elaborate plans and menu for this meal. But what do you do when you are too busy to even cook or cooking doesn’t interest you? Allow KOMP to take care of your lunch. You can just order online with a click of a mouse or call us up. Now with our easy subscription plans, affordable price, a varied daily menu and hygienic packaging options, you can either go for a set menu or virtually design your own meal at KOMP by opting for our customised tiffin service plans.
+                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
                   The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. Further, as per your preference & taste we have also included a choice of additional Veg dish and desserts in our meal plan. <br /><br />
-Also, if you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “Take-in-Turn” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
+Also, if you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
 You get unlimited variety in your meals by selecting one of the below plans catering to your own preference:
 
                   </p>
                   <p class="FistArt" runat="server" id="dinner" visible="false" >Now you not only get unlimited variety in your lunch, but in your dinner meals as well by selecting one of the below plans catering to your own preference.
-                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ TAKE-IN-TURN)</span> <br />
+                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
                   The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. <br /><br />
 Further, as per your preference & taste, we have also included a choice of additional Veg dish and desserts in our meal plans.         The meal plans are - Essential, Classic & Grand.<br /><br />
-If you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “Take-in-Turn” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
+If you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
 
 
 
@@ -159,7 +163,7 @@ We do not, however, believe in cost-cutting and passing of ordinary stuff as a h
 Choose from our following packages to enjoy a tasty meal.
 </p>
 
-<p class="FistArt" runat="server"  id="lunchNutri" visible="false" >Whether the convenience of hotel food or goodness of nutritious food? Calorie counting or giving in to taste buds? Now you can choose both, health bhi aur taste bhi! We have just the right kind of meals for you – packed with the goodness of multi-grain, pulses, soups and seasonal fruits. We use premium quality ingredients and rice-bran oil for cooking the meals, and make sure we offer you a healthy diet at a very affordable price. 
+<p class="FistArt" runat="server"  id="lunchNutri" visible="false" >Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday & Friday and rest of the days Veg is served.We cherish the satisfaction you feel after every healthy meal. Choose from our following packages for a tasty meal. 
 <br /> <br /> <span class="page-titleSmall">Nutrimeal Plate</span> <br /> No more fretting about eating out every day and worrying about hygienic food or cholesterol. No more fussing about getting vital nutrients. We realize that people need a convenient and timely meal service in these fast times, but at the same time are quite health-conscious. Hence, we use the best and freshest of ingredients and plan our Nutrimeal recipes keeping nutrition in the centre. <br /><br />
 We cherish the satisfaction you feel after every healthy meal.  Choose from our following packages for a tasty meal.
 
@@ -284,9 +288,13 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
          <%--<span>Select Start Date</span><br />--%>
          <div style="display:none">
          <span>We have 2 types of plans</span><br />
-        <input type="radio" id="rd1" class="mealplan" planid="1" checked="checked" daysPlan="10" deliveryChrg="300" validaty="15" name="plan" /><span>10 Days Meal Plan (to be consumed in 15 working days)</span> <br />
+        <%--<input type="radio" id="rd1" class="mealplan" planid="1" checked="checked" daysPlan="10" deliveryChrg="300" validaty="15" name="plan" /><span>10 Days Meal Plan (to be consumed in 15 working days)</span> <br />
         <input type="radio" id="rd2" class="mealplan" planid="2" daysPlan="22" validaty="35" deliveryChrg="600" name="plan" /><span>22 Days Meal Plan (to be consumed in 35 working days)</span><br />
-        <input type="radio" id="rd3" class="mealplan" planid="3" daysPlan="2" validaty="5" deliveryChrg="75" name="plan" /><span>22 Days Meal Plan (to be consumed in 35 working days)</span><br />
+        <input type="radio" id="rd3" class="mealplan" planid="3" daysPlan="2" validaty="5" deliveryChrg="75" name="plan" /><span>22 Days Meal Plan (to be consumed in 35 working days)</span><br />--%>
+             <input type="hidden" id="hdndaysPlan" />
+             <input type="hidden" id="hdnPlanvalidaty" />
+             <input type="hidden" id="hdnPlanid" />
+             <input type="hidden" id="hdndeliveryChrg" />
         </div>
 
         <div style="width:90%; text-align:left;margin-left:0px; margin-top:10px; float:left; ">
@@ -480,7 +488,12 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
         //PlanName = planName;
         DeliveryChrg = deliveryCharges;
 
-        $(".mealplan[daysPlan='" + DaysInPlan + "']").attr("checked", "chected");
+        $("#hdndaysPlan").val(daysInPlan);
+        $("#hdnPlanvalidaty").val(validUpTo);
+        $("#hdnPlanid").val(id);
+        $("#hdndeliveryChrg").val(deliveryCharges);
+
+        //$(".mealplan[daysPlan='" + DaysInPlan + "']").attr("checked", "chected");
         ResetSingleCalender();
 //        var maxDate = new Date(); //getDateYymmdd($(this).data("val-rangedate-max"));
         //        maxDate.setDate(maxDate.getDate() + DaysInPlan);
@@ -545,7 +558,7 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
             }
             else if( $('#'+id+' .subProductHeader').html().indexOf('(TITL)')>-1)
             {
-            veg1 = "TAKE-IN-TURN";
+            veg1 = "V-NV";
             bClass="Blue";
             }
 
@@ -704,8 +717,10 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
             return false;
         }
 
-        ValidUpTo = parseInt($('.mealplan:checked').attr("validaty"));
-        daysInPlan = parseInt($('.mealplan:checked').attr("daysPlan"));
+        //ValidUpTo = parseInt($('.mealplan:checked').attr("validaty"));
+        //daysInPlan = parseInt($('.mealplan:checked').attr("daysPlan"));
+        ValidUpTo = parseInt($('#hdnPlanvalidaty').val());
+        daysInPlan = parseInt($('#hdndaysPlan').val());
         DaysInPlan = daysInPlan;
         //ValidUpTo = parseInt(ValidUpTo) + 4;
         $(".sds").html(daysInPlan);
@@ -721,9 +736,12 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
         var MaxDt = parseInt(((new Date(pdate)) - (new Date())) / (1000 * 60 * 60 * 24)) + ValidUpTo;
 
         
-        var ShowCalender = 3;
+        var ShowCalender = 4;
         if (ValidUpTo < 29) {
             ShowCalender = 2;
+        }
+        else if (ValidUpTo < 60){
+            ShowCalender = 3;
         }
 
         
@@ -840,7 +858,8 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
         ScrollPage();
 //        $('html,body').animate({
 //             scrollTop: $('#footer').offset().top - 2*$('#footer').height() + 170//scrollTop: $('#divSetDate2').offset().top - $('#footer').height()*53/100 
-//        }, 1000);
+        //        }, 1000);
+        //$(".ui-datepicker-inline, .ui-datepicker").css("width", "114%;");
     }
 
 function AftercheckValid()

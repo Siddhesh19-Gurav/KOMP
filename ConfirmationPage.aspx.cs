@@ -64,7 +64,8 @@ namespace KitchenOnMyPlate
                 string mealstartdate = string.Empty;
                 string LunchDinner = string.Empty;
                 string OrderNumbers = string.Empty;
-                foreach(var item in requesedItems)
+                decimal TotalDiscount = 0;
+                foreach (var item in requesedItems)
                 {
                     productName = "Customized Meals";
                     OrderNumbers = (string.IsNullOrEmpty(OrderNumbers))? item.orderId.ToString():(OrderNumbers +","+ item.orderId.ToString());
@@ -108,9 +109,15 @@ namespace KitchenOnMyPlate
 
                             
                         }
-                    
-                   Quantity = item.orderedItems.Count.ToString();
-                   subTotal = subTotal + item.subTotal;
+
+                    var PlanDiscount = DBAccess.GetDiscount(Convert.ToInt32(item.orderedItems.Count()));
+
+                    var payment = DBAccess.GetPayment(item.orderId);
+
+                    var discount = (item.subTotal + payment.Discount) * PlanDiscount.Discount / 100;
+                    TotalDiscount = TotalDiscount + discount ?? 0;
+
+                    subTotal = subTotal + (item.subTotal);
                     deliveryChrg = deliveryChrg + item.deliveryCharges;
                     tranChrg = tranChrg + item.transCharges;
 
@@ -134,13 +141,13 @@ namespace KitchenOnMyPlate
                  }
 
                  //tbOrders.Text = tbOrders.Text + "<tr class='divRow' align='right'  ><td colspan='" + colspan + "'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='center' ><span style='font-family:RobotoBlack' >" + item.grandTotal + "</span></td></tr>";
-                 tbOrders.Text = tbOrders.Text + "<tr class='divRow' align='right'  ><td colspan='" + colspan + "'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='center' ><i class='fa fa-inr'></i><span style='font-family:RobotoBlack' >" + item.subTotal + "</span></td></tr>";
+                 tbOrders.Text = tbOrders.Text + "<tr class='divRow' align='right'  ><td colspan='" + colspan + "'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='center' ><i class='fa fa-inr'></i><span style='font-family:RobotoBlack' >" + (item.subTotal + payment.Discount) + "</span></td></tr>";
 
                  spnRqst.InnerText = spnRqst.InnerText == "" ? item.orderId.ToString() : (spnRqst.InnerText + ", " + item.orderId.ToString());
                 }
 
-
-                spnSubTotal.InnerHtml = "<i class='fa fa-inr'></i>" + subTotal.ToString();
+                
+                spnSubTotal.InnerHtml = "<i class='fa fa-inr'></i>" + subTotal.ToString("0.00");
                 spnDelivery.InnerHtml = "<i class='fa fa-inr'></i>" + deliveryChrg.ToString();
                 
                 trTran.Visible = tranChrg > 0;
@@ -157,9 +164,28 @@ namespace KitchenOnMyPlate
                     transactionStr = tranChrg + ".00"; ;
                     
                 }
+
+                var config = DBAccess.GetConfig();
+                decimal GSTRates = config.Tax ?? 0;
+
+                decimal GstCharge = (subTotal + deliveryChrg + tranChrg) * GSTRates / 100;
+
+                decimal GrandTotal = subTotal + deliveryChrg + tranChrg + GstCharge;
+                if (TotalDiscount > 0)
+                {
+                    spnDiscount.InnerHtml = "<i class='fa fa-inr'></i>" + (TotalDiscount).ToString("0.00");
+                    trdiscount.Attributes.Remove("style");
+                }
+                else
+                {
+                    trdiscount.Attributes.Add("style", "display:none");
+                }
+                spnGST.InnerHtml = "<i class='fa fa-inr'></i>" + (GstCharge).ToString("0.00");
+                Strong1.InnerHtml = "GST("+ GSTRates + "%)";
+
                 spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + transactionStr.ToString();
 
-                spnOnlineGrandTotal.InnerHtml = "<i class='fa fa-inr'></i>" + (subTotal + deliveryChrg + tranChrg).ToString();
+                spnOnlineGrandTotal.InnerHtml = "<i class='fa fa-inr'></i>" + (GrandTotal).ToString("0.00");
 
                 if (!(objPaymentResponse.PaymentMethod == "11" || objPaymentResponse.PaymentMethod == "12" || objPaymentResponse.PaymentMethod == "13" || objPaymentResponse.PaymentMethod == "14")) //online message
                 {

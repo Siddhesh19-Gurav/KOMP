@@ -16,7 +16,7 @@ namespace KitchenOnMyPlate.Masters
         SqlDataReader rdr = null;
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
         static int @Index = 1;
         static int PageSize = 100;
         static int TotalCount = 0;

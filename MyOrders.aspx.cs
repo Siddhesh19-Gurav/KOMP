@@ -16,7 +16,7 @@ namespace KitchenOnMyPlate
         SqlDataReader rdr = null;
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
 
         private bool ISAdding = false;
         

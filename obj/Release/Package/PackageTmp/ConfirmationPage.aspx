@@ -3,7 +3,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<style>
+    <style>
 #tableQuantity strong{font-size:16px;}
 </style>
 <div>
@@ -112,10 +112,12 @@
         <div class ="ProcesBoxInner">
         <div style="width:100%;" >
                  <table id="table1" class="tableCart tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
-				    <tbody>		                            
+				    <tbody>		                                            
+                    <tr id="trdiscount" runat="server" class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>DISCOUNT(5%)&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnDiscount' runat="server" class='price'></span></td></tr>
                     <tr class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>Sub Total&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnSubTotal' runat="server" class='price'></span></td></tr>
                     <tr class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>Delivery Charges&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" >&nbsp;<span id='spnDelivery' runat="server" class='price'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="strOnln" >Online Processing Charges&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnTrns' runat="server" class='price'></span></td></tr>
+                        <tr class="divRow" id="tr1" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="Strong1" >GST(5%)&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnGST' runat="server" class='price'></span></td></tr>
                     <tr class="divRow" style="font-size:16px !important" ><td colspan="2" style="width:70%;" align="right"><span class=''>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="center" ><span id='spnOnlineGrandTotal' runat="server"  style="font-size:1.2em" class=''></span></td></tr>
 				</tbody>                
                 

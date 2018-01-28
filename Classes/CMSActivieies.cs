@@ -36,12 +36,12 @@ namespace KitchenOnMyPlate.Classes
             SqlDataReader rdr = null;
             SqlConnection con = null;
             SqlCommand cmd = null;
-            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
+            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
             try
             {
                 con = new SqlConnection(cs);
                 con.Open();
-                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item',Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,MenuItems.Price , case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',replace(replace(replace(replace(replace(replace(replace(AvailableDay,'1','Mon'),'2','Tue') ,'3','Wed') ,'4','Thu') ,'5','Fri') ,'6','Sat') ,'7','Sat') as 'Available Days' from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId Order By MenuItems.Id", con);
+                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item',Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,MenuItems.Price , case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',replace(replace(replace(replace(replace(replace(replace(AvailableDay,'1','Mon'),'2','Tue') ,'3','Wed') ,'4','Thu') ,'5','Fri') ,'6','Sat') ,'7','Sat') as 'Available Days',Calories from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId Order By MenuItems.Id", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Sales");
@@ -61,12 +61,12 @@ namespace KitchenOnMyPlate.Classes
             SqlDataReader rdr = null;
             SqlConnection con = null;
             SqlCommand cmd = null;
-            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
+            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
             try
             {
                 con = new SqlConnection(cs);
                 con.Open();
-                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item', MenuItems.Detail as 'Detail', Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',MenuItems.Price,MenuItems.Picture, MenuItems.PicDetails, MenuItems.Veg, MenuItems.NonCustomized, MenuItems.MenuId,  MenuItems.IsActive,AvailableDay, MenuItems.ShowDetails,MenuItems.Varity from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId where MenuItems.Id='" + Id + "' Order By MenuItems.Id", con);
+                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item', MenuItems.Detail as 'Detail', Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',MenuItems.Price,MenuItems.Picture, MenuItems.PicDetails, MenuItems.Veg, MenuItems.NonCustomized, MenuItems.MenuId,  MenuItems.IsActive,AvailableDay, MenuItems.ShowDetails,MenuItems.Varity,Calories from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId where MenuItems.Id='" + Id + "' Order By MenuItems.Id", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Sales");
@@ -170,6 +170,9 @@ namespace KitchenOnMyPlate.Classes
                     objUpdated.NonCustomized = obj.NonCustomized;
                     objUpdated.IsActive = obj.IsActive;
                     objUpdated.AvailableDay = obj.AvailableDay;
+                    objUpdated.Varity = obj.Varity;
+                    objUpdated.ShowDetails = obj.ShowDetails;
+                    objUpdated.Calories = obj.Calories;
                 }
                 db.SubmitChanges();
                 db.Dispose();
