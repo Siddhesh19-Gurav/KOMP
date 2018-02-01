@@ -4,3 +4,6 @@ C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\bin\Ki
 C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Release\KitchenOnMyPlate.csprojResolveAssemblyReference.cache
 C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Release\KitchenOnMyPlate.dll
 C:\Users\SID\Downloads\KitchenOnMyPlate\KitchenOnMyPlate\KitchenOnMyPlate\obj\Release\KitchenOnMyPlate.pdb
+E:\Projects\Repos\KOMP\obj\Release\KitchenOnMyPlate.csprojResolveAssemblyReference.cache
+E:\Projects\Repos\KOMP\obj\Release\KitchenOnMyPlate.dll
+E:\Projects\Repos\KOMP\obj\Release\KitchenOnMyPlate.pdb

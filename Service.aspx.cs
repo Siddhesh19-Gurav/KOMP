@@ -259,12 +259,12 @@ namespace KitchenOnMyPlate
         {
             ltrlRow.Text = HTMLGenerator.GetWeeklyMenu(string.Empty, showin);
 
-            lblDt1.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 1).ToString("dd-MMM-yyyy");
-            lblDt2.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 2).ToString("dd-MMM-yyyy");
-            lblDt3.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 3).ToString("dd-MMM-yyyy");
-            lblDt4.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 4).ToString("dd-MMM-yyyy");
-            lblDt5.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 5).ToString("dd-MMM-yyyy");
-            lblDt6.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 6).ToString("dd-MMM-yyyy");
+            //lblDt1.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 1).ToString("dd-MMM-yyyy");
+            //lblDt2.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 2).ToString("dd-MMM-yyyy");
+            //lblDt3.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 3).ToString("dd-MMM-yyyy");
+            //lblDt4.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 4).ToString("dd-MMM-yyyy");
+            //lblDt5.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 5).ToString("dd-MMM-yyyy");
+            //lblDt6.Text = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 6).ToString("dd-MMM-yyyy");
         }
     }
 }
