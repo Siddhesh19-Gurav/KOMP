@@ -292,13 +292,40 @@ namespace KitchenOnMyPlate {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Strong1;
         
         /// <summary>
-        /// spnGST control.
+        /// spnSGST control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnGST;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnSGST;
+        
+        /// <summary>
+        /// tr2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr2;
+        
+        /// <summary>
+        /// Strong2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Strong2;
+        
+        /// <summary>
+        /// spnCGST control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnCGST;
         
         /// <summary>
         /// spnOnlineGrandTotal control.

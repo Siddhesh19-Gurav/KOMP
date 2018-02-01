@@ -77,7 +77,7 @@ namespace KitchenOnMyPlate.Classes
                 // Set the sender address of the mail message
                 //mMailMessage.From = new MailAddress(from);
                 // Set the recepient address of the mail message
-                if(to!=null)
+                if(to!=null)    
                 foreach (var add in to)
                 {
                 mMailMessage.To.Add(add);

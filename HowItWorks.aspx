@@ -138,7 +138,7 @@
                                   <li>Next, make your payment through NEFT, Cheque/Cash deposit, Credit Card, Debit Card, Net Banking or Cash Pick up service.</li>
                                   <li>Once the payment is received by KOMP a payment notification with your chosen meal plan is sent to you welcoming you into the KOMP family. </li>
                                   </ul>
-                                  <span><sd style="font-style:italic;font-weight:100px !important">Please Note: KOMP to receive the payment for meal orders by 12 pm at least a day before to your meal start date. The meal delivery for any payment received after 12 pm will start a day later.</sd></span>
+                                  <span><sd style="font-style:italic;font-weight:100px !important">Please Note: KOMP to receive the payment for meal orders by 4 pm at least a day before to your meal start date. The meal delivery for any payment received after 4 pm will start a day later.</sd></span>
 
                                  </div>                     
 				               </div>

@@ -128,7 +128,7 @@ font-weight:bold;
 	.startDate {font-size:12px; color:#808285;}
 	.ui-datepicker{margin-left:0px !important;}
 	
-	#disable-dates{ padding-left:25px;}
+	#disable-dates{ padding-left:25px;width:100%;}
 	
 	.DivWithButtonOnly .btnRed{background-color:#F16822 !important;}
 	
@@ -606,3 +606,7 @@ a:hover{ color:#F37624 !important;}
 
 
 .buttleted{ margin-top:-5px;height:16px}
+
+.ui-datepicker-multi-4 {
+    width:55em !important;
+}

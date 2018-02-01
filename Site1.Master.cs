@@ -246,6 +246,7 @@ namespace KitchenOnMyPlate
         }
 
         private void SetMenu()
+
         {
             custDivInner.InnerHtml = "<span>&nbsp;</span><br />";
             tifDivInner.InnerHtml = "<span>&nbsp;</span><br />";
@@ -256,9 +257,9 @@ namespace KitchenOnMyPlate
             foreach(var item in products )
             {
                 string itemSubMenu = string.Empty;
-                if (item.Header.Length > 26)
+                if (item.Header.Contains("("))
                 {
-                    itemSubMenu = Regex.Match(item.Header, @"^(\w+\b.*?){3}").ToString();
+                    itemSubMenu = item.Header.Split('(')[0].Trim(); //Regex.Match(item.Header, @"^(\w+\b.*?){3}").ToString();
                 }
                 else
                 {

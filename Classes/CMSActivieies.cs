@@ -66,7 +66,7 @@ namespace KitchenOnMyPlate.Classes
             {
                 con = new SqlConnection(cs);
                 con.Open();
-                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item', MenuItems.Detail as 'Detail', Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',MenuItems.Price,MenuItems.Picture, MenuItems.PicDetails, MenuItems.Veg, MenuItems.NonCustomized, MenuItems.MenuId,  MenuItems.IsActive,AvailableDay, MenuItems.ShowDetails,MenuItems.Varity,Calories from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId where MenuItems.Id='" + Id + "' Order By MenuItems.Id", con);
+                cmd = new SqlCommand("select MenuItems.Id, MenuItems.Header as 'Menu Item', MenuItems.Detail as 'Detail', Menu.Header as 'Product', case MenuItems.Veg when 1 then 'Veg' else 'Non-Veg' end as Type,case MenuItems.NonCustomized when 0 then 'Customized' else 'Non-Customized' end as Customized,case MenuItems.IsActive when 1 then 'Active' else '' end as 'Active',MenuItems.Price,MenuItems.Picture, MenuItems.PicDetails, MenuItems.Veg, MenuItems.NonCustomized, MenuItems.MenuId,  MenuItems.IsActive,AvailableDay, MenuItems.ShowDetails,MenuItems.Varity,Calories,DetailDinner,MenuItems.ShowInBoth from MenuItems inner join Menu on Menu.Id=  MenuItems.MenuId where MenuItems.Id='" + Id + "' Order By MenuItems.Id", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Sales");
@@ -173,6 +173,8 @@ namespace KitchenOnMyPlate.Classes
                     objUpdated.Varity = obj.Varity;
                     objUpdated.ShowDetails = obj.ShowDetails;
                     objUpdated.Calories = obj.Calories;
+                    objUpdated.DetailDinner = obj.DetailDinner;
+                    objUpdated.ShowInBoth = obj.ShowInBoth;
                 }
                 db.SubmitChanges();
                 db.Dispose();

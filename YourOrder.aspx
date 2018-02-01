@@ -793,7 +793,7 @@ $("#txtPinCode").attr("readonly","readonly");
         <div style="width:100%;" >
                  <table class="tableCart tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
                  <thead>
-                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td></td><td>ORDER</td><td>PRODUCT</td><td>QUANTITY</td><td>AMOUNT</td></tr>
+                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td></td><td>ORDER</td><td>PRODUCT</td><td>Total No. Of Meals</td><td align="center">AMOUNT</td></tr>
                  </thead>                 
 				<tbody>
 				</tbody>  

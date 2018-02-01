@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<style>
+    <style>
     .backonprocess{display:none !important;}
 </style>
   <script type="text/javascript" language="javascript" >
@@ -428,11 +428,11 @@
         
         if ($('#rdPM1').is(':checked')) 
         {
-            if ($('.PAYMENTMTHOFF:checked').length == 0) 
-            {
-                swal('Please select offline payment method!');
-                return false;
-            }
+            //if ($('.PAYMENTMTHOFF:checked').length == 0) 
+            //{
+            //    swal('Please select offline payment method!');
+            //    return false;
+            //}
         }
 
         
@@ -507,7 +507,9 @@
 
 <form method="post" id="customerData" action="ccavRequestHandler.aspx">
 <div class="row faq">
-<div style="clear:both;height:20px" ></div>
+<div style="clear:both;height:20px" >
+    <h3 class="ContactLabel" style="margin: 20px 0px 10px; padding: 0px; box-sizing: border-box; font-family: Roboto; font-weight: bold; line-height: 1.1; color: rgb(66, 66, 66); font-size: 0.85em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">PINCODE<em style="margin: 0px 0px 0px 3px; padding: 0px; box-sizing: border-box; font-size: 16px; font-family: normal; color: red;">*</em></h3>
+    </div>
     <asp:HiddenField ID="hdnEmail" runat="server" />
     
 <asp:TextBox ID="tid" name="tid" ClientIDMode="Static" runat="server" CssClass="hidden"></asp:TextBox>
@@ -588,7 +590,7 @@
     </div>
             <%--<input type="button" class="proceed" value="PROCEED" onclick="SetShipping();" />--%>
     <%--<input type="submit" class="proceed" value="PROCEED" onclick="SetShipping();" />--%>
-        <input type="button" value="RESET" class="proceedBack" style="float:right" onclick="ResetAddress();" />
+        <%--<input type="button" value="RESET" class="proceedBack" style="float:right" onclick="ResetAddress();" />--%>
                 
                 
                 
@@ -686,7 +688,7 @@
             
             <table id="table1" class="tableCart tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
                  <thead>
-                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td>ORDER</td><td>PRODUCT</td><td>QUANTITY</td><td>AMOUNT</td></tr>
+                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td>ORDER</td><td>PRODUCT</td><td>Total No. Of Meals</td><td align="center">AMOUNT</td></tr>
                  </thead>
 				    <tbody>		        
                     <%--<tr class="divRow"><td style="width:10%;"></td><td style="width:60%;" id="divPNAME"></td><td style="width:30%;"><span id='spCharge' class='price'></span></td></tr>--%>                                        
@@ -694,7 +696,8 @@
                         <tr id="trdiscount" runat="server"  class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DISCOUNT(5%)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span class="RSBig"></span><span id='spnShip'  runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server"  ><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt' runat="server" id="spOT" >ONLINE PROCESSING CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span id='spnTrns' runat="server"  class='priceTotal'></span></td></tr>
-                    <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server" class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnGST' runat="server" class='priceTotal onGST'></span></td></tr>
+                    <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server" class='sppp'>SGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnSGST' runat="server" class='priceTotal onGST'></span></td></tr>
+                        <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Span1" runat="server" class='sppp'>CGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnCGST' runat="server" class='priceTotal onGST'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" class='priceTotal' ><span id='spnOnlineGrandTotal' runat="server"></span></td></tr>
 				</tbody>                
                 

@@ -38,7 +38,7 @@
             
             <table id="table4" class="tableCart tbl" cellspacing="1" width='100%' align="center" cellpadding="5" >
                  <thead>
-                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1em; ' ><td>ORDER#</td><td>PRODUCT</td><td>QUANTITY</td><td>START DATE</td><td>MEAL TYPE</td></tr>
+                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1em; ' ><td>ORDER#</td><td>PRODUCT</td><td>Total No. Of Meals</td><td>START DATE</td><td>MEAL TYPE</td></tr>
                  </thead>
 				    <tbody>		                            
                     <asp:Literal ID="tbOrders1" runat="server"></asp:Literal>                    
@@ -69,10 +69,10 @@
                    <div style="width:100%;" >
                    <br />
                    <div id="offlineBankDtl" runat="server" visible="false" style="width:auto;height:auto;color:#333" >
-                  <p><i>Please note:</i> Payment for your order to be received by Kitchen On My Plate atleast before 12 pm a day prior to your meal start date. The meal delivery for any payment received after 12 pm will start a day later.</p>
+                  <p><i>Please note:</i> Payment for your order to be received by Kitchen On My Plate atleast before 4 pm a day prior to your meal start date. The meal delivery for any payment received after 4 pm will start a day later.</p>
                   <p> In case of online transfer of funds you are requested to mail us transaction reference. Also, mention your name in the transaction description for online transfer of funds.</p>
                   <p><b> Bank Details For Payment:</b></p>        
-                  <p>Bank: KOTAK MAHINDRA BANK<br />Branch Address: DINDOSHI MALAD (EAST)<br />City: MUMBAI<br />Account Number: 7911547099<br />IFSC Code: KKBK0000646<br />Beneficiary A/c Type: CURRENT<br />Full name of beneficiary (Pay to Name): KITCHEN ON MY PLATE</p>
+                  <p>Bank: KOTAK MAHINDRA BANK<br />Branch Address: Goregaon Branch<br />City: MUMBAI<br />Account Number: 7911547099<br />IFSC Code: KKBK0000646<br />Beneficiary A/c Type: CURRENT<br />Full name of beneficiary (Pay to Name): KITCHEN ON MY PLATE</p>
                   <p> If you have any questions about your order please call us at 9699 699204 or send us an email at info@kitchenonmyplate.com. </p>
                   </div>
                    </div>
@@ -113,11 +113,12 @@
         <div style="width:100%;" >
                  <table id="table1" class="tableCart tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
 				    <tbody>		                                            
-                    <tr id="trdiscount" runat="server" class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>DISCOUNT(5%)&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnDiscount' runat="server" class='price'></span></td></tr>
+                    <tr id="trdiscount" runat="server" class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>AMOUNT (AFTER  5% DISCOUNT)&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnDiscount' runat="server" class='price'></span></td></tr>
                     <tr class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>Sub Total&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnSubTotal' runat="server" class='price'></span></td></tr>
                     <tr class="divRow"><td colspan="2" style="width:70%;" align="right"><strong>Delivery Charges&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" >&nbsp;<span id='spnDelivery' runat="server" class='price'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="strOnln" >Online Processing Charges&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnTrns' runat="server" class='price'></span></td></tr>
-                        <tr class="divRow" id="tr1" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="Strong1" >GST(5%)&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnGST' runat="server" class='price'></span></td></tr>
+                    <tr class="divRow" id="tr1" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="Strong1" >SGST:2.5%&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnSGST' runat="server" class='price'></span></td></tr>
+                    <tr class="divRow" id="tr2" runat="server" ><td colspan="2" style="width:70%;" align="right"><strong runat="server" id="Strong2" >CGST:2.5%&nbsp;&nbsp;&nbsp;</strong></td><td style="width:30%;" align="center" ><span id='spnCGST' runat="server" class='price'></span></td></tr>
                     <tr class="divRow" style="font-size:16px !important" ><td colspan="2" style="width:70%;" align="right"><span class=''>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="center" ><span id='spnOnlineGrandTotal' runat="server"  style="font-size:1.2em" class=''></span></td></tr>
 				</tbody>                
                 

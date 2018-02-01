@@ -88,7 +88,7 @@ namespace KitchenOnMyPlate.DataAccess
                             //string VegCust = subPro.Veg == 1 ? "VegCust" : "NonVegCust";
                             //string rs = subPro.Veg == 1 ? "rs.png" : "rs2.png";
                             string VegCust = "NonVegCust";
-                            var smallLarge = (subPro.Header.ToUpper().Contains("MINI")) ? "<span class='smalllarge'>(Small Portion)</span><br/>" : subPro.Header.ToUpper().Contains("NUTRI") ? "" : "<span class='smalllarge'>(Large Portion)</span><br/>";
+                            //var smallLarge = (subPro.Header.ToUpper().Contains("MINI")) ? "<span class='smalllarge'>(Small Portion)</span><br/>" : subPro.Header.ToUpper().Contains("NUTRI") ? "" : "<span class='smalllarge'>(Large Portion)</span><br/>";
                             string rs ="rs2.png";
                             Price = (int)subPro.Price;
                             var BreakIfMoreThan2 = (plans.Count > 2) ? "<br style='clear:both' />" : "";
@@ -115,7 +115,7 @@ namespace KitchenOnMyPlate.DataAccess
                                                       //  //"<div><img src='images/rs.png' /><span class='price' >" + subPro.Price + "</span></div>"+
                                                       //"</div>" +
                                                       "<div class='leftsubDetails'>" +
-                                                        "<div class='subProductHeader' >" + subPro.Header + "<span class='smalllarge' style='color:black'>"+ subPro.Calories + "</span><span class='RSSmallMore' style='font-size:27px;color:#F16822; margin-left:15px'  ><i class='fa fa-inr'></i></span>" + Price + "</div>" +  smallLarge+
+                                                        "<div class='subProductHeader' >" + subPro.Header + "<span class='RSSmallMore' style='font-size:27px;color:#F16822; margin-left:15px'  ><i class='fa fa-inr'></i></span>" + Price + "</div> <span class='smalllarge' style='color:black;font-style: italic;'> " + subPro.Calories + "</span>" +
                                                             "<div style='clear:both'></div>" +
                                                             "<div class='subProductDetails' >" + ((Islunch == "1") ? subPro.Detail : subPro.DetailDinner) + "</div>" +
                                                         "<div style='clear:both'></div>"+

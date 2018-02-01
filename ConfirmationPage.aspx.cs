@@ -153,7 +153,7 @@ namespace KitchenOnMyPlate
                 trTran.Visible = tranChrg > 0;
 
                 //string transactionStr = "";
-                string transactionStr = tranChrg.ToString();
+                string transactionStr = Math.Round(tranChrg).ToString();
                 if (objPaymentResponse.PaymentMethod == "14") //Cash pickup option of off line
                 {
                     strOnln.InnerHtml = "Cash Pick up Charges&nbsp;&nbsp;&nbsp;";
@@ -168,22 +168,23 @@ namespace KitchenOnMyPlate
                 var config = DBAccess.GetConfig();
                 decimal GSTRates = config.Tax ?? 0;
 
-                decimal GstCharge = (subTotal + deliveryChrg + tranChrg) * GSTRates / 100;
+                decimal GstCharge = (subTotal + deliveryChrg + Math.Round(tranChrg)) * GSTRates / 100;
 
-                decimal GrandTotal = subTotal + deliveryChrg + tranChrg + GstCharge;
+                decimal GrandTotal = subTotal + deliveryChrg + tranChrg + Math.Round(GstCharge)+ Math.Round(GstCharge);
                 if (TotalDiscount > 0)
                 {
-                    spnDiscount.InnerHtml = "<i class='fa fa-inr'></i>" + (TotalDiscount).ToString("0.00");
+                    spnDiscount.InnerHtml = "<i class='fa fa-inr'></i>" + (subTotal).ToString("0.00");
                     trdiscount.Attributes.Remove("style");
                 }
                 else
                 {
                     trdiscount.Attributes.Add("style", "display:none");
                 }
-                spnGST.InnerHtml = "<i class='fa fa-inr'></i>" + (GstCharge).ToString("0.00");
-                Strong1.InnerHtml = "GST("+ GSTRates + "%)";
+                spnCGST.InnerHtml = "<i class='fa fa-inr'></i>" + (Math.Round(GstCharge)).ToString("0.00");
+                spnSGST.InnerHtml = "<i class='fa fa-inr'></i>" + (Math.Round(GstCharge)).ToString("0.00");
+                //Strong1.InnerHtml = "GST("+ GSTRates + "%)";
 
-                spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + transactionStr.ToString();
+                spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + Math.Round(Convert.ToDecimal(transactionStr)).ToString("0.00");
 
                 spnOnlineGrandTotal.InnerHtml = "<i class='fa fa-inr'></i>" + (GrandTotal).ToString("0.00");
 
@@ -262,7 +263,7 @@ namespace KitchenOnMyPlate
 
                     //All Orders Start
                     var sbOff1 = "<br/><br/><table class='tableCart tbl' cellspacing='1' width='100%' align='center' cellpadding='5' ><thead>" +
-                    "<tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1em; ' ><td>ORDER#</td><td>PRODUCT</td><td>QUANTITY</td><td>START DATE</td><td>MEAL TYPE</td></tr>"+
+                    "<tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1em; ' ><td>ORDER#</td><td>PRODUCT</td><td>Total No. Of Meals</td><td>START DATE</td><td>MEAL TYPE</td></tr>"+
                     "</thead><tbody>"+tbOrders1.Text+"</tbody></table>";
                     content = content.Replace("$ALLORDERS$", sbOff1);
                     //All Orders End

@@ -313,7 +313,7 @@ function disableSpecificDaysAndWeekends(date) {
        
 
        var maxDate = new Date(); //getDateYymmdd($(this).data("val-rangedate-max"));
-       maxDate.setDate(maxDate.getDate() + 33 - minDateAdmin);
+       maxDate.setDate(maxDate.getDate() + 33 - 4);
        $("#txtPossessionDate").datepicker({
            beforeShowDay: disableSpecificDaysAndWeekends,
            //dateFormat: "dd-mm-yy",
@@ -512,12 +512,15 @@ function disableSpecificDaysAndWeekends(date) {
             var chrge1 = $('#divCart tfoot #spCharge').html().split('</i>')[1];
             var chrge2 = $('#divFinal tfoot #spnShip').html().split('</i>')[1];
 
+            var Totaldiscount = $('#divFinal tfoot #spnDiscount').html().split('</i>')[1];
+
             var charge3 = (parseFloat(chrge2) - parseFloat(orderList.orders[indx].payment.DeliveryChrg));
             if (charge3.toFixed) {
                 charge3= charge3.toFixed(2);
             }
             
-
+            Totaldiscount = (Totaldiscount - parseFloat(orderList.orders[indx].payment.Discount));
+            
             $('#divCart tfoot #spCharge').html("<i class='fa fa-inr'></i>" + (parseFloat(chrge1) - parseFloat(orderList.orders[indx].payment.DeliveryChrg)));
             $('#divFinal tfoot #spnShip').html("<i class='fa fa-inr'></i>" + charge3);
             //$('tfoot #spnCharge').html(parseInt($('tfoot #spnCharge').html()) - parseInt(orderList.orders[indx].payment.DeliveryChrg));
@@ -532,14 +535,29 @@ function disableSpecificDaysAndWeekends(date) {
 
             SubItemTotals = FNSM + parseFloat($('#divFinal tfoot #spnShip').html().split('</i>')[1]);
 
+            var GSTPercent = 0;
+
+            $.ajax
+            ({
+                 type: "POST",
+                 url: "KompServices.asmx/GetConfigValues",
+                 contentType: "application/json; charset=utf-8",
+                 data: "{}",
+                 dataType: "json",
+                 async: false,
+                 success: function (result) {
+                     TrnChrg = result.d.TrnChrg;
+                     GSTPercent = result.d.Tax;
+                 }
+            });
+
 
             var onlchrg = Math.round(parseFloat((SubItemTotals * TrnChrg) / 100));
             if (onlchrg.toFixed) {
                 onlchrg = onlchrg.toFixed(2);
             }
 
-            var GSTPercent = 5;
-
+            
             //alert(onlchrg)
             $(".onChrges").html(onlchrg);
 
@@ -547,14 +565,21 @@ function disableSpecificDaysAndWeekends(date) {
             //$('.onlineCls').html('ONLINE PROCESSING CHARGE');        
 
             var GstCharge = gtotal * (GSTPercent / 100);
-
-            gtotal = parseFloat(GstCharge) + parseFloat(gtotal);
+            gtotal = Math.round(GstCharge) + Math.round(GstCharge) + parseFloat(gtotal);
 
             if (gtotal.toFixed) {
                 gtotal = gtotal.toFixed(2);
             }
+
+            $('#spnSGST').html("<i class='fa fa-inr'></i>" + Math.round(GstCharge).toFixed(2));
+            $('#spnCGST').html("<i class='fa fa-inr'></i>" + Math.round(GstCharge).toFixed(2));
             
-            $('#spnGST').html("<i class='fa fa-inr'></i>" + GstCharge.toFixed(2));
+            gtotal = Math.round(GstCharge).toFixed(2) +Math.round(GstCharge).toFixed(2) + parseFloat(gtotal);
+
+            if (gtotal.toFixed) {
+                gtotal = gtotal.toFixed(2);
+            }
+
             //$("#Strong1").html('GST('+GSTPercent+'%)');
             $('#divFinal #spnOnlineGrandTotal').html(gtotal);
             //Grand Total for final end
@@ -563,6 +588,20 @@ function disableSpecificDaysAndWeekends(date) {
 
             orderlst.splice(indx, 1);
             orderList.orders = orderlst;
+
+            var Amount = 0;
+            for (var i = 0; i < orderList.orders.length; i++) {
+                Amount = Amount + orderList.orders[i].payment.Amount;
+            }
+            if (Totaldiscount == Amount) {
+                $("#trdiscount").css("display", "none");
+
+            }
+            else {
+                $("#trdiscount").removeAttr("style");
+                $("#spnDiscount").html("<i class='fa fa-inr'></i>" + Totaldiscount.toFixed(2));
+            }
+
 
             SetCartTotal(0);
 
@@ -628,7 +667,7 @@ function disableSpecificDaysAndWeekends(date) {
            var dt = dd + '/' + mm + '/' + yyyy;
 
            //alert(orderList.orders[i].OrderDetailList.length);
-           $("#divCart .tableCart tbody").append("<tr class='divRow cstItem Ord" + i + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrder(" + i + "); ScrollPage();' title='Delete Order' >x</span></td><td  style='width:10%;'>" + parseInt(i + 1) + ".</td><td  style='width:60%;'  align='left'> <span>" + ProductSelected + "</span><br/><span class='startDate'>MEAL START DATE : " + dt + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td><span> " + orderList.orders[i].OrderDetailList.length + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + orderList.orders[i].payment.Amount + "</span></td></tr>");
+           $("#divCart .tableCart tbody").append("<tr class='divRow cstItem Ord" + i + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrder(" + i + "); ScrollPage();' title='Delete Order' >x</span></td><td  style='width:10%;'>" + parseInt(i + 1) + ".</td><td  style='width:50%;'  align='left'> <span>" + ProductSelected + "</span><br/><span class='startDate'>MEAL START DATE : " + dt + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td style='width:12%;'><span> " + orderList.orders[i].OrderDetailList.length + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + orderList.orders[i].payment.Amount + "</span></td></tr>");
 
 
            var amountFin = orderList.orders[i].payment.Amount;
@@ -636,7 +675,7 @@ function disableSpecificDaysAndWeekends(date) {
                amountFin = amountFin.toFixed(2);
            }
 
-           $("#divFinal .tableCart tbody").append("<tr class='divRow cstItem Ord" + i + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrder(" + i + "); ScrollPage();' title='Delete Order' >x</span></td><td  style='width:10%;'>" + parseInt(i + 1) + ".</td><td  style='width:60%;'  align='left'> <span>" + ProductSelected + "</span><br/><span class='startDate'>MEAL START DATE : " + dt + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td><span> " + orderList.orders[i].OrderDetailList.length + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + amountFin + "</span></td></tr>");
+           $("#divFinal .tableCart tbody").append("<tr class='divRow cstItem Ord" + i + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrder(" + i + "); ScrollPage();' title='Delete Order' >x</span></td><td  style='width:10%;'>" + parseInt(i + 1) + ".</td><td  style='width:50%;'  align='left'> <span>" + ProductSelected + "</span><br/><span class='startDate'>MEAL START DATE : " + dt + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td style='width:12%;'><span> " + orderList.orders[i].OrderDetailList.length + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + amountFin + "</span></td></tr>");
 
            //grandtotal = grandtotal + parseFloat(orderList.orders[i].payment.Amount) + parseFloat(orderList.orders[i].payment.DeliveryChrg) + parseFloat(orderList.orders[i].payment.TrnChrg);
            grandtotal = grandtotal + parseFloat(orderList.orders[i].payment.Amount) + parseFloat(orderList.orders[i].payment.DeliveryChrg);
@@ -694,11 +733,11 @@ function disableSpecificDaysAndWeekends(date) {
 
                if ($('#rdPM1').is(':checked')) 
                {
-                   if ($('.PAYMENTMTHOFF:checked').length == 0) 
-                   {
-                       swal('Please select offline payment method!');
-                       return false;
-                   }
+                   //if ($('.PAYMENTMTHOFF:checked').length == 0) 
+                   //{
+                   //    swal('Please select offline payment method!');
+                   //    return false;
+                   //}
                }
 
              
@@ -713,6 +752,7 @@ function disableSpecificDaysAndWeekends(date) {
         {
 
             var grandtotal = 0;
+            var discoutTotal = 0;
             var TotaldiscooutAmount = 0;
             for (var i = 0; i < orderList.orders.length; i++) 
             {
@@ -730,12 +770,21 @@ function disableSpecificDaysAndWeekends(date) {
                           if (amountFin.toFixed) {
                               amountFin = amountFin.toFixed(2);
                           }
-                          grandtotal = grandtotal + (parseFloat(orderList.orders[i].payment.Amount) - discooutAmount) + parseFloat(orderList.orders[i].payment.DeliveryChrg);
+                          discoutTotal = discoutTotal+parseFloat(orderList.orders[i].payment.Amount) - Math.round(discooutAmount);
+                          grandtotal = grandtotal + (parseFloat(orderList.orders[i].payment.Amount) - Math.round(discooutAmount)) + parseFloat(orderList.orders[i].payment.DeliveryChrg);
                           TotaldiscooutAmount = TotaldiscooutAmount + discooutAmount;
                       }
                   });
             }
 
+            if (TotaldiscooutAmount == 0) {
+                $("#trdiscount").css("display", "none");
+                
+            }
+            else {
+                $("#trdiscount").removeAttr("style");
+                $("#spnDiscount").html("<i class='fa fa-inr'></i>" + discoutTotal.toFixed(2));
+            }
             var onlchrgPer;
             var GstChargePer;
             $.ajax
@@ -754,10 +803,10 @@ function disableSpecificDaysAndWeekends(date) {
 
             var onlchrg = parseFloat(onlchrgPer * grandtotal / 100);
             if (onlchrg.toFixed) {
-                onlchrg = onlchrg.toFixed(2);
+                onlchrg = Math.round(onlchrg);
             }
                         
-            $('#spnTrns').html("<i class='fa fa-inr'></i>"+onlchrg);
+            $('#spnTrns').html("<i class='fa fa-inr'></i>" + onlchrg.toFixed(2));
                         
 
             var gtotal = 0.00;
@@ -781,23 +830,17 @@ function disableSpecificDaysAndWeekends(date) {
             }
 
             var GstCharge = gtotal * (GstChargePer / 100);
-            gtotal = parseFloat(GstCharge) + parseFloat(gtotal);
+            gtotal = Math.round(GstCharge) + Math.round(GstCharge) + parseFloat(gtotal);
             
             if (gtotal.toFixed) {
                 gtotal = gtotal.toFixed(2);
             }
 
             
-            if (TotaldiscooutAmount == 0) {
-                $("#trdiscount").css("display", "none");
-                
-            }
-            else {
-                $("#trdiscount").removeAttr("style");
-                $("#spnDiscount").html("<i class='fa fa-inr'></i>" + TotaldiscooutAmount.toFixed(2));
-            }
+            
             $('#divPaymentMethod').hide();
-            $('#spnGST').html("<i class='fa fa-inr'></i>" + GstCharge.toFixed(2));
+            $('#spnSGST').html("<i class='fa fa-inr'></i>" + Math.round(GstCharge).toFixed(2));
+            $('#spnCGST').html("<i class='fa fa-inr'></i>" + Math.round(GstCharge).toFixed(2));
             $('#spnOnlineGrandTotal').html("<i class='fa fa-inr'></i>"+gtotal);
             $('#divFinal').show();
             ScrollPage();
@@ -1001,7 +1044,7 @@ function disableSpecificDaysAndWeekends(date) {
                               return false;
                           }
                           else {
-                              swal("Welcome, Kitchen On My Plate meal delivery service is available in your area. Please select your meal start date.");
+                              
                               pincode = result.d.pincode;
                               AftercheckValid();
                               return true;

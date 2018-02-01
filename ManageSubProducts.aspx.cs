@@ -116,8 +116,9 @@ namespace KitchenOnMyPlate.Masters
                 newObject.NonCustomized =  Convert.ToInt32(drpCust.SelectedValue);
                 newObject.Calories = txtcalories.Text;
                 newObject.ShowDetails = chkShowCOP.Checked ? 1 : 0;
-                newObject.Varity = txtVarity.InnerText;  
-                
+                newObject.Varity = txtVarity.InnerText;
+                newObject.DetailDinner = txtDinnerDescription.InnerText;
+                newObject.ShowInBoth = ddlShowIn.SelectedValue;
 
                 newObject.IsActive =  Convert.ToInt32(drpActive.SelectedValue);
 
@@ -208,17 +209,18 @@ namespace KitchenOnMyPlate.Masters
             txtNwsBy.Text = "";
             divCuct.Visible = false;
             drpVegNonVeg.SelectedValue = "-1";
-            
+            txtcalories.Text = "";
+            txtDinnerDescription.InnerText = "";
         }
 
         protected void GridNews_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             lblMsg.Text = "";
             int index = e.NewSelectedIndex;
-            hdnID.Value = GridNews.Rows[index].Cells[2].Text;
+            hdnID.Value = GridNews.Rows[index].Cells[1].Text;
             btnNew.Visible = true;
 
-            DataTable dt = CMSActivieies.GetSubProductById( Convert.ToInt32( hdnID.Value));
+            DataTable dt = CMSActivieies.GetSubProductById(Convert.ToInt32(hdnID.Value));
             
             txtHeader.InnerText = dt.Rows[0][1].ToString();
             txtDescription.InnerText = dt.Rows[0][2].ToString();
@@ -240,6 +242,8 @@ namespace KitchenOnMyPlate.Masters
             chkShowCOP.Checked = (dt.Rows[0]["ShowDetails"].ToString() == "1");
             txtVarity.InnerText = dt.Rows[0]["Varity"].ToString();
             txtcalories.Text = dt.Rows[0]["Calories"].ToString();
+            txtDinnerDescription.InnerHtml = dt.Rows[0]["DetailDinner"].ToString();
+            ddlShowIn.SelectedValue = dt.Rows[0]["ShowInBoth"].ToString();
             if (drpCust.SelectedValue == "0" || drpCust.SelectedValue == "2")
             {
                 divCuct.Visible = true;

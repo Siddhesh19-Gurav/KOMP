@@ -137,11 +137,11 @@ ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfi
                         </article>
                   <div class="col-ms-12">
                   
-                  <p class="FistArt" runat="server" id="lunch" visible="false" >Lunch is the most important meal of the day and people like to make elaborate plans and menu for this meal. But what do you do when you are too busy to even cook or cooking doesn’t interest you? Allow KOMP to take care of your lunch. You can just order online with a click of a mouse or call us up. Now with our easy subscription plans, affordable price, a varied daily menu and hygienic packaging options, you can either go for a set menu or virtually design your own meal at KOMP by opting for our customised tiffin service plans.
+                  <p class="FistArt" runat="server" id="lunch" visible="false" ><%--Lunch is the most important meal of the day and people like to make elaborate plans and menu for this meal. But what do you do when you are too busy to even cook or cooking doesn’t interest you? Allow KOMP to take care of your lunch. You can just order online with a click of a mouse or call us up. Now with our easy subscription plans, affordable price, a varied daily menu and hygienic packaging options, you can either go for a set menu or virtually design your own meal at KOMP by opting for our customised tiffin service plans.--%>
                   <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
-                  The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. Further, as per your preference & taste we have also included a choice of additional Veg dish and desserts in our meal plan. <br /><br />
-Also, if you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
-You get unlimited variety in your meals by selecting one of the below plans catering to your own preference:
+                  The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. Further, as per your preference &amp; taste we have also included a choice of additional Veg dish and desserts in our meal plan. <br /><br />
+                  Also, if you wish to have both Veg &amp; Non-Veg in same meal plan in our Traditional Indian Plate meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg (V) as well as Non-Veg (NV) dishes in their meals throughout the month. In V-NV meal plan Non Veg is served on Wednesday &amp; Friday and rest of the days Veg is served. <br /><br />
+                   You get unlimited variety in your meals by selecting one of the below plans catering to your own preference: “TAKE-IN-TURN” TAB under meal plans to be changed to V-NV
 
                   </p>
                   <p class="FistArt" runat="server" id="dinner" visible="false" >Now you not only get unlimited variety in your lunch, but in your dinner meals as well by selecting one of the below plans catering to your own preference.
@@ -149,9 +149,6 @@ You get unlimited variety in your meals by selecting one of the below plans cate
                   The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. <br /><br />
 Further, as per your preference & taste, we have also included a choice of additional Veg dish and desserts in our meal plans.         The meal plans are - Essential, Classic & Grand.<br /><br />
 If you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
-
-
-
                   </p>
                   <p class="FistArt" runat="server" id="dinnerNutri" visible="false">In the earlier days, they used to say, breakfast like a king and dine like a pauper. But that does not mean you have to starve yourself. The idea here is to have a light dinner, which is easy to digest and yet pack you with enough essential nutrients. <br /><br />
 We at KOMP understand that cooking at night after a long day at work can be quite tiresome for busy professionals. Hence, we have come up with Nutrimeals plans. <br /> <br /> 
@@ -163,10 +160,9 @@ We do not, however, believe in cost-cutting and passing of ordinary stuff as a h
 Choose from our following packages to enjoy a tasty meal.
 </p>
 
-<p class="FistArt" runat="server"  id="lunchNutri" visible="false" >Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday & Friday and rest of the days Veg is served.We cherish the satisfaction you feel after every healthy meal. Choose from our following packages for a tasty meal. 
-<br /> <br /> <span class="page-titleSmall">Nutrimeal Plate</span> <br /> No more fretting about eating out every day and worrying about hygienic food or cholesterol. No more fussing about getting vital nutrients. We realize that people need a convenient and timely meal service in these fast times, but at the same time are quite health-conscious. Hence, we use the best and freshest of ingredients and plan our Nutrimeal recipes keeping nutrition in the centre. <br /><br />
-We cherish the satisfaction you feel after every healthy meal.  Choose from our following packages for a tasty meal.
-
+<p class="FistArt" runat="server"  id="lunchNutri" visible="false" ><%--Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday & Friday and rest of the days Veg is served.We cherish the satisfaction you feel after every healthy meal. Choose from our following packages for a tasty meal. --%>
+<br /> <br /> <span class="page-titleSmall">Nutrimeal Plate</span> <br /> Whether the convenience of hotel food or goodness of nutritious food? Calorie counting or giving in to taste buds? Now you can choose both, health bhi aur taste bhi! We have just the right kind of meals for you – packed with the goodness of multi-grain, pulses, soups and seasonal fruits. We use premium quality ingredients and rice-bran oil for cooking the meals, and make sure we offer you a healthy diet at a very affordable price. <br /><br />
+Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday &amp; Friday and rest of the days Veg is served.
 </p>
 
 
@@ -189,7 +185,9 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
 <div style='width:100%;height:1px;border-top:1px solid #c8c6c6 !important;' class="FistArt">&nbsp;</div>
                       
 
-<a id="btnWeekly" runat="server" clientidmode="Static" href="../#weeklyPlanDiv" style="float: none;margin-left:35%;color:#4b220c"><input type="button" class="proceed" style="float:none;" runat="server" id="btnWeeklyM" clientidmode="Static" value="MENU OF THE WEEK"/></a>
+<a id="btnWeekly" runat="server" clientidmode="Static" href="../#weeklyPlanDiv" style="float: none;margin-left:3
+
+;color:#4b220c"><input type="button" class="proceed" style="float:none;" runat="server" id="btnWeeklyM" clientidmode="Static" value="SAMPLE MENU"/></a>
 
 <br class="FistArt" />
 <div style="clear:both" ></div>
@@ -209,7 +207,7 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
 <td align="center"><span><strong>FRIDAY</strong></span></td>
 <td align="center"><span><strong>SATURDAY</strong></span></td>
 </tr>
-<tr valign="middle" bgcolor="#FFE0CE">
+<%--<tr valign="middle" bgcolor="#FFE0CE">
 <td align="center" style="border-right-width:4px;border-right-color:#c8c6c6;border-right-style:solid;"><strong></strong></td>
 <td align="center"><strong><asp:Label ID="lblDt1" runat="server"></asp:Label> </strong></td>
 <td align="center"><strong><asp:Label ID="lblDt2" runat="server"></asp:Label></strong></td>
@@ -217,7 +215,7 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
 <td align="center"><strong><asp:Label ID="lblDt4" runat="server"></asp:Label></strong></td>
 <td align="center"><strong><asp:Label ID="lblDt5" runat="server"></asp:Label></strong></td>
 <td align="center"><strong><asp:Label ID="lblDt6" runat="server"></asp:Label></strong></td>
-</tr>
+</tr>--%>
     <asp:Literal ID="ltrlRow" Visible="true"  runat="server"></asp:Literal>
 
   <tr valign="middle" style="color:#333; font-style:italic; font-size:12px;background-color: #fff" > <td colspan="7"> <span>&nbsp;&nbsp;* Customer shall receive the meal content as per the plan chosen. Menu options are subject to change due to market availability and seasonal demands.</span></td></tr>
@@ -262,15 +260,19 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
         <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>CHECK YOUR DELIVERY AREA</h1>
         </article>
          <div class="ProcesBoxInner" >
-         <div>Please enter your pin code for delivery availability</div>
-        <%--<div>Please click on "Proceed" if you have confirmed with us the availability of KOMP delivery service at your location. If you haven't then call us on <span style="color:red">+91 9699 699204</span> to confirm or fill up our "online enquiry" form by <a href="ContactUs.aspx" ><span style="color:red">clicking here</span></a> and we will revert to you with the status as earliest as possible.</div>--%>
-        <%--<input type="button" value="Back" onclick="ShowItems();" />--%>
-        <br />
-        <input id="txtPinCode" runat="server" onclick="HideDateBoxes();" clientidmode="Static" class="textbox NumberClass" maxlength="6" autocomplete="off" placeholder="Pincode" type="text" /> <br />
-        <input type="button" class="proceed" value="PROCEED" onclick="return CheckArea();" />
-       
-
-        
+             <% if (IsLunch == true)
+                 { %>
+                    <div>Please enter your pin code for delivery availability</div>        
+                    <br />
+                <input id="txtPinCode" runat="server" onclick="HideDateBoxes();" clientidmode="Static" class="textbox NumberClass" maxlength="6" autocomplete="off" placeholder="Pincode" type="text" /> <br />
+                <input type="button" class="proceed" value="PROCEED" onclick="return CheckArea();" />
+             <%}
+                 else
+                 { %>
+                     
+             <p>At present our dinner service is available in Andheri East, Andheri West, Vile Parle East, Vile Parle West, Jogeshwari East,  Jogeshwari West, Santa Cruz East, Santa Cruz West, Powai, Ghatkopar.</p>
+             <input type="button" class="proceed" value="PROCEED" onclick="AftercheckValid();" />
+        <%} %>
         
 
         <%--<input type="button" class="proceedBack" value="Edit" onclick="EditMeals();" />--%>
@@ -287,7 +289,7 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
          <div class="ProcesBoxInner" >
          <%--<span>Select Start Date</span><br />--%>
          <div style="display:none">
-         <span>We have 2 types of plans</span><br />
+         <span>We have 3 types of plans</span><br />
         <%--<input type="radio" id="rd1" class="mealplan" planid="1" checked="checked" daysPlan="10" deliveryChrg="300" validaty="15" name="plan" /><span>10 Days Meal Plan (to be consumed in 15 working days)</span> <br />
         <input type="radio" id="rd2" class="mealplan" planid="2" daysPlan="22" validaty="35" deliveryChrg="600" name="plan" /><span>22 Days Meal Plan (to be consumed in 35 working days)</span><br />
         <input type="radio" id="rd3" class="mealplan" planid="3" daysPlan="2" validaty="5" deliveryChrg="75" name="plan" /><span>22 Days Meal Plan (to be consumed in 35 working days)</span><br />--%>
@@ -387,7 +389,7 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
         <div style="width:100%;" >
                  <table class="tableCart tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
                  <thead>
-                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td></td><td>ORDER</td><td>PRODUCT</td><td>QUANTITY</td><td>AMOUNT</td></tr>
+                 <tr class='divRow dataHeader' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td></td><td>ORDER</td><td>PRODUCT</td><td>Total No. Of Meals</td><td align="center">AMOUNT</td></tr>
                  </thead>                 
 				<tbody>
 				</tbody>  
@@ -863,8 +865,13 @@ We cherish the satisfaction you feel after every healthy meal.  Choose from our 
     }
 
 function AftercheckValid()
-{
-$('#ContentPlaceHolder1_divItem,.weeklyMenuTable,.pt').show(); $('#divSetDate').show(); $('#divSetDate2').hide();
+    {
+    if(pincode==0)
+    {
+        pincode="400001"
+    }
+        swal("Welcome, Kitchen On My Plate meal delivery service is available in your area. Please select your meal start date.");
+        $('#ContentPlaceHolder1_divItem,.weeklyMenuTable,.pt').show(); $('#divSetDate').show(); $('#divSetDate2').hide();
         ScrollPage();$('#txtPossessionDate').val(''); 
 }
     function ShowQuantity() {
@@ -983,7 +990,24 @@ $('#ContentPlaceHolder1_divItem,.weeklyMenuTable,.pt').show(); $('#divSetDate').
 //                }
 //            }
 //        });
-
+        var discount=0;
+        $.ajax
+                  ({
+                      type: "POST",
+                      url: "KompServices.asmx/GetDiscount",
+                      contentType: "application/json; charset=utf-8",
+                      data: "{DaysCout:" + JSON.stringify(dates.length) + "}",
+                      dataType: "json",
+                      async:false,
+                      success: function (result) {
+                          discount=result.d.Discount;
+                      }
+                  });
+        var discountAmount=0;
+        if(discount >0)
+        {
+            discountAmount=SubTotal-(SubTotal*discount/100);
+        }
         order.TotalPayment = SubTotal;
         
         payment.Id = 0;
@@ -997,7 +1021,7 @@ $('#ContentPlaceHolder1_divItem,.weeklyMenuTable,.pt').show(); $('#divSetDate').
         payment.TrnChrg = 0;//  parseInt(TrnChrg * SubTotal / 100);
         payment.DeliveryChrg = DeliveryChrg;
         payment.IsActive = 0;
-
+        payment.Discount=discountAmount;
        // DeliveryChrgTotal = parseInt(DeliveryChrgTotal) + parseInt(DeliveryChrg);
 
         order.TotalPayment = parseFloat(SubTotal) + parseFloat(DeliveryChrg);

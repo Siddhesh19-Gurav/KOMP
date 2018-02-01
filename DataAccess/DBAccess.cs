@@ -410,14 +410,14 @@ namespace KitchenOnMyPlate.DataAccess
         {
             Config config = new Config();
 
-            if (!CacheHelper.Get("Config", out config))
-            {
+            //if (!CacheHelper.Get("Config", out config))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     config = (from w in db.Configs select w).First();
-                    CacheHelper.Add(config, "Config", 2000);
+                    ///CacheHelper.Add(config, "Config", 2000);
                 }
-            }
+            //}
 
             return config;
 

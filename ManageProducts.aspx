@@ -134,10 +134,6 @@
  </div>
         <br /><br />
 
-    
-    
-      
-
         <br style="clear:both"  />
         
         <asp:Button ID="btnSubmit" runat="server" CssClass="proceed" onclick="Button1_Click"   Text="Submit" />       

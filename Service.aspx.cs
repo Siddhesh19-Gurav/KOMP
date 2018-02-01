@@ -79,8 +79,8 @@ namespace KitchenOnMyPlate
                     var timeInIndia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, zone);
                     var timeInIndiaAsString = timeInIndia.ToString("hh:mm tt", CultureInfo.InvariantCulture);
 
-                    //start from 1 PM
-                    if (timeInIndia.Hour > 12 && timeInIndiaAsString.Contains("PM"))
+                    //start from 4 PM
+                    if (timeInIndia.Hour > 16 && timeInIndiaAsString.Contains("PM"))
                     {
                         minDateAdmin = 2;
                     }
@@ -141,7 +141,7 @@ namespace KitchenOnMyPlate
                     btnWeekly.Visible = true;
                     SetWeeklyMenu("NL");
                     lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (LUNCH)";
-                    btnWeeklyM.Value = "MENU OF THE WEEK - LUNCH";
+                    btnWeeklyM.Value = "SAMPLE MENU - LUNCH";
 
                     Page.Title = "Nutrimeal Plate | Nutrimeal Lunch in Mumbai - kitchenonmyplate.com";
                     Page.MetaDescription = "Nutrimeal Lunch Tiffin services with both veg and non-veg food items in Mumbai, We deliver delicious Nutri Meal lunch or meals across Mumbai.";
@@ -157,7 +157,7 @@ namespace KitchenOnMyPlate
                     btnWeekly.Visible = true;
                     SetWeeklyMenu("ND");
                     lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (DINNER)";
-                    btnWeeklyM.Value = "MENU OF THE WEEK - DINNER";
+                    btnWeeklyM.Value = "SAMPLE MENU - DINNER";
 
                     Page.Title = "Order Online Nutrimeal Lunch in Mumbai | Nutrimeal Plate - kitchenonmyplate.com";
                     Page.MetaDescription = "Order online nutrimeal Dinner Tiffin services with both veg and non-veg. We deliver delicious nutri meal dinner tiffin services across Mumbai.";
@@ -171,7 +171,7 @@ namespace KitchenOnMyPlate
                     imgB.Src = "images/banner/Tiffin_Service_Lunch.jpg";
                     SetWeeklyMenu("TL");
                     lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (LUNCH)";
-                    btnWeeklyM.Value = "MENU OF THE WEEK - LUNCH";
+                    btnWeeklyM.Value = "SAMPLE MENU - LUNCH";
 
 
                     Page.Title = "Traditional Indian Plate | Traditional Lunch Tiffin - kitchenonmyplate.com";
@@ -186,7 +186,7 @@ namespace KitchenOnMyPlate
                     imgB.Src = "images/banner/DINNER_tiffin_service_thumbs.jpg";
                     SetWeeklyMenu("TD");
                     lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (DINNER)";
-                    btnWeeklyM.Value = "MENU OF THE WEEK - DINNER ";
+                    btnWeeklyM.Value = "SAMPLE MENU - DINNER ";
 
                     Page.Title = "Traditional Dinner Tiffin | Dinner Tiffin Services Mumbai - kitchenonmyplate.com";
                     Page.MetaDescription = "A tasty and healthy traditional dinner tiffin services in Mumbai.You choose and customize Veg and Non Veg dinner tiffin services & we will deliver and price accordingly.";
@@ -196,19 +196,35 @@ namespace KitchenOnMyPlate
                 divItem.InnerHtml = HTMLGenerator.GetSubProductUnderProduct("N", (item.ToUpper() == "NUTRIMEAL") ? 6 : 1, IsLunch ? "1" : "0");
 
                 //<!--Note start-->
-                divItem.InnerHtml = divItem.InnerHtml + "<div id='Note3382' style='clear: both;width: 100%;height: auto;border: 1px solid #c8c6c6;border-bottom: 0px !important;font-family: RobotoBlack;'>" +
-"<div class='leftsubDetails'>"+
-"<div style='clear:both'></div>"+
-"<div class='subProductDetails'>"+
+                if (!IsLunch && item.ToUpper() == "TRADITIONAL")//Dinner
+                {
+                    divItem.InnerHtml = divItem.InnerHtml + "<div id='Note3382' style='clear: both;width: 100%;height: auto;border: 1px solid #c8c6c6;border-bottom: 0px !important;font-family: RobotoBlack;'>" +
+"<div class='leftsubDetails'>" +
+"<div style='clear:both'></div>" +
+"<div class='subProductDetails'>" +
+"<span style='font-size:13px; ' >*Meal Prices are exclusive of all Taxes.  <br />" +
+"*Delivery Charges : 5 Days – Rs. 225 | 10 Days – Rs. 350 | 22 Days – Rs. 770 |44 Days – Rs. 1540" +
+"</span>" +
+"</div>" +
+"</div>" +
+"<div style='clear:both;'></div>" +
+"</div>";
+                }
+                else
+                {
+                    divItem.InnerHtml = divItem.InnerHtml + "<div id='Note3382' style='clear: both;width: 100%;height: auto;border: 1px solid #c8c6c6;border-bottom: 0px !important;font-family: RobotoBlack;'>" +
+"<div class='leftsubDetails'>" +
+"<div style='clear:both'></div>" +
+"<div class='subProductDetails'>" +
 "<span style='font-size:13px; ' >*Meal Prices are exclusive of all Taxes.  <br />" +
 "*Delivery Charges : 5 Days – Rs. 200 | 10 Days – Rs. 300 | 22 Days – Rs. 660 | 44 Days – Rs. 1320" +
-"</span>"+
-"</div>"+
-"</div>"+
-"<div style='clear:both;'></div>"+
+"</span>" +
+"</div>" +
+"</div>" +
+"<div style='clear:both;'></div>" +
 "</div>";
-//<!--Note start-->
-
+                    //<!--Note start-->
+                }
             }
 
         }

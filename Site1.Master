@@ -598,7 +598,7 @@
                             <a href="PaymentAndDelivery" target="_blank" class="icon-neft"></a>
                             <%--<a href="PaymentAndDelivery" target="_blank" class="icon-cash-deposit"></a>
                             <a href="PaymentAndDelivery" target="_blank" class="icon-cheque-deposit"></a>--%>
-                            <a href="PaymentAndDelivery" target="_blank" class="icon-cash-pickup"></a>
+                            <%--<a href="PaymentAndDelivery" target="_blank" class="icon-cash-pickup"></a>--%>
                             
                         </div>
                         <a style="float:right;color:#fff;font-size:9px;margin-right:177px;margin-top:-3px;" >Powered By CCAvenue</a>

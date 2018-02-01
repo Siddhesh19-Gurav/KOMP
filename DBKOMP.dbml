@@ -97,18 +97,6 @@
       <Column Name="pincode" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Config" Member="Configs">
-    <Type Name="Config">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TrnChrg" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DeliveryChrg" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
-      <Column Name="CashPickUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CashPickUpPercent" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -224,6 +212,18 @@
       <Column Name="Comments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="GSTCharges" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
       <Column Name="Discount" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Config" Member="Configs">
+    <Type Name="Config">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TrnChrg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeliveryChrg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="CashPickUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CashPickUpPercent" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

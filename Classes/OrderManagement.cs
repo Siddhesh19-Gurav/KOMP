@@ -120,7 +120,7 @@ namespace KitchenOnMyPlate.Classes
                 var LunchDinner = item.Order.IsLunch == 0 ? "LUNCH" : "DINNER";
                 //strOrders = strOrders + "<tr class='divRow cstItem' id='Ord" + item.Order.Id.ToString() + "' align='center'></td><td  style='width:10%;'>" + (orders.orders.Count - indx) + ".</td><td  style='width:60%;'  align='left'> <span>" + mealType + "</span><br/><span class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate + "</span></td><td><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='center'><span id='spCharge' class='price'><img alt='rs' src='images/rs3.png' style='margin-top: -10px;'/>" + item.payment.Amount + "</span></td></tr>";
                 //strOrders = strOrders + "<tr class='divRow cstItem' id='OrdHome" + indx + "' align='center'><td  style='width:10%;' align='center' ><span class='deleteProduct' onclick='DeleteOrderOnHome(" + indx + ");' title='Delete Order' >x</span>&nbsp;</td><td  style='width:10%;'>" + (indx + 1) + ".</td><td  style='width:60%;'  align='left'> <span>" + mealType + "</span><br/><h2 class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate.Value.ToString("dd/MM/yyyy") + "<br/>MEAL TYPE : " + LunchDinner + "</h2></td><td><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='center'><span id='spCharge' class='price'><i class='fa fa-inr'></i>" + item.payment.Amount + "</span></td></tr>";
-                strOrders = strOrders + "<tr class='divRow cstItem Ord" + (indx + 1) + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrderOnHome(" + indx + ");' title='Delete Order' >x</span></td><td  style='width:10%;'>" + (indx + 1) + ".</td><td  style='width:60%;'  align='left'> <span>" + mealType + "</span><br/><span class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate.Value.ToString("dd/MM/yyyy") + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", item.payment.Amount) + "</span></td></tr>";
+                strOrders = strOrders + "<tr class='divRow cstItem Ord" + (indx + 1) + "' align='center'><td  style='width:10%;'><span class='deleteProduct' onclick='DeleteOrderOnHome(" + indx + ");' title='Delete Order' >x</span></td><td  style='width:10%;'>" + (indx + 1) + ".</td><td  style='width:50%;'  align='left'> <span>" + mealType + "</span><br/><span class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate.Value.ToString("dd/MM/yyyy") + "<br/>MEAL TYPE : " + LunchDinner + "</span></td><td style='width:12%;'><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='right'><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", item.payment.Amount) + "</span></td></tr>";
                 subTotal = subTotal + item.payment.Amount ?? 0;
                 deliveryChrg = deliveryChrg + item.payment.DeliveryChrg ?? 0;
                 tranChrg = tranChrg + item.payment.TrnChrg ?? 0;
@@ -177,7 +177,7 @@ namespace KitchenOnMyPlate.Classes
                 mealType = (item.Order.NonCustomized == 0) ? "CUSTOMIZED MEALS" : GetSubProductNameById(item.OrderDetailList[0].SubProductId);
                 var LunchDinner = item.Order.IsLunch == 0 ? "LUNCH" : "DINNER";
                 //strOrders = strOrders + "<tr class='divRow cstItem' id='Ord" + item.Order.Id.ToString() + "' align='center'></td><td  style='width:10%;'>" + (orders.orders.Count - indx) + ".</td><td  style='width:60%;'  align='left'> <span>" + mealType + "</span><br/><span class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate + "</span></td><td><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='center'><span id='spCharge' class='price'><img alt='rs' src='images/rs3.png' style='margin-top: -10px;'/>" + item.payment.Amount + "</span></td></tr>";
-                strOrders = strOrders + "<tr class='divRow cstItem' id='OrdHome" + indx + "' align='center'><td  style='width:10%;' align='center' ><span class='deleteProduct' onclick='DeleteOrderOnHome(" + indx + ");' title='Delete Order' >x</span>&nbsp;</td><td  style='width:10%;'><span>" + (indx + 1) + ".</span></td><td  style='width:60%;'  align='left'> <span>" + mealType + "</span><br/><h2 class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate.Value.ToString("dd/MM/yyyy") + "<br/>MEAL TYPE : " + LunchDinner + "</h2></td><td><span> " + item.OrderDetailList.Count + "</span></td><td style='width:30%;' align='center'><span id='spCharge' class='price'><i class='fa fa-inr'></i>" + item.payment.Amount + "</span></td></tr>";
+                strOrders = strOrders + "<tr class='divRow cstItem' id='OrdHome" + indx + "' align='center'><td  style='width:5%;' align='center' ><span class='deleteProduct' onclick='DeleteOrderOnHome(" + indx + ");' title='Delete Order' >x</span>&nbsp;</td><td  style='width:5%;'><span>" + (indx + 1) + ".</span></td><td  style='width:50%;'  align='left'> <span>" + mealType + "</span><br/><h2 class='startDate'>MEAL START DATE : " + item.OrderDetailList[0].DeliverDate.Value.ToString("dd/MM/yyyy") + "<br/>MEAL TYPE : " + LunchDinner + "</h2></td><td style='width:12%;'><span> " + item.OrderDetailList.Count + "</span></td><td style='width:35%;' align='center'><span id='spCharge' class='price'><i class='fa fa-inr'></i>" + item.payment.Amount + "</span></td></tr>";
 
                 subTotal = subTotal + item.payment.Amount ?? 0;
                 deliveryChrg = deliveryChrg + item.payment.DeliveryChrg ?? 0;
@@ -375,10 +375,10 @@ namespace KitchenOnMyPlate.Classes
                     TotalDiscount = TotalDiscount + discount ?? 0;
 
                     tranCharge = (((order.payment.Amount- discount) + order.payment.DeliveryChrg) * tranChargeConfig / 100) ?? 0;
-                    
 
 
 
+                    tranCharge = Math.Round(tranCharge);
                     order.Order.TotalPayment = (method == "11" || method == "12" || method == "13")?0:((order.payment.Amount - discount) + tranCharge + order.payment.DeliveryChrg);
 
                     if (method == "14")//Cas pikup
@@ -388,11 +388,11 @@ namespace KitchenOnMyPlate.Classes
 
                     decimal GstCharges = ((order.Order.TotalPayment) * GstPercent / 100) ?? 0;
 
-                    order.Order.TotalPayment = order.Order.TotalPayment + GstCharges;                    
+                    order.Order.TotalPayment = order.Order.TotalPayment + (Math.Round(GstCharges)+ Math.Round(GstCharges));                    
                     db.Orders.InsertOnSubmit(order.Order);
                     db.SubmitChanges();
 
-                    order.payment.GSTCharges = GstCharges;
+                    order.payment.GSTCharges = (Math.Round(GstCharges) + Math.Round(GstCharges));
                     
 
                     if (method == "14") //Cash pikup delivery
