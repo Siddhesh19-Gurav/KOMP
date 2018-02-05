@@ -95,6 +95,7 @@
     <asp:ListItem Value="-1">-Select Meal Type-</asp:ListItem>
     <asp:ListItem Value="1">Veg</asp:ListItem>
     <asp:ListItem Value="0">Non-Veg</asp:ListItem>
+    <asp:ListItem Value="3">V-NV</asp:ListItem>
         </asp:DropDownList>
         <br />    <br />    
     
@@ -113,6 +114,14 @@
     <asp:ListItem Value="0">Disabled</asp:ListItem>
         </asp:DropDownList>
         <br />   
+
+     <div style="width:120px">Show IN</div>
+    <asp:DropDownList ID="ddlShowIn" runat="server">    
+    <asp:ListItem Value="1">Lunch</asp:ListItem>
+    <asp:ListItem Value="0">Dinner</asp:ListItem>
+    <asp:ListItem Value="2">Both</asp:ListItem>
+        </asp:DropDownList>
+        <br />   
  
 
  </div>
@@ -121,9 +130,13 @@
 <div style="width:auto">Header</div>
     <textarea id ="txtHeader" style="height:36px"  runat="server" ></textarea>    
     <br />    
-    <div style="width:120px">Details</div>
+    <div style="width:120px">Details(Lunch)</div>
     
     <textarea id ="txtDescription" cols="50" rows="5"  runat="server" ></textarea><br />  
+    <br />    
+    <div style="width:120px">Details(Dinner)</div>
+    
+    <textarea id ="txtDinnerDescription" cols="50" rows="5"  runat="server" ></textarea><br />  
     <div style='clear:both' ></div>
 
 <div style="width:auto">Show in Customized/Non-Customized</div>
@@ -146,9 +159,9 @@
     Tue <input type="checkbox" runat="server" id="chk2" clientidmode="Static" value="Tuesday"/><label for="chk2" ></label>
     Wed <input type="checkbox" runat="server" id="chk3" clientidmode="Static" value="Wednesday"/><label for="chk3" ></label>
     Thu <input type="checkbox" runat="server" id="chk4" clientidmode="Static" value="Thursday"/><label for="chk4" ></label>
-    Fri <input type="checkbox" runat="server" id="chk5" clientidmode="Static" value="Friday"/><label for="chk4" ></label>
-    Sat <input type="checkbox" runat="server" id="chk6" clientidmode="Static" value="Saturday"/><label for="chk5" ></label>
-    <input type="checkbox" runat="server" visible="false" id="chk7" clientidmode="Static" value="Sunday"/><label for="chk6" ></label>
+    Fri <input type="checkbox" runat="server" id="chk5" clientidmode="Static" value="Friday"/><label for="chk5" ></label>
+    Sat <input type="checkbox" runat="server" id="chk6" clientidmode="Static" value="Saturday"/><label for="chk6" ></label>
+    <input type="checkbox" runat="server" visible="false" id="chk7" clientidmode="Static" value="Sunday"/><label for="chk7" ></label>
     <br /><br />
 
     <div style="width:auto">Show in Customized list on Page?</div>    
@@ -212,10 +225,10 @@
                 ShowSelectButton="True" >
 <ItemStyle ForeColor="Red"></ItemStyle>
             </asp:CommandField>
-            <asp:CommandField HeaderText="Delete" ItemStyle-ForeColor="Red" 
+<%--            <asp:CommandField HeaderText="Delete" ItemStyle-ForeColor="Red" 
                 ShowDeleteButton="True" >
 <ItemStyle ForeColor="Red"></ItemStyle>
-            </asp:CommandField>
+            </asp:CommandField>--%>
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />

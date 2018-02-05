@@ -244,7 +244,7 @@ namespace KitchenOnMyPlate.DataAccess
                 {
                     list = new List<MenuItem>();
 
-                    var propertyType = (from w in db.MenuItems where w.IsActive == 1 orderby w.MenuId select w).ToList();
+                    var propertyType = (from w in db.MenuItems where w.IsActive == 1 orderby w.OrderBy select w).ToList();
 
                     foreach (var item in propertyType)
                     {

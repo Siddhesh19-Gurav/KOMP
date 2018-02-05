@@ -101,7 +101,7 @@ namespace KitchenOnMyPlate.DataAccess
                                 strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan'>" + pl.Name + "</span> "+BreakIfMoreThan2+
                                     "<div style='float:left;text-align:right' ><span class='" + VegCust + "' ><img src='images/" + rs + "'  alt='Rs' />" + price + "</span></div>" +
                                     //"<br/><span class='price'><img src='images/rs.png' />" + pl.DaysInPlan * subPro.Price + "</span><br/>"+
-                                    "<input class='btnRed service" + subPro.Id + pl.Id + "' type='button' onclick= SetSubPID('service" + subPro.Id +pl.Id+"','" + subPro.Id + "','" + pl.DaysInPlan + "','" + pl.ValidUpTo + "','" + pl.ValidUpTo + "','" + pl.DeliveryCharges + "'); value='+ ORDER' /></div>";
+                                    "<input class='btnRed service" + subPro.Id + pl.Id + "' type='button' onclick= SetSubPID('service" + subPro.Id +pl.Id+"','" + subPro.Id + "','" + pl.DaysInPlan + "','" + pl.ValidUpTo + "','" + pl.ValidUpTo + "','" + ((Islunch == "1") ? pl.DeliveryCharges.ToString() : pl.NightDeliveryCharges.ToString()) + "'); value='+ ORDER' /></div>";
                                 strPlans = plans.Count != plancount?  strPlans +"<div class='planDivider'></div>":strPlans;
                             }
                             string strVeg = subPro.Veg == 1 ? "Veg" : (subPro.Veg == 0)?"Non-Veg":"TNT";
@@ -234,7 +234,7 @@ namespace KitchenOnMyPlate.DataAccess
                             HTMLTexts = HTMLTexts + "<div id='" + subPro.Id + "' mealtype='" + subPro.Veg + "'  class='subItemBox" + LastBorder + "' >" +
 
                                                       "<div class='leftsubDetailsCust' >" +
-                                                            "<div class='subProductHeader' >" + subPro.Header + "</div>" +smallLarge+
+                                                            "<div class='subProductHeader' >" + subPro.Header + "</div><span class='smalllarge' style='color:black;font-style: italic;'> " + subPro.Calories + "</span>"+
                                                             "<div style='clear:both'></div>" +
                                                             "<div class='subProductDetails' >" + subPro.Detail + "</div>" +
                                                             //Available days start

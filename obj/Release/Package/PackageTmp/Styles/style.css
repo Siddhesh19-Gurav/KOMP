@@ -128,7 +128,7 @@ font-weight:bold;
 	.startDate {font-size:12px; color:#808285;}
 	.ui-datepicker{margin-left:0px !important;}
 	
-	#disable-dates{ padding-left:25px;}
+	#disable-dates{ padding-left:25px;width:100%;}
 	
 	.DivWithButtonOnly .btnRed{background-color:#F16822 !important;}
 	
@@ -378,7 +378,7 @@ input[type="radio"]:checked:before {
 .AboutImg1{float:left; border:1px solid #c8c6c6; padding:8px; margin:10px 20px 15px 0;}
 
 /*================================common class here=================================*/
-.inner{ margin:0 auto;  max-width:1003px}
+.inner{ margin:0 auto;  max-width:81%}
 .head-lft{ position:relative}
 .logo{ display:inline-block; margin-top:4px}
 .komp{ position:absolute; left:194px; top:0}
@@ -606,3 +606,7 @@ a:hover{ color:#F37624 !important;}
 
 
 .buttleted{ margin-top:-5px;height:16px}
+
+.ui-datepicker-multi-4 {
+    width:55em !important;
+}

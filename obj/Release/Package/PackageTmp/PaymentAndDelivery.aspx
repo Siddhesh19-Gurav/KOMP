@@ -127,7 +127,7 @@
 <p class='msg_body'>You will receive a payment confirmation SMS on your mobile number or email to your email address registered with KOMP.</p><br>
 
 <div  class='msg_head' ><strong><div class="toggl pls" ></div>When does my meal plan start?</strong></div>
-<p class='msg_body'>KOMP to receive the payment for meal orders by12 pm at least a day before to your meal start date. The meal delivery for any payment received after 12 pm will start a day later. </p><br>
+<p class='msg_body'>KOMP to receive the payment for meal orders by 4 pm at least a day before to your meal start date. The meal delivery for any payment received after 4 pm will start a day later. </p><br>
 
 <div  class='msg_head' ><strong><div class="toggl pls" ></div>When & Where Does KOMP Deliver In Mumbai? </strong></div>
 <p class='msg_body'>KOMP Meal delivery days are - Monday to Saturday. 

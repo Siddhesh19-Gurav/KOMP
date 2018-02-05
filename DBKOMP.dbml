@@ -161,38 +161,6 @@
       <Column Name="DetailCus" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.MenuItems" Member="MenuItems">
-    <Type Name="MenuItem">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Header" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="Detail" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="Picture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="PicDetails" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="Veg" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NonCustomized" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AvailableDay" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="ShowDetails" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Varity" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="DetailDinner" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="ShowInBoth" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="Calories" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[Plan]" Member="Plans">
-    <Type Name="Plan">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="DaysInPlan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ValidUpTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DeliveryCharges" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Payment" Member="Payments">
     <Type Name="Payment">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -224,6 +192,40 @@
       <Column Name="email" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
       <Column Name="CashPickUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CashPickUpPercent" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Plan]" Member="Plans">
+    <Type Name="Plan">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DaysInPlan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValidUpTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeliveryCharges" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
+      <Column Name="NightDeliveryCharges" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuItems" Member="MenuItems">
+    <Type Name="MenuItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PicDetails" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Veg" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NonCustomized" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AvailableDay" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShowDetails" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Varity" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DetailDinner" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ShowInBoth" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Calories" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

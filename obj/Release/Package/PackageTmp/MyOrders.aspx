@@ -93,7 +93,7 @@
 
          <table class="tbl" cellspacing="1" width="100%" align="center" cellpadding="5" >
                  <thead>
-                 <tr class='divRow dataHeader DR' style='' ><td>ORDER ID</td><td>PRODUCT</td><td>QUANTITY</td><td>ORDER PLACED DATE</td><td>PAYMENT STATUS</td><td></td></tr>
+                 <tr class='divRow dataHeader DR' style='' ><td>ORDER ID</td><td>PRODUCT</td><td>Total No. Of Meals</td><td>ORDER PLACED DATE</td><td>PAYMENT STATUS</td><td></td></tr>
                  </thead>                 
 				<tbody>                
                     <div id="divOrders" runat="server" style="width:100%;height:auto" ></div>

@@ -140,7 +140,7 @@ namespace KitchenOnMyPlate
                     imgB.Src = "images/banner/Tiffin Service - Lunch Nutri-Meals.jpg";
                     btnWeekly.Visible = true;
                     SetWeeklyMenu("NL");
-                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (LUNCH)";
+                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG SAMPLE MENU (LUNCH)";
                     btnWeeklyM.Value = "SAMPLE MENU - LUNCH";
 
                     Page.Title = "Nutrimeal Plate | Nutrimeal Lunch in Mumbai - kitchenonmyplate.com";
@@ -156,7 +156,7 @@ namespace KitchenOnMyPlate
                     imgB.Src = "images/banner/Tiffin Service - Dinner Nutri-Meals.jpg";
                     btnWeekly.Visible = true;
                     SetWeeklyMenu("ND");
-                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (DINNER)";
+                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG SAMPLE MENU (DINNER)";
                     btnWeeklyM.Value = "SAMPLE MENU - DINNER";
 
                     Page.Title = "Order Online Nutrimeal Lunch in Mumbai | Nutrimeal Plate - kitchenonmyplate.com";
@@ -170,7 +170,7 @@ namespace KitchenOnMyPlate
                     lunch.Visible = true;
                     imgB.Src = "images/banner/Tiffin_Service_Lunch.jpg";
                     SetWeeklyMenu("TL");
-                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (LUNCH)";
+                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG SAMPLE MENU (LUNCH)";
                     btnWeeklyM.Value = "SAMPLE MENU - LUNCH";
 
 
@@ -185,7 +185,7 @@ namespace KitchenOnMyPlate
                     dinner.Visible = true;
                     imgB.Src = "images/banner/DINNER_tiffin_service_thumbs.jpg";
                     SetWeeklyMenu("TD");
-                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG WEEKLY MENU (DINNER)";
+                    lblWEEKLYTEXT.Text = "OUR VEG & NON-VEG SAMPLE MENU (DINNER)";
                     btnWeeklyM.Value = "SAMPLE MENU - DINNER ";
 
                     Page.Title = "Traditional Dinner Tiffin | Dinner Tiffin Services Mumbai - kitchenonmyplate.com";
