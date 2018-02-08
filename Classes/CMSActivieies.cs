@@ -175,6 +175,7 @@ namespace KitchenOnMyPlate.Classes
                     objUpdated.Calories = obj.Calories;
                     objUpdated.DetailDinner = obj.DetailDinner;
                     objUpdated.ShowInBoth = obj.ShowInBoth;
+                    objUpdated.OrderBy = obj.OrderBy;
                 }
                 db.SubmitChanges();
                 db.Dispose();

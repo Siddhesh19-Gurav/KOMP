@@ -76,6 +76,15 @@ namespace KitchenOnMyPlate.Masters {
         protected global::System.Web.UI.WebControls.DropDownList ddlShowIn;
         
         /// <summary>
+        /// txtOrderBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOrderBy;
+        
+        /// <summary>
         /// txtHeader control.
         /// </summary>
         /// <remarks>

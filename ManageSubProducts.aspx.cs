@@ -119,7 +119,7 @@ namespace KitchenOnMyPlate.Masters
                 newObject.Varity = txtVarity.InnerText;
                 newObject.DetailDinner = txtDinnerDescription.InnerText;
                 newObject.ShowInBoth = ddlShowIn.SelectedValue;
-
+                newObject.OrderBy = Convert.ToInt32(txtOrderBy.Text);
                 newObject.IsActive =  Convert.ToInt32(drpActive.SelectedValue);
 
                 if (drpCust.SelectedValue == "0")

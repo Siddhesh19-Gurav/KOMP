@@ -98,8 +98,16 @@ namespace KitchenOnMyPlate.DataAccess
                                 string price = (pl.DaysInPlan * Convert.ToInt32(subPro.Price)).ToString();
                                 price = price.Length == 3 ? price + "&nbsp;&nbsp;" : price;
 
-                                strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan'>" + pl.Name + "</span> "+BreakIfMoreThan2+
-                                    "<div style='float:left;text-align:right' ><span class='" + VegCust + "' ><img src='images/" + rs + "'  alt='Rs' />" + price + "</span></div>" +
+                                if (pl.DaysInPlan == 44)
+                                {
+                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan' style='padding-top:0px;font-style: italic;'>" + pl.Name.Split(')')[1].ToString() + "</span><br style='clear: both' /><span> "+pl.Name.Split(')')[0].ToString() + ")" + "</span> " + BreakIfMoreThan2;
+                                }
+                                else
+                                {
+                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan'>" + pl.Name + "</span> " + BreakIfMoreThan2;
+                                }
+                                
+                                   strPlans= strPlans+" <div style='float:left;text-align:right' ><span class='" + VegCust + "' ><img src='images/" + rs + "'  alt='Rs' />" + price + "</span></div>" +
                                     //"<br/><span class='price'><img src='images/rs.png' />" + pl.DaysInPlan * subPro.Price + "</span><br/>"+
                                     "<input class='btnRed service" + subPro.Id + pl.Id + "' type='button' onclick= SetSubPID('service" + subPro.Id +pl.Id+"','" + subPro.Id + "','" + pl.DaysInPlan + "','" + pl.ValidUpTo + "','" + pl.ValidUpTo + "','" + ((Islunch == "1") ? pl.DeliveryCharges.ToString() : pl.NightDeliveryCharges.ToString()) + "'); value='+ ORDER' /></div>";
                                 strPlans = plans.Count != plancount?  strPlans +"<div class='planDivider'></div>":strPlans;
@@ -470,8 +478,8 @@ namespace KitchenOnMyPlate.DataAccess
             //    CacheHelper.Clear("WEEKLYMENU" + action);
             //}
 
-            if (!CacheHelper.Get("WEEKLYMENU"+action, out HTMLTexts))
-            {
+            //if (!CacheHelper.Get("WEEKLYMENU"+action, out HTMLTexts))
+            //{
 
                 var weeklyMenu = DataAccess.DBAccess.GetWeeklyMenu(showin);
                 action = action == "" ? "style='display:none'" : "";
@@ -505,8 +513,8 @@ namespace KitchenOnMyPlate.DataAccess
 
                 //  HTMLTexts = HTMLTexts + "</tbody></table>";
 
-                CacheHelper.Add(HTMLTexts, "WEEKLYMENU" + action, 2000);
-            }
+            //    CacheHelper.Add(HTMLTexts, "WEEKLYMENU" + action, 2000);
+            //}
 
             return HTMLTexts;
 

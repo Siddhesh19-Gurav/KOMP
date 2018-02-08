@@ -189,7 +189,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 
 <br class="FistArt" />
 <div style="clear:both" ></div>
-  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee; width:80%; height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
+  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee;left:60% ;height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
 
   <span style='' class='hidemodal' >X</span>
 <h3 class="page-titleSmall pt" style="text-align:center; text-transform:none;color:#4b220c; background-color:#c8c6c6; padding-top:15px;padding-bottom:15px !important;margin-top:0px;margin-bottom:0px" >&nbsp;<asp:Label ID="lblWEEKLYTEXT" runat="server" Text="OUR VEG & NON-VEG WEEKLY MENU"></asp:Label> </h3>
