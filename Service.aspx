@@ -144,18 +144,24 @@ ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfi
                    You get unlimited variety in your meals by selecting one of the below plans catering to your own preference: <%--“TAKE-IN-TURN” TAB under meal plans to be changed to V-NV--%>
 
                   </p>
-                  <p class="FistArt" runat="server" id="dinner" visible="false" >Now you not only get unlimited variety in your lunch, but in your dinner meals as well by selecting one of the below plans catering to your own preference.
-                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
-                  The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. <br /><br />
-Further, as per your preference & taste, we have also included a choice of additional Veg dish and desserts in our meal plans.         The meal plans are - Essential, Classic & Grand.<br /><br />
-If you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. <br /><br />
+                  <p class="FistArt" runat="server" id="dinner" visible="false" ><%--Now you not only get unlimited variety in your lunch, but in your dinner meals as well by selecting one of the below plans catering to your own preference.--%>
+                 <%-- <br /> <br /> --%><span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
+                  The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. <br /><br /> 
+                      Further, as per your preference &amp; taste, we have also included a choice of additional Veg
+dish and desserts in our meal plans. The meal plans are - Essential, Classic & Grand.<br /><br />
+                      If you wish to alternate between our Traditional Indian Plate Veg and Non-Veg meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg as well as Non-Veg dishes in their meals throughout the month. In V-NV meal plan Non Veg is served on Wednesday &amp; Friday and rest of the days Veg is served.
                   </p>
-                  <p class="FistArt" runat="server" id="dinnerNutri" visible="false">In the earlier days, they used to say, breakfast like a king and dine like a pauper. But that does not mean you have to starve yourself. The idea here is to have a light dinner, which is easy to digest and yet pack you with enough essential nutrients. <br /><br />
-We at KOMP understand that cooking at night after a long day at work can be quite tiresome for busy professionals. Hence, we have come up with Nutrimeals plans. <br /> <br /> 
+                  <p class="FistArt" runat="server" id="dinnerNutri" visible="false">We at KOMP understand that cooking at night after a long day at work can be quite tiresome for busy professionals. Hence, we have come up with Nutrimeals plans. <br /> <br /> 
 
 <span class="page-titleSmall">Nutrimeal Plate</span> <br />
-You will have the choice of Veg & Non-Veg set meals which will vary all month round. Our nutritious dinner menu is specially designed keeping in mind our body’s need for fibre, proteins and vitamins; not to forget health and low-fat!<br /><br />
-We do not, however, believe in cost-cutting and passing of ordinary stuff as a healthy meal. We use premium quality ingredients and rice-bran oil for cooking the meals, and make sure we offer you a healthy diet at a very affordable price. We include ingredients as multi-grain, oats, salads and soups to satisfy your tummy as well as taste buds. We want to see you healthy and happy with your meals.<br /><br />
+You will have the choice of Veg &amp; Non-Veg set meals which will vary all month round. Our
+nutritious dinner menu is specially designed keeping in mind our body’s need for fibre,
+proteins and vitamins.<br /><br />We include ingredients as multi-grain, oats, salads, brown rice and soups to satisfy your
+tummy as well as taste buds. If you wish to alternate between our Veg and Non-Veg
+meals, then you can opt for our “V-NV” plan, especially designed for those customers who
+want to relish Veg as well as Non-Veg dishes in their meals throughout the month. In V-NV
+meal plan Non Veg is served on Wednesday & Friday and rest of the days Veg is served. <br /><br />
+
 
 Choose from our following packages to enjoy a tasty meal.
 </p>
@@ -189,7 +195,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 
 <br class="FistArt" />
 <div style="clear:both" ></div>
-  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee;left:60% ;height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
+  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee;left:40% !important;top:40% !important;height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
 
   <span style='' class='hidemodal' >X</span>
 <h3 class="page-titleSmall pt" style="text-align:center; text-transform:none;color:#4b220c; background-color:#c8c6c6; padding-top:15px;padding-bottom:15px !important;margin-top:0px;margin-bottom:0px" >&nbsp;<asp:Label ID="lblWEEKLYTEXT" runat="server" Text="OUR VEG & NON-VEG WEEKLY MENU"></asp:Label> </h3>
@@ -216,7 +222,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 </tr>--%>
     <asp:Literal ID="ltrlRow" Visible="true"  runat="server"></asp:Literal>
 
-  <tr valign="middle" style="color:#333; font-style:italic; font-size:12px;background-color: #fff" > <td colspan="7"> <span>&nbsp;&nbsp;* Customer shall receive the meal content as per the plan chosen. Menu options are subject to change due to market availability and seasonal demands.</span></td></tr>
+  <tr valign="middle" style="color:#333; font-style:italic; font-size:12px;background-color: #fff" > <td colspan="7"> <span>&nbsp;&nbsp;* Customer shall receive the meal content as per the plan chosen.</span></td></tr>
 </tbody>
 </table>
   <%--<div style="clear:both;height:10px;" ></div>--%>
@@ -255,7 +261,12 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
         <div style="clear:both" ></div>
       
         <article class="page-art">
-        <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>CHECK YOUR DELIVERY AREA</h1>
+            <% if (IsLunch == true)
+                        { %>
+                    <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>CHECK YOUR DELIVERY AREA</h1>
+            <% } else {%>
+                <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>DINNER DELIVERY AREA</h1>
+            <% } %>
         </article>
          <div class="ProcesBoxInner" >
              <% if (IsLunch == true)
@@ -268,7 +279,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
                  else
                  { %>
                      
-             <p>At present our dinner service is available in Andheri East, Andheri West, Vile Parle East, Vile Parle West, Jogeshwari East,  Jogeshwari West, Santa Cruz East, Santa Cruz West, Powai, Ghatkopar.</p>
+             <p>At present our dinner service is available in Andheri East, Andheri West, Vile Parle East, Vile Parle West, Jogeshwari East,  Jogeshwari West, Santa Cruz East, Santa Cruz West, Powai, Ghatkopar. To book your dinner meal, Click Proceed</p>
              <input type="button" class="proceed" value="PROCEED" onclick="AftercheckValid();" />
         <%} %>
         
@@ -541,7 +552,14 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 
         //Start YOUR MEAL PLAN
               $('#divEditable .subProductHeader').html($('#'+id+' .subProductHeader').html().split(')')[0]+")");
-            $('#divEditable .plan1').html($("."+sclass).parent().children('.plan').html());        
+              if(DaysInPlan==44)
+              {
+                  $('#divEditable .plan1').html($("."+sclass).parent().children('.for44').html());        
+              }
+              else
+              {
+                  $('#divEditable .plan1').html($("."+sclass).parent().children('.plan').html());        
+              }
             
             var veg1 = "";
             var bClass = "";
@@ -868,7 +886,10 @@ function AftercheckValid()
     {
         pincode="400001"
     }
+    if(IsLunch==true)
+    {
         swal("Welcome, Kitchen On My Plate meal delivery service is available in your area. Please select your meal start date.");
+    }
         $('#ContentPlaceHolder1_divItem,.weeklyMenuTable,.pt').show(); $('#divSetDate').show(); $('#divSetDate2').hide();
         ScrollPage();$('#txtPossessionDate').val(''); 
 }

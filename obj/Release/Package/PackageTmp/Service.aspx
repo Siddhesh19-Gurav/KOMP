@@ -138,10 +138,10 @@ ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfi
                   <div class="col-ms-12">
                   
                   <p class="FistArt" runat="server" id="lunch" visible="false" ><%--Lunch is the most important meal of the day and people like to make elaborate plans and menu for this meal. But what do you do when you are too busy to even cook or cooking doesn’t interest you? Allow KOMP to take care of your lunch. You can just order online with a click of a mouse or call us up. Now with our easy subscription plans, affordable price, a varied daily menu and hygienic packaging options, you can either go for a set menu or virtually design your own meal at KOMP by opting for our customised tiffin service plans.--%>
-                  <br /> <br /> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
+                  <%--<br /> <br />--%> <span class="page-titleSmall">TRADITIONAL INDIAN PLATE (VEG/ NON-VEG/ V-NV)</span> <br />
                   The Traditional Indian Plate offers a complete meal of chapatis, dal, rice, salad, raita with an option to choose from a Veg or Non-Veg curry dish. Further, as per your preference &amp; taste we have also included a choice of additional Veg dish and desserts in our meal plan. <br /><br />
                   Also, if you wish to have both Veg &amp; Non-Veg in same meal plan in our Traditional Indian Plate meals, then you can opt for our “V-NV” plan, especially designed for those customers who want to relish Veg (V) as well as Non-Veg (NV) dishes in their meals throughout the month. In V-NV meal plan Non Veg is served on Wednesday &amp; Friday and rest of the days Veg is served. <br /><br />
-                   You get unlimited variety in your meals by selecting one of the below plans catering to your own preference: “TAKE-IN-TURN” TAB under meal plans to be changed to V-NV
+                   You get unlimited variety in your meals by selecting one of the below plans catering to your own preference: <%--“TAKE-IN-TURN” TAB under meal plans to be changed to V-NV--%>
 
                   </p>
                   <p class="FistArt" runat="server" id="dinner" visible="false" >Now you not only get unlimited variety in your lunch, but in your dinner meals as well by selecting one of the below plans catering to your own preference.
@@ -161,7 +161,7 @@ Choose from our following packages to enjoy a tasty meal.
 </p>
 
 <p class="FistArt" runat="server"  id="lunchNutri" visible="false" ><%--Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday & Friday and rest of the days Veg is served.We cherish the satisfaction you feel after every healthy meal. Choose from our following packages for a tasty meal. --%>
-<br /> <br /> <span class="page-titleSmall">Nutrimeal Plate</span> <br /> Whether the convenience of hotel food or goodness of nutritious food? Calorie counting or giving in to taste buds? Now you can choose both, health bhi aur taste bhi! We have just the right kind of meals for you – packed with the goodness of multi-grain, pulses, soups and seasonal fruits. We use premium quality ingredients and rice-bran oil for cooking the meals, and make sure we offer you a healthy diet at a very affordable price. <br /><br />
+<%--<br /> <br /> --%><span class="page-titleSmall">Nutrimeal Plate</span> <br /> Whether the convenience of hotel food or goodness of nutritious food? Calorie counting or giving in to taste buds? Now you can choose both, health bhi aur taste bhi! We have just the right kind of meals for you – packed with the goodness of multi-grain, pulses, soups and seasonal fruits. We use premium quality ingredients and rice-bran oil for cooking the meals, and make sure we offer you a healthy diet at a very affordable price. <br /><br />
 Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal where you are served both Veg and Non-Veg meals in the same meal plan. In V-NV meal plan Non Veg is served on Wednesday &amp; Friday and rest of the days Veg is served.
 </p>
 
@@ -185,13 +185,11 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 <div style='width:100%;height:1px;border-top:1px solid #c8c6c6 !important;' class="FistArt">&nbsp;</div>
                       
 
-<a id="btnWeekly" runat="server" clientidmode="Static" href="../#weeklyPlanDiv" style="float: none;margin-left:3
-
-;color:#4b220c"><input type="button" class="proceed" style="float:none;" runat="server" id="btnWeeklyM" clientidmode="Static" value="SAMPLE MENU"/></a>
+<a id="btnWeekly" runat="server" clientidmode="Static" href="../#weeklyPlanDiv" style="float: none;margin-left:35%;color:#4b220c"><input type="button" class="proceed" style="float:none;" runat="server" id="btnWeeklyM" clientidmode="Static" value="SAMPLE MENU"/></a>
 
 <br class="FistArt" />
 <div style="clear:both" ></div>
-  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee; width:80%; height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
+  <div id="weeklyPlanDiv"  style="border:1 solid #eeeeee;left:60% ;height:auto; background-color:#fff !important;display:none;  background:#fff;   background-color:#fff !important;      border-radius: 3px !imortant; -moz-border-radius: 3px !imortant; -webkit-border-radius: 3px !imortant;box-shadow:1px 1px 4px #757380;" >
 
   <span style='' class='hidemodal' >X</span>
 <h3 class="page-titleSmall pt" style="text-align:center; text-transform:none;color:#4b220c; background-color:#c8c6c6; padding-top:15px;padding-bottom:15px !important;margin-top:0px;margin-bottom:0px" >&nbsp;<asp:Label ID="lblWEEKLYTEXT" runat="server" Text="OUR VEG & NON-VEG WEEKLY MENU"></asp:Label> </h3>
@@ -341,7 +339,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
          <br />
           <div style="clear:both" ></div>
          <br />
-         <span style="padding:10px 0 0 20px;font-style:italic" ><em style="color:#F26724">*</em>&nbsp;Working days exclude Sundays only.</span>
+         <span style="padding:10px 0 0 20px;font-style:italic" ><em style="color:#F26724">*</em>&nbsp;Working days exclude Sundays and public holidays.</span>
          
          
          <input type="button" value="PROCEED"  class="proceed" onclick="SetPriceQuantity();" />            

@@ -14,4 +14,3 @@ E:\Projects\Repos\KOMP\bin\KitchenOnMyPlate.dll
 E:\Projects\Repos\KOMP\bin\KitchenOnMyPlate.pdb
 E:\Projects\Repos\KOMP\obj\Debug\KitchenOnMyPlate.dll
 E:\Projects\Repos\KOMP\obj\Debug\KitchenOnMyPlate.pdb
-E:\Projects\Repos\KOMP\obj\Debug\KitchenOnMyPlate.csprojResolveAssemblyReference.cache

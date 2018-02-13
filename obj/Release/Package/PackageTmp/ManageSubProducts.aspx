@@ -122,6 +122,11 @@
     <asp:ListItem Value="2">Both</asp:ListItem>
         </asp:DropDownList>
         <br />   
+
+
+     <div style="width:120px">Menu Order</div>
+    <asp:TextBox ID="txtOrderBy" runat="server" ></asp:TextBox>
+        <br />   
  
 
  </div>

@@ -528,8 +528,8 @@
         <h1 class="page-titleSmallCust"><span class="OrderBox" >09</span>DELIVERY (SHIPPING) DETAILS</h1>        
         </article>
         <div class ="ProcesBoxInner">
-        <div style="width:96%;" >
-                 <h5 style="color:#F37624; font-family:RobotoBlack;" >FILL THE DELIVERY ADDRESS AS PER PIN CODE DELIVERY AVAILABILITY CHECKED EARLIER</h5>
+        <div style="width:96%;" >            
+                 <h5 id="pincodeline" runat="server" style="color:#F37624; font-family:RobotoBlack;" >FILL THE DELIVERY ADDRESS AS PER PIN CODE DELIVERY AVAILABILITY CHECKED EARLIER</h5>
            <div class="contact-form_grid" style="float:left; text-align:left; width:50%;height:auto;padding-right:20px;">
 		
 			<h3 class="ContactLabel">FULL NAME<em style="color:Red">*</em></h3>			

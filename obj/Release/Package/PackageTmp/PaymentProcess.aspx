@@ -508,7 +508,7 @@
 <form method="post" id="customerData" action="ccavRequestHandler.aspx">
 <div class="row faq">
 <div style="clear:both;height:20px" >
-    <h3 class="ContactLabel" style="margin: 20px 0px 10px; padding: 0px; box-sizing: border-box; font-family: Roboto; font-weight: bold; line-height: 1.1; color: rgb(66, 66, 66); font-size: 0.85em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">PINCODE<em style="margin: 0px 0px 0px 3px; padding: 0px; box-sizing: border-box; font-size: 16px; font-family: normal; color: red;">*</em></h3>
+    <%--<h3 class="ContactLabel" style="margin: 20px 0px 10px; padding: 0px; box-sizing: border-box; font-family: Roboto; font-weight: bold; line-height: 1.1; color: rgb(66, 66, 66); font-size: 0.85em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">PINCODE<em style="margin: 0px 0px 0px 3px; padding: 0px; box-sizing: border-box; font-size: 16px; font-family: normal; color: red;">*</em></h3>--%>
     </div>
     <asp:HiddenField ID="hdnEmail" runat="server" />
     
@@ -693,7 +693,7 @@
 				    <tbody>		        
                     <%--<tr class="divRow"><td style="width:10%;"></td><td style="width:60%;" id="divPNAME"></td><td style="width:30%;"><span id='spCharge' class='price'></span></td></tr>--%>                                        
                     <asp:Literal ID="tbOrders" runat="server"></asp:Literal>
-                        <tr id="trdiscount" runat="server"  class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DISCOUNT(5%)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' runat="server" class='priceTotal'></span></td></tr>
+                        <tr id="trdiscount" runat="server"  class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>AMOUNT (AFTER 5% DISCOUNT)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span class="RSBig"></span><span id='spnShip'  runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server"  ><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt' runat="server" id="spOT" >ONLINE PROCESSING CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span id='spnTrns' runat="server"  class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server" class='sppp'>SGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnSGST' runat="server" class='priceTotal onGST'></span></td></tr>

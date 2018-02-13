@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\SID\Desktop\01022018</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\SID\Desktop\08022018</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="AboutUs.aspx">
@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/16/2015 12:25:44</publishTime>
     </File>
     <File Include="bin/KitchenOnMyPlate.dll">
-      <publishTime>02/01/2018 23:56:45</publishTime>
+      <publishTime>02/08/2018 21:28:58</publishTime>
     </File>
     <File Include="bin/MCPG.CCA.Util.dll">
       <publishTime>05/15/2015 07:28:06</publishTime>
@@ -1447,7 +1447,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2018 23:10:38</publishTime>
     </File>
     <File Include="ManageSubProducts.aspx">
-      <publishTime>01/30/2018 22:36:37</publishTime>
+      <publishTime>02/06/2018 20:57:10</publishTime>
     </File>
     <File Include="Masters/CMS.aspx">
       <publishTime>05/06/2016 08:47:52</publishTime>
@@ -1477,7 +1477,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 21:58:19</publishTime>
     </File>
     <File Include="PaymentProcess.aspx">
-      <publishTime>02/01/2018 23:34:28</publishTime>
+      <publishTime>02/05/2018 22:01:36</publishTime>
     </File>
     <File Include="PrivacyPolicy.aspx">
       <publishTime>10/14/2015 23:58:32</publishTime>
@@ -2311,7 +2311,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/04/2015 22:33:46</publishTime>
     </File>
     <File Include="Service.aspx">
-      <publishTime>02/01/2018 23:51:00</publishTime>
+      <publishTime>02/08/2018 21:19:56</publishTime>
     </File>
     <File Include="Site1.Master">
       <publishTime>02/01/2018 21:54:48</publishTime>
@@ -2467,7 +2467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/26/2015 14:17:08</publishTime>
     </File>
     <File Include="Styles/style.css">
-      <publishTime>01/30/2018 23:40:14</publishTime>
+      <publishTime>02/06/2018 21:22:35</publishTime>
     </File>
     <File Include="Styles/StyleSheetReport.css">
       <publishTime>06/06/2015 19:46:16</publishTime>
@@ -2683,7 +2683,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/11/2015 00:16:08</publishTime>
     </File>
     <File Include="TermsConditions.htm">
-      <publishTime>05/04/2015 10:41:16</publishTime>
+      <publishTime>02/05/2018 21:42:04</publishTime>
     </File>
     <File Include="TermsNConditions.aspx">
       <publishTime>02/01/2018 21:58:39</publishTime>
@@ -2695,7 +2695,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/16/2015 11:57:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/01/2018 21:07:41</publishTime>
+      <publishTime>02/03/2018 22:32:56</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>03/11/2015 15:35:34</publishTime>
@@ -2707,7 +2707,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2015 23:44:22</publishTime>
     </File>
     <File Include="YourOrder.aspx">
-      <publishTime>02/01/2018 21:45:33</publishTime>
+      <publishTime>02/05/2018 21:55:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

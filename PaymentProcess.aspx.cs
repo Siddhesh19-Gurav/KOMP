@@ -489,9 +489,11 @@ namespace KitchenOnMyPlate
                 if (item.IsTiffin != 1)
                 {
                     delivery_zip.Attributes.Remove("readonly");
+                    pincodeline.Attributes.Add("style", "display:none");
                 }
                 else
                 {
+                    pincodeline.Attributes.Add("style", "display:block");
                     delivery_zip.Attributes.Add("readonly", "readonly");
                 }
                 string mealType = string.Empty;

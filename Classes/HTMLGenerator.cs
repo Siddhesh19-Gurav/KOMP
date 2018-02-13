@@ -100,12 +100,12 @@ namespace KitchenOnMyPlate.DataAccess
 
                                 if (pl.DaysInPlan == 44)
                                 {
-                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan' style='padding-top:0px;font-style: italic;'>" + pl.Name.Split(')')[1].ToString() + "</span><br style='clear: both' /><span> "+pl.Name.Split(')')[0].ToString() + ")" + "</span> " + BreakIfMoreThan2;
+                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan' style='padding-top:0px;font-style: italic;color:red;'>" + pl.Name.Split(')')[1].ToString() + "</span><br style='clear: both' /><span class='for44'> "+pl.Name.Split(')')[0].ToString() + ")" + "</span> " + BreakIfMoreThan2;
                                 }
                                 else
                                 {
                                     strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan'>" + pl.Name + "</span> " + BreakIfMoreThan2;
-                                }
+                                };
                                 
                                    strPlans= strPlans+" <div style='float:left;text-align:right' ><span class='" + VegCust + "' ><img src='images/" + rs + "'  alt='Rs' />" + price + "</span></div>" +
                                     //"<br/><span class='price'><img src='images/rs.png' />" + pl.DaysInPlan * subPro.Price + "</span><br/>"+

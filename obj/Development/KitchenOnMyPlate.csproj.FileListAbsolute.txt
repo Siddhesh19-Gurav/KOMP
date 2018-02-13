@@ -1,0 +1,6 @@
+E:\Projects\Repos\KOMP\bin\KitchenOnMyPlate.dll.config
+E:\Projects\Repos\KOMP\bin\KitchenOnMyPlate.dll
+E:\Projects\Repos\KOMP\bin\KitchenOnMyPlate.pdb
+E:\Projects\Repos\KOMP\obj\Development\KitchenOnMyPlate.dll
+E:\Projects\Repos\KOMP\obj\Development\KitchenOnMyPlate.pdb
+E:\Projects\Repos\KOMP\obj\Development\KitchenOnMyPlate.csprojResolveAssemblyReference.cache

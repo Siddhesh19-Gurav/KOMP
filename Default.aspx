@@ -79,14 +79,8 @@
                                 Why Choose us ?
                             </h2>
                             <h3 class="sub-title">
-                                KOMP meal is a good deal
+                                KOMP meal is a good deal  <a href="WhyChooseUs.aspx"  class="moreYello">Read More</a>
                             </h3>
-                            <p class="aside-art" style="padding-bottom:4px;padding-top:4px; font-size:16px;" >
-                            	KOMP offers nutritionally balanced meals that are delicious and hygienically cooked - just like home food. That's where KOMP has a definite edge.
-															<br></br>
-                              “Let your food be your medicine and your medicine be your food.” - Hippocrates 
-                            </p>
-                               <a href="WhyChooseUs.aspx" style="margin-top:37px"  class="moreYello">Read More</a>
                         </div></div>
                     </aside>
                 </div>
@@ -133,11 +127,11 @@
                     <div class="col-xs-3">
                       <img src="images/school-catering.jpg" alt="">
                       <h4 class="col3">
-                        School <br> Catering
+                        School <br /> Catering
                       </h4>
                        <div class="aside-row4 col3">                            
                        <div class="TopCornerShap"  style=" text-align:center; margin:0 auto; width: 0; height: 0;  border-bottom: 25px solid #4ba91f;  border-left: 25px solid transparent;  border-right: 25px solid transparent; position:absolute;top:-15px;left:5px"></div>
-                            <h2 class="page-title">SCHOOL CATERING <br/> <hr /></h2>                            
+                            <h2 class="page-title">SCHOOL <br/> CATERING <br/> <hr /></h2>                            
                             <p class="aside-art">Since children are fussy eaters, we have special, visually attractive meals for children that they would look forward to eating every day. We have mouthwatering recipes <br/></p>
                               <br/> <a href="school.aspx" class="moreYello">Read More</a>
                             </div>

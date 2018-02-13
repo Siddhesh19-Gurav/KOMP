@@ -174,7 +174,7 @@ namespace KitchenOnMyPlate
                     btnWeeklyM.Value = "SAMPLE MENU - LUNCH";
 
 
-                    Page.Title = "Traditional Indian Plate | Traditional Lunch Tiffin - kitchenonmyplate.com";
+                    Page.Title = "Tradi tional Indian Plate | Traditional Lunch Tiffin - kitchenonmyplate.com";
                     Page.MetaDescription = "The traditional food of India has been widely cherished for its tremendous use of herbs and spices. KOMP caters a variety of traditional Indian plate services for Weddings, Birthday, Parties, Religious Functions and Festivals etc.";
                     Page.MetaKeywords = "Traditional Indian Plate, Traditional Lunch Tiffin, traditional Indian Food, Indian Dishes, Traditional Tiffin Varieties, Indian Foods, Traditional Tiffin Services in India, Lunch Tiffin Services, Traditional Veg Lunch, Traditional Non Veg Lunch Services";
 

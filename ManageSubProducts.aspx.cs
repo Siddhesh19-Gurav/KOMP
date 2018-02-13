@@ -119,10 +119,10 @@ namespace KitchenOnMyPlate.Masters
                 newObject.Varity = txtVarity.InnerText;
                 newObject.DetailDinner = txtDinnerDescription.InnerText;
                 newObject.ShowInBoth = ddlShowIn.SelectedValue;
-                newObject.OrderBy = Convert.ToInt32(txtOrderBy.Text);
+                newObject.OrderBy = Convert.ToInt32(txtOrderBy.Text.Trim()==""?"0": txtOrderBy.Text);
                 newObject.IsActive =  Convert.ToInt32(drpActive.SelectedValue);
 
-                if (drpCust.SelectedValue == "0")
+                if (drpCust.SelectedValue == "0" || drpCust.SelectedValue == "2")
                 {
                     if (chk1.Checked)
                     {
@@ -187,8 +187,6 @@ namespace KitchenOnMyPlate.Masters
 
         void BindGrid()
         {
-
-
             GridNews.DataSource = CMSActivieies.GetSubProducts();
             GridNews.DataBind();
         }
@@ -211,6 +209,7 @@ namespace KitchenOnMyPlate.Masters
             drpVegNonVeg.SelectedValue = "-1";
             txtcalories.Text = "";
             txtDinnerDescription.InnerText = "";
+            txtOrderBy.Text = "";
         }
 
         protected void GridNews_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -242,6 +241,7 @@ namespace KitchenOnMyPlate.Masters
             chkShowCOP.Checked = (dt.Rows[0]["ShowDetails"].ToString() == "1");
             txtVarity.InnerText = dt.Rows[0]["Varity"].ToString();
             txtcalories.Text = dt.Rows[0]["Calories"].ToString();
+            txtOrderBy.Text = dt.Rows[0]["OrderBy"].ToString();
             txtDinnerDescription.InnerHtml = dt.Rows[0]["DetailDinner"].ToString();
             ddlShowIn.SelectedValue = dt.Rows[0]["ShowInBoth"].ToString();
             if (drpCust.SelectedValue == "0" || drpCust.SelectedValue == "2")

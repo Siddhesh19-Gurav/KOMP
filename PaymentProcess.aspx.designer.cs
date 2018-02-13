@@ -94,6 +94,15 @@ namespace KitchenOnMyPlate {
         protected global::KitchenOnMyPlate.Controls.PaymentMethod PaymentMethod1;
         
         /// <summary>
+        /// pincodeline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pincodeline;
+        
+        /// <summary>
         /// delivery_name control.
         /// </summary>
         /// <remarks>

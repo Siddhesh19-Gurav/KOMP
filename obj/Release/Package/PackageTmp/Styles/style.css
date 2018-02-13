@@ -80,7 +80,7 @@ font-weight:bold;
 .ItemBox{ clear:both; width:100%; height:auto;font-family:'Roboto'}.subItemBox{ clear:both; width:100%; height:auto; border:1px solid #c8c6c6; border-bottom:0px !important; font-family:RobotoBlack;}
 .subItemBoxLastBorder{border-bottom:1px solid #c8c6c6 !important;}
 .subProductDetails{width:100%; font-weight:900; font-size:22px;padding-top:0px;padding-bottom:5px;margin-top:0px;color:#414143;}
-.planDivider{width:1px; height:90px; float:left; border-left:1px solid #c8c6c6; background-color:red; margin-right:20px;margin-left:3%; }.plan{ font-weight:700; font-size:18px;color: #43200C; float:left; font-family:RobotoBold;}
+.planDivider{width:1px; height:90px; float:left; border-left:1px solid #c8c6c6; background-color:red; margin-right:20px;margin-left:1%; }.plan{ font-weight:700; font-size:18px;color: #43200C; float:left; font-family:RobotoBold;}
 .price{font-weight:700; font-size:1.2em; color: #4b220c;}
 .priceTotaltxt{font-weight:700; font-size:1.5em; color: #4b220c; font-family:RobotoBold; }
 /*.priceTotal{font-size:30px; color: #006400; font-family:RobotoBold;padding-right:25px;}*/
@@ -107,7 +107,7 @@ font-weight:bold;
 
 	.ProceedOnSub{width:auto;float:left;} 
 	.ProceedOnSub > div{padding-left:10px; padding-top:0.8em}
-	.ProceedOnSub > span{padding-top:0.8em} 
+	.ProceedOnSub > span{padding-top:21px} 
 	.ProceedOnSub .VegCust{float:left;}
 	.subVeg{ cursor:pointer; color:#451F0C; height:45px;width:20%;float:left;border:1px solid #E7E7E7;background-color:#E7E7E7;text-align:center;border:1px solid #c8c6c6; border-bottom:0px;padding-top:0.4em;margin-right:2px; margin-bottom:2px;}
 	.subVeg1{ cursor:pointer; color:#451F0C; height:45px;width:20%;float:left;border:1px solid #E7E7E7;background-color:#E7E7E7;text-align:center;border:1px solid #c8c6c6; border-bottom:0px;padding-top:0.4em;}
