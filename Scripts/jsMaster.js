@@ -98,6 +98,50 @@ $(function () {
         }
     });
 
+    $("#btnForgotPassword").click(function () {
+
+        if (ValidateEmail(document.getElementById("txtForgotPassword").value)) {
+            $.ajax
+                  ({
+                      type: "POST",
+                      url: "KompServices.asmx/ForgetPassword",
+                      contentType: "application/json; charset=utf-8",
+                      data: "{email:" + JSON.stringify(document.getElementById("txtForgotPassword").value) + "}",
+                      dataType: "json",
+                      async: false,
+                      success: function (result) {
+                          if (result.d == "1") {
+                              swal('Password has been sent to your registered email address. Please check spam/ junk folder as well.');
+                              //window.close();
+                              $("#Forgotmodal").hide();
+                              $("#lean_overlay").hide();
+                              document.getElementById("txtForgotPassword").value = '';
+                          }
+                          else if (result.d == "9999") {
+                              swal('Your EmailId does not match our records. Please try again');
+                          }
+                      },
+                      failure: function (response) {
+                          alert(response.d);
+                      }
+                  });
+        }
+        else {
+            swal('Please enter valid user id');
+            $("#txtExistingUserName").focus();
+            return false;
+        }
+
+    });
+
+    function ValidateEmail(mail) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+            return (true)
+        }
+        else {
+            return false;
+        }
+    }
 
     $("#loginBttn").click(function () {
 
@@ -137,6 +181,7 @@ $(function () {
 
     $("#login,#aRegister").attr("href", "#loginmodal");
 
+    $("#lnkForgotPassword").attr("href", "#Forgotmodal")
 
 
     $('.SOSC a').mouseover(function () {
@@ -178,8 +223,8 @@ function SubmitUser() {
     var txtFirstName = Trim(document.getElementById("txtFirstName").value);
     var txtLastName = '';// Trim(document.getElementById("txtLastName").value);
     var txtEmail = Trim(document.getElementById("txtEmail").value);
-    var txtPasssword = ''; //Trim(document.getElementById("txtPasssword").value);
-    var txtRePasssword = '';//  Trim(document.getElementById("txtRePasssword").value);
+    var txtPasssword = Trim(document.getElementById("txtPasssword").value);
+    var txtRePasssword = Trim(document.getElementById("txtRePasssword").value);
     var txtMobile = Trim(document.getElementById("txtMobile").value);
 
     var location = ''; //Trim(document.getElementById("ContentPlaceHolder1_drpAgentLocation").value);
@@ -244,11 +289,11 @@ function SubmitUser() {
            }
 
 
-////           if (txtRePasssword != txtPasssword) {
-////               swal('Please confirm password.');
-////               jQuery('#txtRePasssword').focus();
-////               return false;
-////           }
+           if (txtRePasssword != txtPasssword) {
+               swal('Password and confirm password not match!');
+               jQuery('#txtRePasssword').focus();
+               return false;
+           }
 
 
 
@@ -303,9 +348,14 @@ function AjaxSubmitUserSucceeded(result) {
 
         $("#btnRegister").hide();
         $("#txtEmail").attr('readonly', 'readonly');
-        swal('Thank you for registering at Kitchen On My Plate! \n Please login with the password sent to your email.');
-        $(".SuccessDiv").show().html('Please check your email!');
-        //$("#txtExistingUserName").focus();
+        swal('Thank you for registering at Kitchen On My Plate!'); //\n Please login with the password sent to your email.
+
+        document.getElementById("txtFirstName").value = "";
+        document.getElementById("txtEmail").value = "";
+        document.getElementById("txtPasssword").value = "";
+        document.getElementById("txtRePasssword").value = "";
+        document.getElementById("txtMobile").value = "";
+
         if ($('#hdnIsHome').val() != "5") {
             //swal('Thanks  for registration at Kitchen At My Plate! \n Please check your email, we have sent a password!!');
             //CreateSession(LoginID); //Create Session
@@ -347,7 +397,7 @@ function CreateSession(txtuser) {
 
                 $('#loggendUser').text("Hi " + result.d.FirstName);
                 $("#aMyOrders,#logOut,#loggendUser").show();
-                $("#login,#aRegister,#loginmodal").hide();
+                $("#login,#aRegister,#loginmodal,#Forgotmodal,#lnkForgotPassword,#lblhindResh").hide();
 
                 loggiedIn = result.d.UserId;
 
@@ -375,9 +425,18 @@ function CreateSession(txtuser) {
 }
 
 function DoLoginNewExistance(txtuser, txtpwd) {
+    var rememberme = $('#chkrem').is(':checked') ? 1 : 0;
     if (txtuser != '') {
-
-        var rememberme = $('#chkrem').is(':checked') ? 1 : 0;
+        if ($('#chkrem').is(':checked')) {
+            // save username and password
+            localStorage.usrname = txtuser;//$('#username').val();
+            localStorage.pass = txtpwd;//$('#pass').val();
+            localStorage.chkbx = $('#chkrem').val();
+        } else {
+            localStorage.usrname = '';
+            localStorage.pass = '';
+            localStorage.chkbx = '';
+        }
         $.ajax({
             type: "POST",
             url: "KompServices.asmx/IsValidUser",

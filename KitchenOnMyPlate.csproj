@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -25,6 +26,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -427,6 +429,7 @@
     <Content Include="Email\Emailer\pinterest.png" />
     <Content Include="Email\Emailer\strip.jpg" />
     <Content Include="Email\Emailer\twitter.png" />
+    <Content Include="Email\ForgotPassword.htm" />
     <Content Include="ERROR.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Reports\DeliveryDatesSummary.aspx" />
@@ -434,6 +437,9 @@
     <Content Include="Reports\DailyDeliveryTracking.aspx" />
     <Content Include="Reports\DailyMealPlanNC.aspx" />
     <Content Include="Reports\DailyMealPlan.aspx" />
+    <Content Include="Scripts\jslinq.js" />
+    <Content Include="Scripts\jslinq.min.js" />
+    <Content Include="Scripts\SAlert\sweetalert.css.js" />
     <Content Include="yourguyRequestHandler.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="Media.aspx" />
@@ -1456,6 +1462,7 @@
     <None Include="index.php" />
     <Content Include="Masters\SiteMaster.Master" />
     <Content Include="Reports\SiteMaster.Master" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\KOMP.pubxml" />
     <None Include="Scripts\dev\sweetalert.scss" />
     <None Include="Scripts\jsFancy\Thumbs.db" />
@@ -1466,6 +1473,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DBKOMP.dbml.layout">
@@ -1493,6 +1501,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

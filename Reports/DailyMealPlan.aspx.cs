@@ -20,7 +20,7 @@ namespace MumbaiPropertyMart
         SqlDataReader rdr = null;
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
         static int @Index = 1;
         static int TotalCount = 0;
         private bool ISAdding = false;

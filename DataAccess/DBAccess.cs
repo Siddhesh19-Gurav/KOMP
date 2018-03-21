@@ -7,11 +7,22 @@ using System.IO;
 using System.Configuration;
 using KitchenOnMyPlate.Classes;
 using System.Web.UI.WebControls;
+using context = System.Web.HttpContext;
 
 namespace KitchenOnMyPlate.DataAccess
 {
     public class DBAccess
     {
+        public static void WriteLog(string Msg)
+        {
+            using (StreamWriter writer = new StreamWriter(context.Current.Server.MapPath("~/Error.txt"), true))
+            {
+                writer.WriteLine("Message :" + Msg + "<br/>" + Environment.NewLine+
+                   "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
+                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+            }
+        }
+
         public static List<Menu> GetProducts()
         {
             List<Menu> list;
@@ -39,8 +50,8 @@ namespace KitchenOnMyPlate.DataAccess
         public static List<HoliDay> GetHoliday()
         {
             List<HoliDay> list;
-            if (!CacheHelper.Get("Holiday", out list))
-            {
+            //if (!CacheHelper.Get("Holiday", out list))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     list = new List<HoliDay>();
@@ -53,9 +64,9 @@ namespace KitchenOnMyPlate.DataAccess
                         list.Add(item);
                     }
 
-                    CacheHelper.Add(list, "Holiday", 2000);
+                    //CacheHelper.Add(list, "Holiday", 2000);
                 }
-            }
+            //}
 
             return list;
 
@@ -564,7 +575,7 @@ namespace KitchenOnMyPlate.DataAccess
         }
         public static int InsertUpdateUserDetails(User objtblUser)
         {
-            int savetype = 0;
+                int savetype = 0;
             string content = string.Empty;
             using (DBKOMPDataContext db = new DBKOMPDataContext())
             {
@@ -572,7 +583,7 @@ namespace KitchenOnMyPlate.DataAccess
                 if (countUser == 0)
                 {
 
-                    objtblUser.password = objtblUser.FirstName.Substring(0,2)+"9876";
+                    //objtblUser.password = objtblUser.FirstName.Substring(0,2)+"9876";
 
                     db.Users.InsertOnSubmit(objtblUser);
 
@@ -592,7 +603,7 @@ namespace KitchenOnMyPlate.DataAccess
                     rdr.Close();
 
                     string site = ConfigurationManager.AppSettings["SiteName"].ToString();
-
+                    
                     content = sbContent.ToString();
                     string uid = string.IsNullOrEmpty(objtblUser.email) ? objtblUser.UserLoginID : objtblUser.email;
                     content = content.Replace("$UID$", uid);
@@ -676,7 +687,7 @@ namespace KitchenOnMyPlate.DataAccess
                 savetype = objtblUser.UserId;
 
                 return savetype;
-            }
+                }
         }
 
         public static int SaveShippingBilling(ShippingBilling shippingBilling)
@@ -918,14 +929,14 @@ namespace KitchenOnMyPlate.DataAccess
         {
             List<tblLocation> locations = new List<tblLocation>();
 
-            if (!CacheHelper.Get("Location", out locations))
-            {
+            //if (!CacheHelper.Get("Location", out locations))
+            //{
                 using (DBKOMPDataContext db = new DBKOMPDataContext())
                 {
                     locations = (from w in db.tblLocations orderby w.CityDivisionID orderby w.CityDivisionID, w.Location select w).ToList();
-                    CacheHelper.Add(locations, "Location", 2000);
+                    //CacheHelper.Add(locations, "Location", 2000);
                 }
-            }
+            //}
 
             return locations;
 
@@ -1240,6 +1251,88 @@ namespace KitchenOnMyPlate.DataAccess
 
         }
 
+        public static int ForgotPassword(string UserId)
+        {
+            int savetype = 0;
+            string content = string.Empty;
+            using (DBKOMPDataContext db = new DBKOMPDataContext())
+            {
+                var countUser = db.Users.Where(w => w.email == UserId).SingleOrDefault();
+                if (countUser != null)
+                {
 
+                    string password = countUser.password;
+
+                    //db.Users.InsertOnSubmit(objtblUser);
+
+                    string filepath = "~/Email/ForgotPassword.htm";
+                    //New user
+                    StringBuilder sbContent = new StringBuilder();
+                    StreamReader rdr = new StreamReader(HttpContext.Current.Server.MapPath(filepath));
+                    string strLine = "";
+                    while (strLine != null)
+                    {
+                        strLine = rdr.ReadLine();
+                        if ((strLine != null) && (strLine != ""))
+                        {
+                            sbContent.Append("\n" + strLine);
+                        }
+                    }
+                    rdr.Close();
+
+                    string site = ConfigurationManager.AppSettings["SiteName"].ToString();
+
+                    content = sbContent.ToString();
+                    string uid = string.IsNullOrEmpty(countUser.email) ? countUser.UserLoginID : countUser.email;
+                    content = content.Replace("$UID$", uid);
+                    content = content.Replace("$PWD$", countUser.password);
+                    content = content.Replace("$NAME$", countUser.FirstName);
+                    content = content.Replace("$SITE$", site);
+
+                    string encryptemailid = EncryptDecrypt.EncryptString(countUser.email, "kota@1234");
+                    encryptemailid = encryptemailid.Replace("+", "_");
+                    string hreflnk = "http://www." + site + "/Register.aspx?rid=" + encryptemailid;
+                    content = content.Replace("$PROFILE$", hreflnk);
+
+                    content = content.Replace("RobotoBlack", "Arial");
+                    content = content.Replace("Roboto", "Arial");
+                    content = content.Replace("RobotoBold", "Arial");
+                    content = content.Replace("images/rs3.png", "http://www.kitchenonmyplate.com/images/rs3.png");
+                    content = content.Replace("class", "style");
+                    content = content.Replace("page-titleSmallCust", "color:#4b220c; text-transform:uppercase; font-family:'Arial'; font-weight:bold;border-bottom:1px solid #c8c6c6; padding:10px 0 10px 25px ; font-size:25px; margin-top:0px;background:#EEEEEE !important;");
+                    content = content.Replace("OrderBox", "display:none");
+                    content = content.Replace("ProcessBox", "width:100%;height:auto;border:1px solid #c8c6c6;padding-bottom:10px;");
+                    content = content.Replace("ProcesBoxInner", "height:auto; padding:0px 25px 10px 10px;text-align: justify; text-justify: inter-word;");
+                    content = content.Replace("tbl", "width:100%;height:auto;border:1px solid #c8c6c6;");
+                    content = content.Replace("divRowHeader", "font-weight:bold; color:Black; font-size:0.85em;");
+                    content = content.Replace("<table", "<table style='border-collapse:collapse; border-spacing:0;' ");
+                    content = content.Replace("price", "font-weight:700; font-size:1.2em; color: #006400;");
+                    content = content.Replace("priceTotaltxt", "font-weight:700; font-size:24px; color: #006400;");
+                    content = content.Replace("priceTotal", "font-size:30px; color: #006400; padding-right:25px;");
+                    content = content.Replace("CUSTBOX", "");
+                    content = content.Replace("emailH5", "font-size:14px;");
+
+                    content = content.Replace(">01<", "");
+                    content = content.Replace(">03<", "");
+
+
+                    if (!string.IsNullOrEmpty(countUser.email))
+                    {
+                        MailHelper.SendMailMessage("", countUser.email, string.Empty, string.Empty, "Welcome to " + site, content);
+
+                        //  AutoServices.SendeMailToUs("Copy:Welcome to " + site, content);
+
+
+                    }
+                    MailHelper.SendMailMessage("", ConfigurationManager.AppSettings["OwnerEmailID1"].ToString(), string.Empty, string.Empty, "Copy : Welcome to " + site, "Below Mail Details for new user<br/><br/>" + content);
+                    savetype = 1;
+                }
+                else
+                {
+                    savetype = 9999;
+                }            
+            }
+            return savetype;
+        }
     }
 }

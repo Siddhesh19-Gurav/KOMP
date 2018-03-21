@@ -81,7 +81,7 @@ namespace KitchenOnMyPlate
     #endregion
 		
 		public DBKOMPDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

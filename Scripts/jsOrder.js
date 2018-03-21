@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="jslinq.js" />
+
 
 //Set Property Type
 var pincode = 0; //Variable during area verification
@@ -69,35 +70,42 @@ function SetProductData() {
 
     $(".slmainMenu").each(function (index) {
 
-    
+  
         var dow = $(this).attr('dow');
 
         var OptionID = 0;
-        for (var i = 0; i < SubProducts.length; i++) {
-
-            if (SubProducts[i].Varity == '' && (SubProducts[i].NonCustomized == 0 || SubProducts[i].NonCustomized == 2) && SubProducts[i].AvailableDay.indexOf(dow) > -1)//set for customized
-            {
-
-                if (OptionID == 0 || OptionID != SubProducts[i].MenuId) {
-
-                    var ProductName = '';
-
-                    for (var k = 0; k < Products.length; k++) {
-                        if (SubProducts[i].MenuId == Products[k].Id) {
-                            ProductName = Products[k].Header;
-                        }
+        var IsIn = 0;
+        for (var k = 0; k < Products.length; k++) {
+            IsIn = 0;
+            var SubProductCategories = $linq(SubProducts).where(x=> x.MenuId == Products[k].Id).toArray();
+            for (var i = 0; i < SubProductCategories.length; i++) {
+                if (SubProductCategories[i].Varity == '' && (SubProductCategories[i].NonCustomized == 0 || SubProductCategories[i].NonCustomized == 2) && SubProductCategories[i].AvailableDay.indexOf(dow) > -1)//set for customized
+                {
+                    if (IsIn == 0)
+                    {
+                        $("<optgroup label='" + Products[k].Header + "' ></optgroup>").appendTo(this);
+                        IsIn = 1;
                     }
+                    //if (OptionID == 0 || OptionID != SubProductCategories[i].MenuId) {
 
-                    $("<optgroup label='" + ProductName + "' ></optgroup>").appendTo(this);
+                    //    var ProductName = '';
+
+                    //    for (var k = 0; k < Products.length; k++) {
+                    //        if (SubProducts[i].MenuId == Products[k].Id) {
+                    //            ProductName = Products[k].Header;
+                    //        }
+                    //    }
+                    //}
+
+                    $("<option  value='" + SubProductCategories[i].Id + "'>" + SubProductCategories[i].Header.split('-')[0] + "</option>").appendTo(this);
+                    //OptionID = SubProducts[i].MenuId;
                 }
-
-                $("<option  value='" + SubProducts[i].Id + "'>" + SubProducts[i].Header + "</option>").appendTo(this);
-                OptionID = SubProducts[i].MenuId;
             }
         }
+        
 
     });
-          }
+ }
 
 function SetSubProductData(mainMenuId, subMenuComboId) {
 

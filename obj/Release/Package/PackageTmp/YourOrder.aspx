@@ -213,7 +213,7 @@ width: 107px; margin:0 auto;height:22px; margin-top:4px;
          <br />
           <div style="clear:both" ></div>
          <br />
-         <span style="padding:10px 0 0 20px; font-style:italic" ><em style="color:#F26724">*</em>&nbsp;Working days exclude Sundays only.</span>
+         <span style="padding:10px 0 0 20px; font-style:italic" ><em style="color:#F26724">*</em>&nbsp;Working days exclude Sundays and public holidays.</span>
          <input type="button" value="PROCEED"  class="proceed" onclick="SetDays();" />            
          <%--<input type="button" value="BACK" class="proceedBack" onclick="$('#divSetDate').show(); $('#divSetDate2').hide();" />--%>
          <div style="clear:both" ></div>

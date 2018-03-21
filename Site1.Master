@@ -111,6 +111,7 @@
         $('#aRegister').leanModalCenter({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
         $('#login').leanModalCenter({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
         $('#a1Plzwait').leanModalCenter({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        $('#lnkForgotPassword').leanModalCenter({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
     });
 
     var pageId = "<%=pageId%>";
@@ -124,6 +125,36 @@
            <!--Login Top Navigation dropdown Start-->
 
     
+        <div id="Forgotmodal" style="width: 30%; display:none; height: auto;" >
+      <span style='' class='hidemodal' >X</span>
+					<!-- put HTML-Content here / BEGIN -->
+                    <div class="contact-form_grid" id="regDiv" style="width:86%;height:auto">
+
+    <center><h3 style="font-family:RobotoBold;font-size:22px;margin:0 auto;color:#492310;ping:25px;border-bottom:1px solid #eeeeee;" >Welcome to Kitchen On My Plate</h3></center>
+           <div  style="text-align:left;height:auto;padding:20px 0px 20px 20px;">
+                        <strong style="font-family:'RobotoBold';color:#492310;font-size:16px">Forgot Password?</strong>             
+			            <%--<h3 class="ContactLabel">EMAIL ADDRESS<em style="color:Red">*</em></h3>--%>
+                        <%--<br />--%>
+                        <%--<a href="javascript:void(0)" onclick="checkLoginState();" class="HBORDER"> <img alt="loginfb" style="width:185px;margin-left:46px;" src="images/fb.png"/> </a>--%>
+                        <div style="clear:both"></div>
+			<input id="txtForgotPassword" clientidmode="Static" runat="server" placeholder="Email Address" maxlength="60" style="margin-top:30px; margin-left:0px; "  type="text" value=""/>
+        <%--<div style="height:10px;" >&nbsp;</div>--%>
+	    <span style="float:right;padding:0.7em;font-variant:normal;padding-left:0em;" >
+        <%--<a href="#Forgotmodal" style="color:#f16823;font-size:13px" clientidmode="Static" id="lnkForgotPassword">Forgot password?</a> </span><br />--%>
+        <input id="btnForgotPassword" type="button" class="btnRed" style="background-color:#512b1a !important"  value="Forgot Passowrd" />
+        <%--<input id="btnForgotPassword" type="button" class="btnRed" style="background-color:#f16823; !important"  value="Forgot password?" />--%>
+        <%--<input type="button" value="Back" onclick="ShowQuantity();" />         --%>
+                
+       
+		
+
+      </div>
+      
+	</div>
+					<!-- put HTML-Content here / END -->
+
+                      <div style="clear:both;" > </div>
+				</div>
 
            <div id="loginmodal" style="width: 60%; display:none;  background-color:#E1E4E6; height: auto;" >
       <span style='' class='hidemodal' >X</span>
@@ -139,7 +170,7 @@
              <strong style="font-family:'RobotoBold';color:#492310;font-size:16px;" >New User? Register</strong><br /><br />
 
 			<%--<h3 class="ContactLabel">FIRST NAME<em style="color:Red">*</em></h3>			--%>
-            <div style="height:40px">  <div class='SuccessDiv' style="display:none;color:#f16823" ></div>  </div>
+            <%--<div style="height:40px">  <div class='SuccessDiv' style="display:none;color:#f16823" ></div>  </div>--%>
 		    <input id="txtFirstName" class="textbox AlphaClass" placeholder="Your Name"  maxlength="40" type="text" value=""/>
 			<%--
 			<h3 class="ContactLabel">LAST NAME<em style="color:Red">*</em></h3>
@@ -159,8 +190,8 @@
 			<%--<h3 class="ContactLabel">EMAIL<em style="color:Red">*</em></h3>--%>	
 				<input id="txtEmail" class="textbox EmailClass" maxlength="60" placeholder="Email Address" type="text" value=""/>				
                 <input id="txtMobile" class="textbox NumberClass" placeholder="Mobile" type="text" value="" maxlength="10"/>
-	<%--<input id="txtPasssword" class="textbox" type="password"  maxlength="12" placeholder="Password" />
-    <input id="txtRePasssword" class="textbox" type="password" maxlength="12"  placeholder="Repeat Password" />--%>
+	<input id="txtPasssword" class="textbox" type="password"  maxlength="12" placeholder="Password" />
+    <input id="txtRePasssword" class="textbox" type="password" maxlength="12"  placeholder="Repeat Password" />
 
 		
 	<div style="width:auto; height: 20px;color:#333333;font-size:13px;position:absolute"   >
@@ -174,8 +205,8 @@
 		     
                         <strong style="font-family:'RobotoBold';color:#492310;font-size:16px">Log In</strong>             
 			            <%--<h3 class="ContactLabel">EMAIL ADDRESS<em style="color:Red">*</em></h3>--%>
-                        <br />
-                        <a href="javascript:void(0)" onclick="checkLoginState();" class="HBORDER"> <img alt="loginfb" style="width:185px;margin-left:46px;" src="images/fb.png"/> </a>
+                        <%--<br />--%>
+                        <%--<a href="javascript:void(0)" onclick="checkLoginState();" class="HBORDER"> <img alt="loginfb" style="width:185px;margin-left:46px;" src="images/fb.png"/> </a>--%>
                         <div style="clear:both"></div>
 			<input id="txtExistingUserName" clientidmode="Static" runat="server" placeholder="Email Address" maxlength="60" style="margin-top:30px; margin-left:0px; "  type="text" value=""/>
         <input id="txtPasswordExistingUser" type="password" maxlength="12" placeholder="Password" />
@@ -183,9 +214,9 @@
         <input id="chkrem" type="checkbox" /><label for="chkrem"> <span style="color:#f16823;font-size:13px;font-weight:100">Remember me</span> </label>  <br />
 
 	    <span style="padding:0.7em;margin:0.3em 0 1em 0;font-variant:normal;padding-left:0em;" >
-        <a href="javascript:void(0)" style="color:#f16823;font-size:13px" onclick="ForgotPwd()" >Forgot password?</a> </span><br />
+        <a href="#" style="color:#f16823;font-size:13px" clientidmode="Static" id="lnkForgotPassword1">Forgot password?</a> </span><br />
         <input id="loginBttn" type="button" class="btnRed" style="background-color:#512b1a !important"  value="LOGIN" />
-        
+        <%--<input id="btnForgotPassword" type="button" class="btnRed" style="background-color:#f16823; !important"  value="Forgot password?" />--%>
         <%--<input type="button" value="Back" onclick="ShowQuantity();" />         --%>
                 
        
@@ -229,7 +260,8 @@
                     
                     	<a href="MyOrders" id="aMyOrders" style="display:none" class="rgg" clientidmode="Static" runat="server">MY ACCOUNT</a><a href="../#loginmodal" id="aRegister" class="rgg" clientidmode="Static" runat="server">Register</a> <label>|</label>
                     	<%--<a href="#"> Login</a> |--%>
-                        <a href="#loginmodal" id="login" clientidmode="Static" runat="server" >Login</a>
+                        <a href="#loginmodal" id="login" clientidmode="Static" runat="server" >Login</a><%--<label id="lblhindResh" runat="server">|</label>--%>
+                        <a href="#Forgotmodal" style="display:none" clientidmode="Static" runat="server" id="lnkForgotPassword"> Forgot password?</a>
                         <asp:LinkButton ID="logOut" runat="server" clientidmode="Static" CssClass="LogOutCss" style="display:none"  onclick="logOut_Click"> &nbsp; LogOut</asp:LinkButton><label>|&nbsp;</label><a id="achow" class="hideonMobile" href="HowItWorks">How It Works</a><label class="hideonMobile" style="" >&nbsp;|</label>
                     	<a id="acont" href="Contact">Contact Us</a>&nbsp;&nbsp;
                         <a href="#" class="custom-ltr">
@@ -565,7 +597,8 @@
                   <div class="col-md-2 foot-links" style="width:17% !important;">
                     <h2>Support</h2>
                     <a href="HowItWorks">How it works</a>
-                    <a runat="server" id="myact" style="cursor:pointer" onclick=";if( $('#login').css('display')=='none'){ window.location.href='MyOrders';}else{ MyAccount();}" >My Account</a>
+                    <a runat="server" id="myact" style="cursor:pointer" onclick=";if( $('#
+                        ').css('display')=='none'){ window.location.href='MyOrders';}else{ MyAccount();}" >My Account</a>
                     <a href="PaymentAndDelivery">Payment & Delivery</a>
                     <a href="FAQ">FAQs</a>
                   </div>
@@ -648,7 +681,34 @@
 		    });
     </script>--%>
     <!--End My-->
-        
+        <script type="text/javascript" src="Scripts/jslinq.js"></script>
+        <script type="text/javascript">
+            function ValidateEmail(mail) {
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)) {
+                    return (true)
+                }
+                else {
+                    return false;
+                }
+            }
+
+            $("#lnkForgotPassword1").click(function () {
+                $("#loginmodal").hide();
+                $("#lnkForgotPassword").click();
+            });
+            $(function () {
+
+                if (localStorage.chkbx && localStorage.chkbx != '') {
+                    $('#chkrem').attr('checked', 'checked');
+                    $('#txtExistingUserName').val(localStorage.usrname);
+                    $('#txtPasswordExistingUser').val(localStorage.pass);
+                } else {
+                    $('#chkrem').removeAttr('checked');
+                    $('#txtExistingUserName').val('');
+                    $('#txtPasswordExistingUser').val('');
+                }
+            });
+        </script>
     </div>
     </form>
 

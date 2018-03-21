@@ -379,7 +379,7 @@ namespace KitchenOnMyPlate.Classes
 
 
                     tranCharge = Math.Round(tranCharge);
-                    order.Order.TotalPayment = (method == "11" || method == "12" || method == "13")?0:((order.payment.Amount - discount) + tranCharge + order.payment.DeliveryChrg);
+                    order.Order.TotalPayment = (method == "11" || method == "12" || method == "13")? ((order.payment.Amount - discount)+order.payment.DeliveryChrg) : ((order.payment.Amount - discount) + tranCharge + order.payment.DeliveryChrg);
 
                     if (method == "14")//Cas pikup
                     {

@@ -696,8 +696,8 @@
                         <tr id="trdiscount" runat="server"  class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>AMOUNT (AFTER 5% DISCOUNT)<span class='sppp'>&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnDiscount' runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>DELIVERY CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span class="RSBig"></span><span id='spnShip'  runat="server" class='priceTotal'></span></td></tr>
                     <tr class="divRow" id="trTran" runat="server"  ><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt' runat="server" id="spOT" >ONLINE PROCESSING CHARGE&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" ><span id='spnTrns' runat="server"  class='priceTotal'></span></td></tr>
-                    <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server" class='sppp'>SGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnSGST' runat="server" class='priceTotal onGST'></span></td></tr>
-                        <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Span1" runat="server" class='sppp'>CGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnCGST' runat="server" class='priceTotal onGST'></span></td></tr>
+                    <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Strong1" runat="server">SGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnSGST' runat="server" class='priceTotal onGST'></span></td></tr>
+                        <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt onlineGST'><span id="Span1" runat="server">CGST:2.5%&nbsp;&nbsp;&nbsp;</span></span></td><td style="width:30%;" align="right" ><span id='spnCGST' runat="server" class='priceTotal onGST'></span></td></tr>
                     <tr class="divRow"><td colspan="3" style="width:70%;" align="right"><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style="width:30%;" align="right" class='priceTotal' ><span id='spnOnlineGrandTotal' runat="server"></span></td></tr>
 				</tbody>                
                 
@@ -907,9 +907,27 @@
 //            $("#ImgProgress").hide();
         }
 
+        function ValidateEmail(mail) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+                return (true)
+            }
+            else {
+                return false;
+            }
+        }
 
         function GOTOPAYMENTOnProcess() {
             
+            if (!(/^\d{10}$/.test($("#delivery_tel").val()))) {
+                swal('Please enter valid moble number');
+                return false;
+            }
+
+            //if (!ValidateEmail($("#txtLastName").val())) {
+            //    swal('Please enter valid email address');
+            //    return false;
+            //}
+
             if (SetShipping() == false) {
                 //swal();
             //    swal('APPP');

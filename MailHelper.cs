@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KitchenOnMyPlate.DataAccess;
+using System;
 using System.Net.Mail;
 
 namespace KitchenOnMyPlate
@@ -64,7 +65,7 @@ namespace KitchenOnMyPlate
             catch (Exception ex)
             {
                 string innermsg = (ex.InnerException!=null)?ex.InnerException.Message:"InnerMESSAGE";
-              //  KotaCoachings.DataAccess.DBAccess.Message("erroerror", ex.Message + "</br>" + innermsg);
+                //  KotaCoachings.DataAccess.DBAccess.Message("erroerror", ex.Message + "</br>" + innermsg);
             }
         }
         public static void SendMailMessage(string from, MailAddressCollection to, MailAddressCollection bcc, string cc, string subject, string body)
@@ -121,8 +122,9 @@ namespace KitchenOnMyPlate
             }
             catch (Exception ex)
             {
+                
                 string innermsg = (ex.InnerException != null) ? ex.InnerException.Message : "InnerMESSAGE";
-                //  KotaCoachings.DataAccess.DBAccess.Message("erroerror", ex.Message + "</br>" + innermsg);
+                //DBAccess.Message("erroerror", ex.Message + "</br>" + innermsg);
             }
         }
     }

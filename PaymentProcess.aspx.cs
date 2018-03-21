@@ -488,7 +488,8 @@ namespace KitchenOnMyPlate
                 var LunchDinner = item.IsTiffin == 1 ? "LUNCH" : "DINNER";
                 if (item.IsTiffin != 1)
                 {
-                    delivery_zip.Attributes.Remove("readonly");
+                    delivery_zip.Value = "";
+                    delivery_zip.Attributes.Remove("readonly"); 
                     pincodeline.Attributes.Add("style", "display:none");
                 }
                 else

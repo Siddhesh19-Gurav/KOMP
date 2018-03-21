@@ -57,21 +57,21 @@
         var method = "1";
         if ($('#rdPM1').is(':checked')) {//Offline
 
-            if ($('#chkCash').is(':checked')) {//Offline
-                method = "11";
-            }
-            else if ($('#chkCheque').is(':checked')) {//Offline
-                method = "12";
-            }
-            else if ($('#chkNeft').is(':checked')) {//Offline
+            //if ($('#chkCash').is(':checked')) {//Offline
+            //    method = "11";
+            //}
+            //else if ($('#chkCheque').is(':checked')) {//Offline
+            //    method = "12";
+            //}
+            //else if ($('#chkNeft').is(':checked')) {//Offline
                 method = "13";
-            }
-            else if ($('#chkCashPickUp').is(':checked')) {//Offline
-                method = "14";
-            }
-            else if ($('#chkIMPS').is(':checked')) {//Offline
-                method = "15";
-            }
+            //}
+            //else if ($('#chkCashPickUp').is(':checked')) {//Offline
+            //    method = "14";
+            //}
+            //else if ($('#chkIMPS').is(':checked')) {//Offline
+            //    method = "15";
+            //}
 
             
         }

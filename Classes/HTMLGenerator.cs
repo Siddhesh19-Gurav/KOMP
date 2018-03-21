@@ -398,7 +398,11 @@ namespace KitchenOnMyPlate.DataAccess
                     list = list + "<tr class='divRow dataHeader DR" + propertyType.Count + 1 + "' style='background:#fff;height:0px' ></tr>";
                     list = list + "<tr class='divRow dataHeader DR" + propertyType.Count + 1 + "' style='background:#F16822;color:#fff;font-family:RobotoBold;font-size:1.2em;' ><td colspan='5' >" + "ORDER #" + orderId + "  CUSTOMER: " + customerName.ToUpper() + "</td></tr>";
                     list = list + "<tr class='divRow dataHeader DR'><td><b>MEAL DETAILS</b></td><td><b>AMOUNT DETAILS</b></td></tr>";
-                    list = list + "<tr class='divRow DR'><td style='width:70%;' id='divPNAME'>" + propertyType[0].SubProductName + "</td><td style='width:30%;' align='right'><span class='RSSmallMore'><i class='fa fa-inr'></i></span><strong style='padding-right:25px;font-family:RobotoBlack;padding-right:25px;font-size:1.4em'>" + payment.Amount + "</strong></td></tr>";
+                    list = list + "<tr class='divRow DR'><td style='width:70%;' id='divPNAME'>" + propertyType[0].SubProductName + "</td><td style='width:30%;' align='right'><span class='RSSmallMore'><i class='fa fa-inr'></i></span><strong style='padding-right:25px;font-family:RobotoBlack;padding-right:25px;font-size:1.4em'>" + String.Format("{0:.00}", payment.Amount+Convert.ToDecimal(payment.Discount)) + "</strong></td></tr>";
+                    if (payment.Discount != null && payment.Discount != 0)
+                    {
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER 5% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
+                    }
                     list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >Delivery Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.DeliveryChrg + "</span></td></tr>";
 
                     if (payment.TrnChrg > 0)
@@ -413,9 +417,14 @@ namespace KitchenOnMyPlate.DataAccess
                         }
                     }
 
+                    if (payment.GSTCharges != null && payment.GSTCharges != 0)
+                    {
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >SGST:2.5%&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + (payment.GSTCharges/2) + "</span></td></tr>";
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >CGST:2.5%%&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + (payment.GSTCharges / 2) + "</span></td></tr>";
+                    }
 
                     //list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
-                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >Total Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", Convert.ToDecimal(payment.Amount) + Convert.ToDecimal(payment.TrnChrg) + Convert.ToDecimal(payment.DeliveryChrg)) + "</span></td></tr>";
+                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >Total Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", Convert.ToDecimal(payment.Amount) + Convert.ToDecimal(payment.TrnChrg) + Convert.ToDecimal(payment.DeliveryChrg)+Convert.ToDecimal(payment.GSTCharges)) + "</span></td></tr>";
 
                     
                     list = list + "<tr class='divRow DR" + propertyType.Count + "'><td align='left' colspan='2'><span style='font-family:RobotoBlack' >Delivery Dates:" + dates_in_string + "</span></td></tr>";
@@ -429,11 +438,15 @@ namespace KitchenOnMyPlate.DataAccess
 
                     foreach (var item in propertyType)
                     {
-                        list = list + "<tr class='divRow divRowData DR" + propertyType.Count + 1 + "'><td align='center'>" + item.DeleiveryDate.Value.ToString("dd/MM/yyyy") + "</td><td align='center'>" + item.DeleiveryDate.Value.DayOfWeek + "</td><td class='RobotoBold'>" + item.SubProductName + "</td><td align='center'>1</td><td align='right'><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='padding-right:25px'>" + item.Price + "</span></td></tr>";                        
+                        list = list + "<tr class='divRow divRowData DR" + propertyType.Count + 1 + "'><td align='center'>" + item.DeleiveryDate.Value.ToString("dd/MM/yyyy") + "</td><td align='center'>" + item.DeleiveryDate.Value.DayOfWeek + "</td><td class='RobotoBold'>" + item.SubProductName.Split('-')[0] + "</td><td align='center'>1</td><td align='right'><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='padding-right:25px'>" + item.Price + "</span></td></tr>";                        
                     }
-
+                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", payment.Amount + Convert.ToDecimal(payment.Discount)) + "</span></td></tr>";
                     list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Delivery Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.DeliveryChrg + "</span></td></tr>";
-
+                    
+                    if (payment.Discount != null && payment.Discount != 0)
+                    {
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER 5% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
+                    }
                     if (payment.TrnChrg > 0)
                     {
                         if (payment.Mode == 14)
@@ -446,8 +459,14 @@ namespace KitchenOnMyPlate.DataAccess
                         }
                         
                     }
-                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", payment.Amount) + "</span></td></tr>";
-                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Total Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", Convert.ToDecimal(payment.Amount) + Convert.ToDecimal(payment.TrnChrg) + Convert.ToDecimal(payment.DeliveryChrg)) + "</span></td></tr>";
+                    if (payment.GSTCharges != null && payment.GSTCharges != 0)
+                    {
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4' align='right'><span style='font-family:RobotoBlack' >SGST:2.5%&nbsp;&nbsp;</span> </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + (payment.GSTCharges / 2) + "</span></td></tr>";
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4' align='right'><span style='font-family:RobotoBlack' >CGST:2.5%%&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px'>" + (payment.GSTCharges / 2) + "</span></td></tr>";
+                    }
+
+                    //list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", payment.Amount) + "</span></td></tr>";
+                    list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4'><span style='font-family:RobotoBlack' >Total Amount&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", Convert.ToDecimal(payment.Amount) + Convert.ToDecimal(payment.TrnChrg) + Convert.ToDecimal(payment.DeliveryChrg)+ Convert.ToDecimal(payment.GSTCharges)) + "</span></td></tr>";
 
                     
                 }

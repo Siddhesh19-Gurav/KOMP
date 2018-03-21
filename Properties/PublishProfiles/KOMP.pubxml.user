@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\SID\Desktop\08022018</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\SID\Desktop\LiveBuild</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="AboutUs.aspx">
@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/16/2015 12:25:44</publishTime>
     </File>
     <File Include="bin/KitchenOnMyPlate.dll">
-      <publishTime>02/08/2018 21:28:58</publishTime>
+      <publishTime>02/18/2018 21:32:29</publishTime>
     </File>
     <File Include="bin/MCPG.CCA.Util.dll">
       <publishTime>05/15/2015 07:28:06</publishTime>
@@ -1072,7 +1072,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 21:57:28</publishTime>
     </File>
     <File Include="ContactUs.aspx">
-      <publishTime>02/01/2018 21:54:19</publishTime>
+      <publishTime>02/08/2018 22:53:23</publishTime>
     </File>
     <File Include="Controls/PaymentMethod.ascx">
       <publishTime>02/01/2018 23:10:17</publishTime>
@@ -1081,7 +1081,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/20/2018 16:28:07</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>07/05/2017 13:56:42</publishTime>
+      <publishTime>02/13/2018 22:24:49</publishTime>
     </File>
     <File Include="Email/allen-logo.jpg">
       <publishTime>03/12/2015 00:33:52</publishTime>
@@ -1348,7 +1348,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2015 18:44:40</publishTime>
     </File>
     <File Include="images/school-catering.jpg">
-      <publishTime>07/03/2015 23:05:34</publishTime>
+      <publishTime>03/07/2015 23:05:34</publishTime>
     </File>
     <File Include="images/Separator.png">
       <publishTime>03/13/2015 14:53:26</publishTime>
@@ -1357,34 +1357,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/13/2015 14:53:26</publishTime>
     </File>
     <File Include="images/shade-green.png">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/shade-orange.png">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/shade-red.png">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/shade-yellow.png">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/Shape1.png">
       <publishTime>03/13/2015 14:53:26</publishTime>
     </File>
     <File Include="images/Shape5copy_0.png">
-      <publishTime>11/01/2013 09:52:12</publishTime>
+      <publishTime>01/11/2013 09:52:12</publishTime>
     </File>
     <File Include="images/stuffed-paratha.jpg">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/textbg.png">
-      <publishTime>06/08/2015 09:28:58</publishTime>
+      <publishTime>08/06/2015 09:28:58</publishTime>
     </File>
     <File Include="images/tiffen-service.jpg">
       <publishTime>06/22/2015 23:57:30</publishTime>
     </File>
     <File Include="images/traditional-indian.jpg">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/Trn1.png">
       <publishTime>04/19/2015 19:08:54</publishTime>
@@ -1393,7 +1393,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 19:08:54</publishTime>
     </File>
     <File Include="images/Untitled-1.png">
-      <publishTime>04/12/2015 11:45:02</publishTime>
+      <publishTime>12/04/2015 11:45:02</publishTime>
     </File>
     <File Include="images/User1.png">
       <publishTime>03/13/2015 14:53:26</publishTime>
@@ -1473,11 +1473,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="oldDefault.aspx">
       <publishTime>09/25/2015 23:07:38</publishTime>
     </File>
+    <File Include="packages.config">
+      <publishTime>02/15/2018 21:07:46</publishTime>
+    </File>
     <File Include="PaymentAndDelivery.aspx">
       <publishTime>02/01/2018 21:58:19</publishTime>
     </File>
     <File Include="PaymentProcess.aspx">
-      <publishTime>02/05/2018 22:01:36</publishTime>
+      <publishTime>02/13/2018 22:09:16</publishTime>
     </File>
     <File Include="PrivacyPolicy.aspx">
       <publishTime>10/14/2015 23:58:32</publishTime>
@@ -1665,6 +1668,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/JSFB.js">
       <publishTime>05/06/2016 11:12:36</publishTime>
     </File>
+    <File Include="Scripts/jslinq.js">
+      <publishTime>02/15/2018 21:07:45</publishTime>
+    </File>
+    <File Include="Scripts/jslinq.min.js">
+      <publishTime>02/15/2018 21:07:45</publishTime>
+    </File>
     <File Include="Scripts/jsManageJob.js">
       <publishTime>08/19/2015 15:20:42</publishTime>
     </File>
@@ -1672,7 +1681,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2016 00:32:48</publishTime>
     </File>
     <File Include="Scripts/jsOrder.js">
-      <publishTime>02/01/2018 23:23:06</publishTime>
+      <publishTime>02/15/2018 21:28:17</publishTime>
     </File>
     <File Include="Scripts/jsPlacedOrders.js">
       <publishTime>05/24/2015 17:57:46</publishTime>
@@ -2311,10 +2320,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/04/2015 22:33:46</publishTime>
     </File>
     <File Include="Service.aspx">
-      <publishTime>02/08/2018 21:19:56</publishTime>
+      <publishTime>02/13/2018 21:57:02</publishTime>
     </File>
     <File Include="Site1.Master">
-      <publishTime>02/01/2018 21:54:48</publishTime>
+      <publishTime>02/15/2018 21:08:51</publishTime>
     </File>
     <File Include="SiteMap.aspx">
       <publishTime>10/15/2015 00:00:50</publishTime>
@@ -2467,7 +2476,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/26/2015 14:17:08</publishTime>
     </File>
     <File Include="Styles/style.css">
-      <publishTime>02/06/2018 21:22:35</publishTime>
+      <publishTime>02/13/2018 21:36:59</publishTime>
     </File>
     <File Include="Styles/StyleSheetReport.css">
       <publishTime>06/06/2015 19:46:16</publishTime>
@@ -2683,7 +2692,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/11/2015 00:16:08</publishTime>
     </File>
     <File Include="TermsConditions.htm">
-      <publishTime>02/05/2018 21:42:04</publishTime>
+      <publishTime>02/08/2018 22:24:40</publishTime>
     </File>
     <File Include="TermsNConditions.aspx">
       <publishTime>02/01/2018 21:58:39</publishTime>
@@ -2695,7 +2704,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/16/2015 11:57:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/03/2018 22:32:56</publishTime>
+      <publishTime>02/17/2018 20:36:48</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>03/11/2015 15:35:34</publishTime>
@@ -2707,7 +2716,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2015 23:44:22</publishTime>
     </File>
     <File Include="YourOrder.aspx">
-      <publishTime>02/05/2018 21:55:33</publishTime>
+      <publishTime>02/14/2018 23:40:54</publishTime>
     </File>
   </ItemGroup>
 </Project>

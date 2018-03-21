@@ -40,6 +40,15 @@ namespace KitchenOnMyPlate {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// txtForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtForgotPassword;
+        
+        /// <summary>
         /// lblSite control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace KitchenOnMyPlate {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor login;
+        
+        /// <summary>
+        /// lnkForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkForgotPassword;
         
         /// <summary>
         /// logOut control.

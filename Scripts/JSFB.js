@@ -32,7 +32,7 @@
 
             FB.login(function (response) {
                 statusChangeCallback(response);
-            });
+            }),;
 
 //            FB.getLoginStatus(function (response) {
 //                statusChangeCallback(response);
@@ -85,7 +85,7 @@
             FB.api('/me', function (response) {
                 //alert('a');
                // alert(response.id + " " + response.email + " " + response.first_name + " " + response.last_name);
-                CreateSessionFB(response.id, response.id, response.first_name, response.last_name);
+                CreateSessionFB(response.id, response.id, response.name, '');
                 //alert('b');
             });
 
@@ -107,7 +107,7 @@
                         //$("#ctl00_divLogout,#ctl00_loggendUser").show();
                         //$("#ctl00_divLogin").hide();
                         $("#aMyOrders,#logOut").show();
-                        $("#login,#aRegister,#loginmodal").hide();
+                        $("#login,#aRegister,#loginmodal,#Forgotmodal,#lnkForgotPassword,#lblhindResh").hide();
 
                         loggiedIn = result.d.UserId;
 

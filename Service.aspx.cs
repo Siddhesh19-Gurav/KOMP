@@ -80,7 +80,7 @@ namespace KitchenOnMyPlate
                     var timeInIndiaAsString = timeInIndia.ToString("hh:mm tt", CultureInfo.InvariantCulture);
 
                     //start from 4 PM
-                    if (timeInIndia.Hour > 16 && timeInIndiaAsString.Contains("PM"))
+                    if (timeInIndia.Hour > 15 && timeInIndiaAsString.Contains("PM"))
                     {
                         minDateAdmin = 2;
                     }

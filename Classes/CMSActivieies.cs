@@ -36,7 +36,7 @@ namespace KitchenOnMyPlate.Classes
             SqlDataReader rdr = null;
             SqlConnection con = null;
             SqlCommand cmd = null;
-            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
+            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
             try
             {
                 con = new SqlConnection(cs);
@@ -61,7 +61,7 @@ namespace KitchenOnMyPlate.Classes
             SqlDataReader rdr = null;
             SqlConnection con = null;
             SqlCommand cmd = null;
-            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
+            String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
             try
             {
                 con = new SqlConnection(cs);

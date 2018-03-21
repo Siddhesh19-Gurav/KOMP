@@ -485,7 +485,7 @@ input[type="radio"]:checked:before {
 .aside-row2 h2{ color:#fff}
 .aside-row2 h3{ border-bottom:1px dotted #fff; color:#fff200;}
 
-.aside-row3{ clear:both; background:#ed651e;font-family:'Roboto', sans-serif; padding:1px 25px 17px !important; color:#fff}
+.aside-row3{ clear:both; background:#ed651e;font-family:'Roboto', sans-serif; padding:5px 25px 17px !important; color:#fff}
 .aside-row3 h2{ color:#fff}
 .aside-row3 h3{ border-bottom:1px dotted #fff; color:#fff200; padding-bottom:12px; margin-top:10px;}
 

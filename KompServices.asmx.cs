@@ -27,7 +27,7 @@ namespace KitchenOnMyPlate
         SqlConnection con = null;
         SqlCommand cmd = null;
 
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
 
         [WebMethod()]
         public int CorporateMessage(string name, string mobile, string email, string message, string compName, string location, string noofpeople, string besttimetocall)
@@ -140,7 +140,8 @@ namespace KitchenOnMyPlate
         [WebMethod()]
         public int SubmitUser(string firstName, string lastName, string email, string mobile, string passsword, int NewOld, string userType, string location, string WorkingSince, string picture, string std, string landline, string landline1, string landline2, string web, string social, string address, string aboutu, string companyName, string companyLogo)
         {
-            int savetype = 0;
+            
+                int savetype = 0;
 
             if (NewOld == 1)
             {
@@ -153,6 +154,7 @@ namespace KitchenOnMyPlate
                 savetype = DataAccess.DBAccess.InsertUpdateUserDetails(new User { FirstName = firstName, LastName = lastName, password = passsword, UserLoginID = email, mobile = mobile, email = email, CreatedDate = DateTime.Now, UserType = userType, LocationId = Convert.ToInt32(location), WorkingSince = Convert.ToInt32(WorkingSince), picture = picture, STDCode = std, LandLine = landline, LandLine1 = landline1, LandLine2 = landline2, WebsiteLink = web, SocialLink = social, Address = address, AboutUs = aboutu, CompanyName = companyName, CompanyLogo = companyLogo });
             }
             return savetype;
+            
         }
 
         [WebMethod(EnableSession = true)]
@@ -525,7 +527,11 @@ namespace KitchenOnMyPlate
             return Discount;
         }
 
-
+        [WebMethod()]
+        public int ForgetPassword(string email)
+        {
+            return DataAccess.DBAccess.ForgotPassword(email);
+        }
 
 
     }

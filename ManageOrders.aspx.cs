@@ -16,7 +16,7 @@ namespace KitchenOnMyPlate.Masters
         SqlDataReader rdr = null;
         SqlConnection con = null;
         SqlCommand cmd = null;
-        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DevKOMPConnectionString"].ConnectionString;
+        String cs = System.Configuration.ConfigurationManager.ConnectionStrings["DBKOMPConnectionString"].ConnectionString;
         static int @Index = 1;
         static int PageSize = 100;
         static int TotalCount = 0;
@@ -299,7 +299,7 @@ namespace KitchenOnMyPlate.Masters
                 " OrderDate, case IsLunch when 1 then (case NonCustomized when 1 then 'Lunch' else 'Customised Lunch' end )  else 'Dinner' end  as 'Meal Type' , " +
                 "(select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from [OrderDetails] as p where p.orderid=[Order].id order by p.DeliverDate desc ) as 'OrderEndDate',"+
                 " case mode when 1 then 'NET BANKING'  when 2 then 'CREDIT CARD'  when 3 then 'DEBIT CARD'  when 4 then 'CASH CARD'  when 5 then 'MOBILE PAYMENT'  when 11 then 'OFFLINE CASH DEPOSIT'  when 12 then 'OFFLINE CHEQUE DEPOIST'  when 13 then 'OFFLINE NEFT' when 14 then 'OFFLINE CASH PICK UP' else '' end as 'Payment Method',"+
-                " case when  [Order].PaymentDone = '1' then 'Paid' when  [Order].PaymentDone = '0' then 'Pending'  else 'Failed' end as 'Payment Status', NonCustomized,IsLunch, (Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg) as TotalPayment,(Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg)-TotalPayment as Due,[order].PaymentDone from [order] inner join  Payment  on [order].Id = Payment.OrderId INNER JOIN ShippingBilling ON ShippingBilling.requestId=[Order].requestId where 1=1 ";
+                " case when  [Order].PaymentDone = '1' then 'Paid' when  [Order].PaymentDone = '0' then 'Pending'  else 'Failed' end as 'Payment Status', NonCustomized,IsLunch, (Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg+(isnull(Payment.GSTCharges,0))) as TotalPayment,(Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg+(isnull(Payment.GSTCharges,0)))-TotalPayment as Due,[order].PaymentDone from [order] inner join  Payment  on [order].Id = Payment.OrderId INNER JOIN ShippingBilling ON ShippingBilling.requestId=[Order].requestId where 1=1 ";
                  
                 if (txtOrderNo.Text != "")
                 {

@@ -29,6 +29,18 @@
 box-shadow:1px 1px 4px #757380;    
 }
 
+#Forgotmodal 
+{  
+  width: 295px;
+  height: auto;  
+   background:#fff;
+   background-color:#fff !important;   
+   border-radius: 3px !imortant; 
+-moz-border-radius: 3px !imortant; 
+-webkit-border-radius: 3px !imortant;
+box-shadow:1px 1px 4px #757380;    
+}
+
 .manageOrder
 {  
   width: 500px;

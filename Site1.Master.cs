@@ -83,7 +83,8 @@ namespace KitchenOnMyPlate
 
                     login.Style.Add("display", "none");
                     aRegister.Style.Add("display", "none");
-
+                    //lnkForgotPassword.Style.Add("display", "none");
+                    //lblhindResh.Style.Add("display", "none"); 
                     //login.Visible = false;
                     //aRegister.Visible = false;
                     loggendUser.Style.Remove("display");
