@@ -73,7 +73,7 @@
                                 <p style="margin-bottom:1em;font-size:16px;" > We cover almost all areas in Mumbai, still to confirm whether your delivery location falls in our delivery service area, you can simply check it on kitchenonmyplate.com. Just select your meal plan and enter your delivery area pin code.
                               <%--   <ul class="page-art-list">
                         	<li>Simply fill-out the enquiry form online.</li>
-                            <li>You can also call us 9699 699204/ 9699 399204 & leave your details. </li>
+                            <li>You can also call us 84520 04123/ 9699 399204 & leave your details. </li>
                             <li>You can even send SMS with your name, address and email.</li>                                                        
                             
                             <li>Or just dash us an email with your complete details (name, address, contact no.) at info@kitchenonmyplate.com</li>
@@ -110,7 +110,7 @@
                                    <li>Choose dates from the calendar.</li>
                                    </ul>
 <%--<p style="margin-bottom:1em;font-size:16px">Alternatively, you can call us on XXXXX to help you make a selection & place an order. </p>--%>
-<p style="margin-bottom:1em;font-size:16px">Alternatively, you can call us on 9699 699204/ 9699 399204 & place your order. </p>
+<p style="margin-bottom:1em;font-size:16px">Alternatively, you can call us on 84520 04123/ 9699 399204 & place your order. </p>
 
                                  </div>                     
 				               </div>

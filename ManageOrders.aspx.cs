@@ -233,20 +233,29 @@ namespace KitchenOnMyPlate.Masters
             ////////////
             con = new SqlConnection(cs);
             con.Open();
-            string strQuery = "SELECT *  FROM   (select ROW_NUMBER() OVER (ORDER BY [Order].Id desc) as Sr,  " +
-      " [order].ID,[order].ID as ID1,ShippingBilling.FirstName as 'Customer Name', replace(ShippingBilling.Address,'$',', ')+ShippingBilling.LandMark+' '+ShippingBilling.pincode as 'Address',ShippingBilling.mobile as 'Mobile', "+
-      "(select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from [OrderDetails] as s where s.orderid=[Order].id order by s.DeliverDate asc ) as 'OrderStartDate', " +
-      " OrderDate, case IsLunch when 1 then (case NonCustomized when 1 then 'Lunch' else 'Customised Lunch' end )  else 'Dinner' end  as 'Meal Type' , " +
-      "(select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from [OrderDetails] as p where p.orderid=[Order].id order by p.DeliverDate desc ) as 'OrderEndDate'," +
-      " case mode when 1 then 'NET BANKING'  when 2 then 'CREDIT CARD'  when 3 then 'DEBIT CARD'  when 4 then 'CASH CARD'  when 5 then 'MOBILE PAYMENT'  when 11 then 'OFFLINE CASH DEPOSIT'  when 12 then 'OFFLINE CHEQUE DEPOIST'  when 13 then 'OFFLINE NEFT' when 14 then 'OFFLINE CASH PICK UP' else '' end as 'Payment Method'," +
-      " case when  [Order].PaymentDone = '1' then 'Paid' when  [Order].PaymentDone = '0' then 'Pending'  else 'Failed' end as 'Payment Status', NonCustomized,IsLunch, (Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg) as TotalPayment,(Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg)-TotalPayment as Due,[order].PaymentDone from [order] inner join  Payment  on [order].Id = Payment.OrderId INNER JOIN ShippingBilling ON ShippingBilling.requestId=[Order].requestId where 1=1  ";
+            //      string strQuery = "SELECT *  FROM   (select ROW_NUMBER() OVER (ORDER BY [Order].Id desc) as Sr,  " +
+            //" [order].ID,[order].ID as ID1,ShippingBilling.FirstName as 'Customer Name', replace(ShippingBilling.Address,'$',', ')+ShippingBilling.LandMark+' '+ShippingBilling.pincode as 'Address',ShippingBilling.mobile as 'Mobile', "+
+            //"(select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from [OrderDetails] as s where s.orderid=[Order].id order by s.DeliverDate asc ) as 'OrderStartDate', " +
+            //" OrderDate, case IsLunch when 1 then (case NonCustomized when 1 then 'Lunch' else 'Customised Lunch' end )  else 'Dinner' end  as 'Meal Type' , " +
+            //"(select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from [OrderDetails] as p where p.orderid=[Order].id order by p.DeliverDate desc ) as 'OrderEndDate'," +
+            //" case mode when 1 then 'NET BANKING'  when 2 then 'CREDIT CARD'  when 3 then 'DEBIT CARD'  when 4 then 'CASH CARD'  when 5 then 'MOBILE PAYMENT'  when 11 then 'OFFLINE CASH DEPOSIT'  when 12 then 'OFFLINE CHEQUE DEPOIST'  when 13 then 'OFFLINE NEFT' when 14 then 'OFFLINE CASH PICK UP' else '' end as 'Payment Method'," +
+            //" case when  [Order].PaymentDone = '1' then 'Paid' when  [Order].PaymentDone = '0' then 'Pending'  else 'Failed' end as 'Payment Status', NonCustomized,IsLunch, (Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg) as TotalPayment,(Payment.Amount+Payment.TrnChrg+Payment.DeliveryChrg)-TotalPayment as Due,[order].PaymentDone from [order] inner join  Payment  on [order].Id = Payment.OrderId INNER JOIN ShippingBilling ON ShippingBilling.requestId=[Order].requestId where 1=1  ";
+
+            string strQuery = "select CONVERT(varchar,od.DeliverDate,103) as [Deliver Date],o.Id as [Order Id],s.FirstName as [Customer Name],replace(s.Address,'$',',') as [Address],l.Location,s.mobile,mi.Header,CONVERT(varchar,OrderDate,103) as [Order Date],CONVERT(varchar,o.OrderStartDate,103) as [Order Start],"
+    +" (select top 1 convert(varchar(10), cast(DeliverDate as date), 103) from[OrderDetails] as p where p.orderid = o.Id order by p.DeliverDate desc) as 'OrderEndDate',"
+	+" case when p.Mode = 1 then 'Net Banking' when p.Mode = 2 then 'CREDIT CARD' when p.Mode = 3 then 'DEBIT CARD' when p.Mode = 13 then 'OFFLINE NEFT' end as [Payment Mode],"
+	+" (p.Amount + p.TrnChrg + p.DeliveryChrg + (isnull(p.GSTCharges, 0))) as [Total Payment],"
+	+" case when o.PaymentDone = '1' then 'Paid' when o.PaymentDone = '0' then 'Pending'  else 'Failed' end as 'Payment Status' from dbo.[Order] o inner"
+    +" join dbo.Users u on o.CustomerId = u.UserId inner join tblLocation l on o.pincode = l.pincode inner join ShippingBilling s on o.RequestId = s.RequestId inner"
+    +" join OrderDetails od on o.Id = od.OrderId inner join MenuItems mi on od.SubProductId = mi.Id inner join Payment p on p.OrderId = o.Id"
+   +" where CONVERT(date, od.DeliverDate, 103) between CONVERT(Date, '"+txtFromDate.Text+ "',103) and CONVERT(date, '" + txtToDate.Text + "',103)";
 
             if (txtOrderNo.Text != "")
             {
                 strQuery = strQuery + " and [Order].Id =" + txtOrderNo.Text;
             }
-            strQuery = strQuery + " ";
-            strQuery = strQuery + ") tbl WHERE 1=1  ";
+            strQuery = strQuery + "order by od.DeliverDate desc";
+            //strQuery = strQuery + ") tbl WHERE 1=1  ";
 
             cmd = new SqlCommand(strQuery, con);
             SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -368,7 +377,7 @@ namespace KitchenOnMyPlate.Masters
                         var dt = myDataSet.Tables[0].Rows[i]["OrderStartDate"].ToString();
                         string dttime = dt.Split('/')[1] + "/" + dt.Split('/')[0] + "/" + dt.Split('/')[2];
 
-                        if (Convert.ToDateTime(dttime) <= DateTime.Today.Date)
+                        if (false)
                         {//expired
                             button = "<a  href='javascript:;'  title='Delete Order' onclick=DeleteOrder(" + i + ",'" + myDataSet.Tables["Sales"].Rows[i]["ID"] + "') class='btnView' style='background: #F16822;padding: 10px !important;margin: 0 auto !important;font-size: 1em !important;margin-top: 0px !important;margin:3px!important' >Delete Order</a>";
                             status = "<span style='color:red;'><b>Expired</b></span><br/>";

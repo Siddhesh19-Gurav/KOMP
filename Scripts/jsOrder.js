@@ -77,9 +77,9 @@ function SetProductData() {
         var IsIn = 0;
         for (var k = 0; k < Products.length; k++) {
             IsIn = 0;
-            var SubProductCategories = $linq(SubProducts).where(x=> x.MenuId == Products[k].Id).toArray();
+            var SubProductCategories = $linq(SubProducts).where(x=> x.MenuId == Products[k].Id && (x.NonCustomized == 1 || (x.NonCustomized != 1 && x.ShowDetails == 0)) == false).toArray();
             for (var i = 0; i < SubProductCategories.length; i++) {
-                if (SubProductCategories[i].Varity == '' && (SubProductCategories[i].NonCustomized == 0 || SubProductCategories[i].NonCustomized == 2) && SubProductCategories[i].AvailableDay.indexOf(dow) > -1)//set for customized
+                if (SubProductCategories[i].Varity == '' && SubProductCategories[i].AvailableDay.indexOf(dow) > -1)//set for customized
                 {
                     if (IsIn == 0)
                     {
@@ -333,6 +333,7 @@ function disableSpecificDaysAndWeekends(date) {
            dateFormat: "dd/mm/yy"
        });
 
+
 //       $("#txtPossessionDate").change(function () {
 //           var dateParts = $("#txtPossessionDate").val().split('/');
 //           $("#txtPossessionDate").val(dateParts[1] + "/" + dateParts[0] + "/" + dateParts[2]);
@@ -560,7 +561,7 @@ function disableSpecificDaysAndWeekends(date) {
             });
 
 
-            var onlchrg = Math.round(parseFloat((SubItemTotals * TrnChrg) / 100));
+            var onlchrg = 0; //Math.round(parseFloat((SubItemTotals * TrnChrg) / 100));
             if (onlchrg.toFixed) {
                 onlchrg = onlchrg.toFixed(2);
             }
@@ -762,6 +763,7 @@ function disableSpecificDaysAndWeekends(date) {
             var grandtotal = 0;
             var discoutTotal = 0;
             var TotaldiscooutAmount = 0;
+            var Discount = 0;
             for (var i = 0; i < orderList.orders.length; i++) 
             {
                 $.ajax
@@ -772,7 +774,8 @@ function disableSpecificDaysAndWeekends(date) {
                       data: "{DaysCout:" + JSON.stringify(orderList.orders[i].OrderDetailList.length) + "}",
                       dataType: "json",
                       async:false,
-                      success: function (result) {                          
+                      success: function (result) {
+                          Discount = parseFloat(result.d.Discount);
                           var amountFin = orderList.orders[i].payment.Amount;
                           var discooutAmount = parseFloat(amountFin) * parseFloat(result.d.Discount) / 100;
                           if (amountFin.toFixed) {
@@ -790,6 +793,7 @@ function disableSpecificDaysAndWeekends(date) {
                 
             }
             else {
+                $("#spnDiscountCount").html(Discount);
                 $("#trdiscount").removeAttr("style");
                 $("#spnDiscount").html("<i class='fa fa-inr'></i>" + discoutTotal.toFixed(2));
             }
@@ -809,7 +813,7 @@ function disableSpecificDaysAndWeekends(date) {
                       }
                   });
 
-            var onlchrg = parseFloat(onlchrgPer * grandtotal / 100);
+            var onlchrg = 0; //parseFloat(onlchrgPer * grandtotal / 100);
             if (onlchrg.toFixed) {
                 onlchrg = Math.round(onlchrg);
             }
@@ -823,9 +827,9 @@ function disableSpecificDaysAndWeekends(date) {
             {
                 //alert("chkCashPickUp:" + chkCashPickUp + " orderList.orders.length:" + orderList.orders.length + " chkCashPickUpPers:" + chkCashPickUpPers);
                 //alert(chkCashPickUpPers * grandtotal / 100);
-                onlchrg = Math.round((chkCashPickUp) * 1 + chkCashPickUpPers * grandtotal/100);
+                onlchrg = 0; //Math.round((chkCashPickUp) * 1 + chkCashPickUpPers * grandtotal/100);
                 //onlchrg = 50.00 * orderList.orders.length;
-                $('.onChrges').html("<i class='fa fa-inr'></i>" + onlchrg);
+                //$('.onChrges').html("<i class='fa fa-inr'></i>" + onlchrg);
                 gtotal = onlchrg + parseFloat(grandtotal);
 
                 $('.onlineCls').html('CASH PICK UP CHARGE');
@@ -834,7 +838,7 @@ function disableSpecificDaysAndWeekends(date) {
             {
                 //Online
                 gtotal = parseFloat(onlchrg) + parseFloat(grandtotal);
-                $('.onlineCls').html('ONLINE PROCESSING CHARGE');
+                //$('.onlineCls').html('ONLINE PROCESSING CHARGE');
             }
 
             var GstCharge = gtotal * (GstChargePer / 100);

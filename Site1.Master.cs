@@ -249,9 +249,9 @@ namespace KitchenOnMyPlate
         private void SetMenu()
 
         {
-            custDivInner.InnerHtml = "<span>&nbsp;</span><br />";
+            //custDivInner.InnerHtml = "<span>&nbsp;</span><br />";
             tifDivInner.InnerHtml = "<span>&nbsp;</span><br />";
-            dinDivInner.InnerHtml = "<span>&nbsp;</span><br />";
+            //dinDivInner.InnerHtml = "<span>&nbsp;</span><br />";
 
             var products = DBAccess.GetProducts();
             string str= string.Empty;
@@ -270,22 +270,22 @@ namespace KitchenOnMyPlate
                 if (item.ShowInBoth == "B")
                 {
                     //custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='YourOrder.aspx?itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
-                    custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='CustomisedLunch-" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
+                    //custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='CustomisedLunch-" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
 
                     //    tifDivInner.InnerHtml = tifDivInner.InnerHtml + "<span> <a href='Service.aspx?il=1&itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
                     //dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Service.aspx?il=0&itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
                     tifDivInner.InnerHtml = tifDivInner.InnerHtml + "<span> <a href='Traditional-Lunch'>" + itemSubMenu + "</a></span><hr />";
-                    dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Traditional-Dinner'>" + itemSubMenu + "</a></span><hr />";
+                    //dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Traditional-Dinner'>" + itemSubMenu + "</a></span><hr />";
                 }
                 else if (item.ShowInBoth == "C")
                 {
                     //custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='YourOrder.aspx?itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";                    
-                    custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='CustomisedLunch-" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
+                   // custDivInner.InnerHtml = custDivInner.InnerHtml + "<span> <a href='CustomisedLunch-" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
                 }
                 else if (item.ShowInBoth == "N")
                 {
                     tifDivInner.InnerHtml = tifDivInner.InnerHtml + "<span> <a href='Nutrimeal-Lunch'>" + itemSubMenu + "</a></span><hr />";
-                    dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Nutrimeal-Dinner'>" + itemSubMenu + "</a></span><hr />";
+                    //dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Nutrimeal-Dinner'>" + itemSubMenu + "</a></span><hr />";
                     //tifDivInner.InnerHtml = tifDivInner.InnerHtml + "<span> <a href='Service.aspx?il=1&itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
                     //dinDivInner.InnerHtml = dinDivInner.InnerHtml + "<span> <a href='Service.aspx?il=0&itm=" + item.Id + "'>" + itemSubMenu + "</a></span><hr />";
                 }

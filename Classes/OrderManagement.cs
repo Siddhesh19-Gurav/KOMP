@@ -135,7 +135,7 @@ namespace KitchenOnMyPlate.Classes
             decimal GstPercent = config.Tax ?? 0;
             decimal transactionCharge = config.TrnChrg ?? 0;
 
-            Decimal TransactionCharge = (subTotal + deliveryChrg) * transactionCharge / 100;
+            Decimal TransactionCharge = 0; //(subTotal + deliveryChrg) * transactionCharge / 100;
 
 
             Decimal gtotal =  (subTotal + deliveryChrg + TransactionCharge);
@@ -145,7 +145,7 @@ namespace KitchenOnMyPlate.Classes
 
 
             strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>DELIVERY CHARGE &nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spCharge' class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", deliveryChrg) + "</span></td></tr>";
-            strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>ONLINE PROCESSING CHARGE &nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spnTrns' class='priceTotal onChrges'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", TransactionCharge) + "</span></td></tr>";
+            //strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>ONLINE PROCESSING CHARGE &nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spnTrns' class='priceTotal onChrges'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", TransactionCharge) + "</span></td></tr>";
             strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>GST("+ GSTCharges + "%)&nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span id='spnTrns' class='priceTotal onChrges'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", GSTCharges) + "</span></td></tr>";
             strOrders = strOrders + "<tr class='divRow'><td colspan='4' style='width:70%;' align='right'><span class='priceTotaltxt'>TOTAL AMOUNT&nbsp;&nbsp;&nbsp;</span></td><td style='width:30%;' align='center' ><span class='priceTotal'><i class='fa fa-inr'></i>" + String.Format("{0:.00}", GrandTotal) + "</span></td></tr>";
 
@@ -374,7 +374,7 @@ namespace KitchenOnMyPlate.Classes
                     var discount = order.payment.Amount * PlanDiscount.Discount / 100;
                     TotalDiscount = TotalDiscount + discount ?? 0;
 
-                    tranCharge = (((order.payment.Amount- discount) + order.payment.DeliveryChrg) * tranChargeConfig / 100) ?? 0;
+                    tranCharge = 0;//(((order.payment.Amount- discount) + order.payment.DeliveryChrg) * tranChargeConfig / 100) ?? 0;
 
 
 
@@ -397,7 +397,7 @@ namespace KitchenOnMyPlate.Classes
 
                     if (method == "14") //Cash pikup delivery
                     {
-                        order.payment.TrnChrg = Convert.ToDecimal(Caspikup + CaspikupPer * (order.payment.Amount + order.payment.DeliveryChrg) / 100);
+                        order.payment.TrnChrg = 0; //Convert.ToDecimal(Caspikup + CaspikupPer * (order.payment.Amount + order.payment.DeliveryChrg) / 100);
                         //Round off for cash pickup
                     }
                     else if (method == "11" || method == "12" || method == "13")

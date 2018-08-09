@@ -98,9 +98,9 @@ namespace KitchenOnMyPlate.DataAccess
                                 string price = (pl.DaysInPlan * Convert.ToInt32(subPro.Price)).ToString();
                                 price = price.Length == 3 ? price + "&nbsp;&nbsp;" : price;
 
-                                if (pl.DaysInPlan == 44)
+                                if (pl.Discount > 0)
                                 {
-                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan' style='padding-top:0px;font-style: italic;color:red;'>" + pl.Name.Split(')')[1].ToString() + "</span><br style='clear: both' /><span class='for44'> "+pl.Name.Split(')')[0].ToString() + ")" + "</span> " + BreakIfMoreThan2;
+                                    strPlans = strPlans + "<div class='ProceedOnSub' ><span class='plan' style='padding-top:0px;font-style: italic;color:red;'>" + Convert.ToInt32(pl.Discount) + "% Discount</span><br style='clear: both' /><span class='for44'> "+pl.Name + "</span> " + BreakIfMoreThan2;
                                 }
                                 else
                                 {
@@ -373,8 +373,9 @@ namespace KitchenOnMyPlate.DataAccess
 
             using (DBKOMPDataContext db = new DBKOMPDataContext())
             {
-                
+
                 var order = (from w in db.Orders where w.Id == orderId select w).First();
+
                 var payment = (from w in db.Payments  where w.OrderId == orderId select w).First();  
 
                 var propertyType = (from w in db.MenuItems
@@ -383,6 +384,9 @@ namespace KitchenOnMyPlate.DataAccess
                                     where w.IsActive == 1 && O.OrderId == orderId
                                     orderby O.DeliverDate ascending 
                                     select new { subProductId = w.Id, SubProductName = w.Header, DeleiveryDate = O.DeliverDate, Price = w.Price, Detail = w.Detail }).ToList();
+
+                var PlanDiscount = (from p in db.Plans where p.DaysInPlan == propertyType.Count
+                                    select p).SingleOrDefault();
 
                 var customerName = (from w in db.ShippingBillings where w.RequestId == order.RequestId select w).First().FirstName;  
 
@@ -401,7 +405,7 @@ namespace KitchenOnMyPlate.DataAccess
                     list = list + "<tr class='divRow DR'><td style='width:70%;' id='divPNAME'>" + propertyType[0].SubProductName + "</td><td style='width:30%;' align='right'><span class='RSSmallMore'><i class='fa fa-inr'></i></span><strong style='padding-right:25px;font-family:RobotoBlack;padding-right:25px;font-size:1.4em'>" + String.Format("{0:.00}", payment.Amount+Convert.ToDecimal(payment.Discount)) + "</strong></td></tr>";
                     if (payment.Discount != null && payment.Discount != 0)
                     {
-                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER 5% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER "+ Convert.ToInt32(PlanDiscount.Discount) + "% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
                     }
                     list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >Delivery Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.DeliveryChrg + "</span></td></tr>";
 
@@ -413,7 +417,7 @@ namespace KitchenOnMyPlate.DataAccess
                         }
                         else
                         {
-                            list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "'  style='font-size:1.4em' ><td align='right' ><span style='font-family:RobotoBlack' >Online Processing Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.TrnChrg + "</span></td></tr>";
+                            //list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "'  style='font-size:1.4em' ><td align='right' ><span style='font-family:RobotoBlack' >Online Processing Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.TrnChrg + "</span></td></tr>";
                         }
                     }
 
@@ -445,7 +449,7 @@ namespace KitchenOnMyPlate.DataAccess
                     
                     if (payment.Discount != null && payment.Discount != 0)
                     {
-                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER 5% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
+                        list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td><span style='font-family:RobotoBlack' >AMOUNT (AFTER "+ PlanDiscount.Discount + "% DISCOUNT)&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmallMore'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + payment.Amount + "</span></td></tr>";
                     }
                     if (payment.TrnChrg > 0)
                     {
@@ -455,7 +459,7 @@ namespace KitchenOnMyPlate.DataAccess
                         }
                         else
                         {
-                            list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4' align='right'><span style='font-family:RobotoBlack' >Online Processing Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", payment.TrnChrg) + "</span></td></tr>";
+                            //list = list + "<tr class='divRow DR" + propertyType.Count + 1 + "' align='right' style='font-size:1.4em' ><td colspan='4' align='right'><span style='font-family:RobotoBlack' >Online Processing Charge&nbsp;&nbsp;</span>  </td><td align='right' ><span class='RSSmall'><i class='fa fa-inr'></i></span><span style='font-family:RobotoBlack;padding-right:25px' >" + String.Format("{0:.00}", payment.TrnChrg) + "</span></td></tr>";
                         }
                         
                     }

@@ -65,6 +65,7 @@ namespace KitchenOnMyPlate
                 string LunchDinner = string.Empty;
                 string OrderNumbers = string.Empty;
                 decimal TotalDiscount = 0;
+                string spnDisount = "0";
                 foreach (var item in requesedItems)
                 {
                     productName = "Customized Meals";
@@ -115,6 +116,8 @@ namespace KitchenOnMyPlate
                     var payment = DBAccess.GetPayment(item.orderId);
 
                     var discount = (item.subTotal + payment.Discount) * PlanDiscount.Discount / 100;
+
+                    spnDisount = Convert.ToInt32(PlanDiscount.Discount).ToString();
                     TotalDiscount = TotalDiscount + discount ?? 0;
 
                     subTotal = subTotal + (item.subTotal);
@@ -150,13 +153,13 @@ namespace KitchenOnMyPlate
                 spnSubTotal.InnerHtml = "<i class='fa fa-inr'></i>" + subTotal.ToString("0.00");
                 spnDelivery.InnerHtml = "<i class='fa fa-inr'></i>" + deliveryChrg.ToString();
                 
-                trTran.Visible = tranChrg > 0;
+                //trTran.Visible = tranChrg > 0;
 
                 //string transactionStr = "";
                 string transactionStr = Math.Round(tranChrg).ToString();
                 if (objPaymentResponse.PaymentMethod == "14") //Cash pickup option of off line
                 {
-                    strOnln.InnerHtml = "Cash Pick up Charges&nbsp;&nbsp;&nbsp;";
+                    //strOnln.InnerHtml = "Cash Pick up Charges&nbsp;&nbsp;&nbsp;";
                      //Cash check pickup
                         //var config = DBAccess.GetConfig();
                         //tranChrg = Convert.ToInt32(tranChrg + config.CashPickUp ?? 0);
@@ -173,6 +176,7 @@ namespace KitchenOnMyPlate
                 decimal GrandTotal = subTotal + deliveryChrg + tranChrg + Math.Round(GstCharge)+ Math.Round(GstCharge);
                 if (TotalDiscount > 0)
                 {
+                    spnDiscountCount.InnerHtml = spnDisount;
                     spnDiscount.InnerHtml = "<i class='fa fa-inr'></i>" + (subTotal).ToString("0.00");
                     trdiscount.Attributes.Remove("style");
                 }
@@ -184,7 +188,7 @@ namespace KitchenOnMyPlate
                 spnSGST.InnerHtml = "<i class='fa fa-inr'></i>" + (Math.Round(GstCharge)).ToString("0.00");
                 //Strong1.InnerHtml = "GST("+ GSTRates + "%)";
 
-                spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + Math.Round(Convert.ToDecimal(transactionStr)).ToString("0.00");
+                //spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + Math.Round(Convert.ToDecimal(transactionStr)).ToString("0.00");
 
                 spnOnlineGrandTotal.InnerHtml = "<i class='fa fa-inr'></i>" + (GrandTotal).ToString("0.00");
 

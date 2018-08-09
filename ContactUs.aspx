@@ -232,7 +232,7 @@
                         </tr>
                         
                         <tr><td valign="top"><img style="width:30px" src="images/mo.png"/></td>
-                        <td valign="top"><p>  +91 9699 699204<br /> 
+                        <td valign="top"><p>  +91 84520 04123<br /> 
                         <span style="font-size:12px;"> Business Hours: (Mon - Sat), 09.30 am to 08.30 pm.</span>
                         <div style="width:auto; height:3px" >&nbsp;</div> </p></td>
                         </tr>

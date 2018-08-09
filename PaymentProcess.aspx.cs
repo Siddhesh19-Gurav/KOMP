@@ -478,7 +478,7 @@ namespace KitchenOnMyPlate
             string productName = "Customized Meals";
             string Quantity = string.Empty;
             string mealstartdate = string.Empty;
-            
+            string spnDisount="0";
             var requesedItems = DBAccess.GetRequestedItems(Convert.ToInt32(Request.QueryString["requestId"]));
 
             int indx = 0;
@@ -504,7 +504,7 @@ namespace KitchenOnMyPlate
                 var PlanDiscount = DBAccess.GetDiscount(Convert.ToInt32(item.orderedItems.Count()));
 
                 var payment = DBAccess.GetPayment(item.orderId);
-
+                spnDisount = Convert.ToInt32(PlanDiscount.Discount).ToString();
                 var discount = (item.subTotal+payment.Discount) * PlanDiscount.Discount / 100;
                 TotalDiscount = TotalDiscount + discount??0;
                 //if (item.nonCustomized == 0)//Customized
@@ -555,7 +555,7 @@ namespace KitchenOnMyPlate
                 //Quantity = item.orderedItems.Count.ToString();
                 subTotal = subTotal+(item.subTotal);
                 deliveryChrg = deliveryChrg + item.deliveryCharges;
-                tranChrg = tranChrg + Math.Round(item.transCharges);
+                tranChrg = 0; //tranChrg + Math.Round(item.transCharges);
 
                 //tbOrders.Text = tbOrders.Text + "<tr class='divRow' align='right'><td colspan='" + colspan + "'><b>Sub Total &nbsp;&nbsp; </b> </td><td align='center'><b>" + item.subTotal + "</b></td></tr>";
                 //tbOrders.Text = tbOrders.Text + "<tr class='divRow' align='right'><td colspan='" + colspan + "'><b>Delivery Charges&nbsp;&nbsp;</b>  </td><td align='center'><b>" + item.deliveryCharges + "</b></td></tr>";
@@ -569,15 +569,15 @@ namespace KitchenOnMyPlate
                 indx++;
             }
 
-            trTran.Visible = tranChrg > 0;
+            //trTran.Visible = tranChrg > 0;
 
             string transactionStr = tranChrg.ToString();
             var config = DBAccess.GetConfig();
             if (method == "14") //Cash check pickup
             {
-                spOT.InnerHtml = "CASH PICK UP CHARGE";
-                 
-                tranChrg = Convert.ToInt32(tranChrg + config.CashPickUp??0);
+                //spOT.InnerHtml = "CASH PICK UP CHARGE";
+
+                tranChrg = 0; //Convert.ToInt32(tranChrg + config.CashPickUp??0);
                 transactionStr = tranChrg + ".00";
             }
 
@@ -589,6 +589,7 @@ namespace KitchenOnMyPlate
             decimal GrandTotal = Math.Round(GSTCharges)+ Math.Round(GSTCharges) + subTotal + deliveryChrg + tranChrg;
             if (TotalDiscount > 0)
             {
+                spnDiscountCount.InnerHtml = spnDisount;
                 spnDiscount.InnerHtml = "<i class='fa fa-inr'></i>" + (subTotal).ToString("0.00");
                 trdiscount.Attributes.Remove("style");
             }
@@ -597,7 +598,7 @@ namespace KitchenOnMyPlate
                 trdiscount.Attributes.Add("style","display:none");
             }
             spnShip.InnerHtml = "<i class='fa fa-inr'></i>" + deliveryChrg.ToString("0.00");
-            spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + Math.Round(Convert.ToDecimal(transactionStr)).ToString("0.00");
+            //spnTrns.InnerHtml = "<i class='fa fa-inr'></i>" + Math.Round(Convert.ToDecimal(transactionStr)).ToString("0.00");
             spnCGST.InnerHtml = "<i class='fa fa-inr'></i>" + (Math.Round(GSTCharges)).ToString("0.00");
             spnSGST.InnerHtml = "<i class='fa fa-inr'></i>" + (Math.Round(GSTCharges)).ToString("0.00");
             //Strong1.InnerHtml = "GST("+ GSTRates + "%)";

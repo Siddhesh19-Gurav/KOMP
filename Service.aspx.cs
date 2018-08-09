@@ -43,8 +43,8 @@ namespace KitchenOnMyPlate
                 //}
                 if (orderlst.Length > 0)
                 {
-                    txtPinCode.Value = orderlst[0].Order.pincode.ToString();
-                    txtPinCode.Disabled = true;
+                    //txtPinCode.Value = orderlst[0].Order.pincode.ToString();
+                    //txtPinCode.Disabled = true;
                 }
             }
             

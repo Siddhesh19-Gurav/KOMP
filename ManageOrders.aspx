@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <link rel="stylesheet" href="Styles/themes/base/jquery.ui.all.css" />	
-    <script type="text/javascript" src="Scripts/ui/jquery-1.8.2.js"></script>
+    <%--<script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>--%>
 	<script type="text/javascript" src="Scripts/ui/jquery.ui.core.js"></script>
 	<script type="text/javascript" src="Scripts/ui/jquery.ui.widget.js"></script>
 	<script type="text/javascript" src="Scripts/ui/jquery.ui.datepicker.js"></script>
@@ -384,6 +384,20 @@
             changeYear: true,
             numberOfMonths: 3
         });
+        $("#ContentPlaceHolder1_txtFromDate").datepicker({
+            beforeShowDay: disableSpecificDaysAndWeekends,
+            dateFormat: "dd/mm/yy",
+            maxDate: maxDate,
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#ContentPlaceHolder1_txtToDate").datepicker({
+            beforeShowDay: disableSpecificDaysAndWeekends,
+            dateFormat: "dd/mm/yy",
+            maxDate: maxDate,
+            changeMonth: true,
+            changeYear: true
+        });
     }
     /** Datepicker end */
 
@@ -403,6 +417,13 @@
     <td>
     <asp:Button ID="btnReport1" OnClick="btnReport1_Click"  runat="server"  style="margin-left:10px; margin-top:-8px;" Text="Show" />        
     </td>
+        <td>
+            <asp:TextBox id="txtFromDate" style="" runat="server" name="txtFromDate" onkeypress="return false;" placeholder="From Date" type="text" autocomplete="off" />
+
+        </td>
+        <td>
+            <asp:TextBox id="txtToDate" style="" runat="server" name="txtToDate" onkeypress="return false;" placeholder="To Date" type="text" autocomplete="off"/>
+        </td>
     <td>   <div style=" width:100px; float:right; text-align:center">
         <asp:ImageButton ID="ImageButton1" runat="server"  Width="30px" Height="30px"
                 ImageUrl="~/images/excel_icon.png" onclick="ImageButton1_Click" ></asp:ImageButton> <br />
@@ -595,7 +616,6 @@
 
     </div>
     </div>
-    
         </asp:Content>
 
 

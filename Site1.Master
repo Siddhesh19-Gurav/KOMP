@@ -313,7 +313,7 @@
                     </div>
                     <div class="search-box">
                     	<input type="text" id="txtSearch" placeholder="Search"><input onclick="return SearchResult();" class="submit" style="font-size:none !important;" />
-                        <span class="number">+91 9699 699204</span>
+                        <span class="number">+91 84520 04123</span>
                         <%--<a href="#" class="number">020 1234 5678</a>--%>
                     </div>
 
@@ -324,7 +324,7 @@
 	  	  <div class="menu">
 	  	    <div class="h_menu4"><!-- start h_menu4 -->
 				<a class="toggleMenu" href="#">&nbsp;</a><div class="nav_icon"><img src="images/nav_icon.png" alt="navigation"/></div>
-                <span class="number" style="display:none" >+91 9699 699204</span>
+                <span class="number" style="display:none" >+91 84520 04123</span>
 				<ul class="nav">
                     	<li class="scroll active"  >
                             	<a href="/">
@@ -362,7 +362,7 @@
                                             </div>
                                            </div>
                             </li>
-                            <li class="dividerMenu">|</li>
+                            <%--<li class="dividerMenu">|</li>
                         	<li class="scroll" onmouseover="$('#custDiv').show('', function(){$('.custA').addClass('MenuBoxTop');} );$('#tifDiv').hide();$('.custT').removeClass('MenuBoxTop');$('#dinDiv').hide();$('.custD').removeClass('MenuBoxTop');" onmouseout="$('.custA').removeClass('MenuBoxTop');$('#custDiv').hide();" >
                             	<a href="CustomisedLunch-0" class="custA" >
                                     CUSTOMISED LUNCH TIFFIN 
@@ -372,9 +372,9 @@
                                     <div id="custDivInner" runat="server" clientidmode="Static" class="SubMenuInner"   > 
                                             </div>
                                      </div>
-                            </li>
+                            </li>--%>
                             <li class="dividerMenu">|</li>
-                        	<li class="scroll"  onmouseover="$('#dinDiv').show('', function(){$('.custD').addClass('MenuBoxTop');} );$('.custA').removeClass('MenuBoxTop');$('#custDiv').hide();" onmouseout="$('#dinDiv').hide();$('.custD').removeClass('MenuBoxTop');">
+                        	<%--<li class="scroll"  onmouseover="$('#dinDiv').show('', function(){$('.custD').addClass('MenuBoxTop');} );$('.custA').removeClass('MenuBoxTop');$('#custDiv').hide();" onmouseout="$('#dinDiv').hide();$('.custD').removeClass('MenuBoxTop');">
                             	<a href="javascript:void(0)" class="custD" >
                                    DINNER TIFFIN
                                 </a>
@@ -385,7 +385,7 @@
                                 </div>
 
                             </li>
-                            <li class="dividerMenu">|</li>
+                            <li class="dividerMenu">|</li>--%>
                         	<li class="scroll" onmouseover="$('#divCatr').show('', function(){$('.custC').addClass('MenuBoxTop');} );$('.custD').removeClass('MenuBoxTop');$('#dinDiv').hide();" 
                             onmouseout="$('#divCatr').hide();$('.custC').removeClass('MenuBoxTop');" >
                             	<a href="javascript:void(0)" class="custC">
@@ -604,7 +604,7 @@
                   </div>
                   <div class="col-md-2 foot-links" style="width:23% !important;">
                     <h2>CONTACT US </h2>
-                    <a class="phone">9699 699204</a>
+                    <a class="phone">84520 04123</a>
                     <a href="mailto:info@kitchenonmyplate.com" class="mailinfo">info@kitchenonmyplate.com</a>
                     <a href="Contact" class="feedback">Enquiry Form</a>
                     <a href="Feedback.aspx" class="feedbacIcon">Feedback Form</a>

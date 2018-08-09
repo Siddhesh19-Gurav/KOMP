@@ -220,6 +220,15 @@ namespace KitchenOnMyPlate {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trdiscount;
         
         /// <summary>
+        /// spnDiscountCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnDiscountCount;
+        
+        /// <summary>
         /// spnDiscount control.
         /// </summary>
         /// <remarks>
@@ -245,33 +254,6 @@ namespace KitchenOnMyPlate {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnDelivery;
-        
-        /// <summary>
-        /// trTran control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trTran;
-        
-        /// <summary>
-        /// strOnln control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl strOnln;
-        
-        /// <summary>
-        /// spnTrns control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spnTrns;
         
         /// <summary>
         /// tr1 control.

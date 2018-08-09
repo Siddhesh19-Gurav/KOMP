@@ -263,7 +263,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
         <article class="page-art">
             <% if (IsLunch == true)
                         { %>
-                    <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>CHECK YOUR DELIVERY AREA</h1>
+                    <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>LUNCH DELIVERY AREA</h1>
             <% } else {%>
                 <h1 class="page-titleSmallCust"><span class="OrderBox" >02</span>DINNER DELIVERY AREA</h1>
             <% } %>
@@ -271,10 +271,12 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
          <div class="ProcesBoxInner" >
              <% if (IsLunch == true)
                  { %>
-                    <div>Please enter your pin code for delivery availability</div>        
+                    <%--<div>Please enter your pin code for delivery availability</div>        
                     <br />
                 <input id="txtPinCode" runat="server" onclick="HideDateBoxes();" clientidmode="Static" class="textbox NumberClass" maxlength="6" autocomplete="off" placeholder="Pincode" type="text" /> <br />
-                <input type="button" class="proceed" value="PROCEED" onclick="return CheckArea();" />
+                <input type="button" class="proceed" value="PROCEED" onclick="return CheckArea();" />--%>
+             <p>At present our lunch service is available in western. To book your dinner meal, Click Proceed</p>
+             <input type="button" class="proceed" value="PROCEED" onclick="AftercheckValid();" />
              <%}
                  else
                  { %>
