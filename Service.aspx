@@ -275,7 +275,7 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
                     <br />
                 <input id="txtPinCode" runat="server" onclick="HideDateBoxes();" clientidmode="Static" class="textbox NumberClass" maxlength="6" autocomplete="off" placeholder="Pincode" type="text" /> <br />
                 <input type="button" class="proceed" value="PROCEED" onclick="return CheckArea();" />--%>
-             <p>At present our lunch service is available in western. To book your dinner meal, Click Proceed</p>
+             <p>At present our lunch service is available in western. To book your lunch meal, Click Proceed</p>
              <input type="button" class="proceed" value="PROCEED" onclick="AftercheckValid();" />
              <%}
                  else
@@ -554,14 +554,15 @@ Here also customer can relish Veg and Non-Veg meals and can opt for a V-NV Meal 
 
         //Start YOUR MEAL PLAN
               $('#divEditable .subProductHeader').html($('#'+id+' .subProductHeader').html().split(')')[0]+")");
-              if(DaysInPlan==44)
-              {
-                  $('#divEditable .plan1').html($("."+sclass).parent().children('.for44').html());        
-              }
-              else
-              {
-                  $('#divEditable .plan1').html($("."+sclass).parent().children('.plan').html());        
-              }
+              //if(DaysInPlan==44)
+        //{
+              $("."+sclass).parent().children('.for44').html();
+              $('#divEditable .plan1').html($("."+sclass).parent().children('.plan').html() +" " +$("."+sclass).parent().children('.for44').html());        
+              //}
+              //else
+              //{
+              //    $('#divEditable .plan1').html($("."+sclass).parent().children('.plan').html());        
+              //}
             
             var veg1 = "";
             var bClass = "";
@@ -1191,7 +1192,7 @@ $("#txtPinCode").attr("readonly","readonly");
 
 
 </script>
-    <script src="Scripts/jsOrder.js" type="text/javascript"></script>
+    <script src="Scripts/jsOrder.js?v=100820181010" type="text/javascript"></script>
 
     <script type="text/javascript">
         //*******************************tiffin***************End

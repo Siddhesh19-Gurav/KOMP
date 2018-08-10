@@ -741,7 +741,7 @@ $("#txtPinCode").attr("readonly","readonly");
 
     
 </script>
-    <script src="Scripts/jsOrder.js" type="text/javascript"></script>
+    <script src="Scripts/jsOrder.js?v=100820181010" type="text/javascript"></script>
     <!--container start here-->
    
 <div  id="divDays"  class="ProcessBox CUSTBOX" style="display:none;height:auto;margin-top:0px;border-top:0px;">
